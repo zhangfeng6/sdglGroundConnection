@@ -19,7 +19,7 @@ public interface DisattrMapper extends CommonMapper<Disattr>{
      * @param offerId
      * @return
      */
-  Disattr disattr(@Param("offerId") Integer offerId);
+  Disattr disattr(@Param("offerId") Integer offerId)throws  Exception;
 
     /**
      * 根据调度id获取调度景点表信息  张枫

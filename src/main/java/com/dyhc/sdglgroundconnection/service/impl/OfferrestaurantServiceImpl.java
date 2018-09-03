@@ -19,12 +19,12 @@ public class OfferrestaurantServiceImpl implements OfferrestaurantService {
     private OfferrestaurantMapper offerrestaurantMapper;
 
     @Override
-    public int insertOfferrestaurant(Offerrestaurant offerrestaurant) {
+    public int insertOfferrestaurant(Offerrestaurant offerrestaurant)throws Exception {
         return offerrestaurantMapper.insertOfferrestaurant(offerrestaurant);
     }
 
     @Override
-    public List<Offerrestaurant> selectOfferRestaurantByOfferId(int offerId) {
+    public List<Offerrestaurant> selectOfferRestaurantByOfferId(int offerId) throws Exception{
         return offerrestaurantMapper.selectOfferRestaurantByOfferId(offerId);
     }
 }

@@ -22,7 +22,7 @@ public class TravelServiceImpl implements TravelService {
     private TravelMapper travelMapper;
 
     @Override
-    public List<Travel> selectTravel() {
+    public List<Travel> selectTravel()throws Exception {
         return travelMapper.selectTravel();
     }
 
@@ -32,7 +32,7 @@ public class TravelServiceImpl implements TravelService {
      * @return
      */
     @Override
-    public Travel selectTravelById(Integer travelId) {
+    public Travel selectTravelById(Integer travelId)throws Exception {
         return travelMapper.selectTravelById(travelId);
     }
 
@@ -42,7 +42,7 @@ public class TravelServiceImpl implements TravelService {
      * @return
      */
     @Override
-    public Integer getAddTravel(Travel travel) {
+    public Integer getAddTravel(Travel travel)throws Exception {
         System.out.println(travel);
         return travelMapper.insert(travel);
     }
@@ -52,7 +52,7 @@ public class TravelServiceImpl implements TravelService {
      * @return
      */
     @Override
-    public Integer getTravelUpd(Travel travel) {
+    public Integer getTravelUpd(Travel travel)throws Exception {
         System.out.println(travel);
         return travelMapper.updateByPrimaryKey(travel);
     }
@@ -89,7 +89,7 @@ public class TravelServiceImpl implements TravelService {
      * @return
      */
     @Override
-    public Integer getUpdTrave(Integer travelId) {
+    public Integer getUpdTrave(Integer travelId)throws Exception {
         return travelMapper.getUpdTrave(travelId);
     }
 
@@ -99,7 +99,7 @@ public class TravelServiceImpl implements TravelService {
      * @return
      */
     @Override
-    public Travel getupdBytravelId(Integer travelId) {
+    public Travel getupdBytravelId(Integer travelId)throws Exception {
         return travelMapper.getupdBytravelId(travelId);
     }
 
@@ -108,27 +108,27 @@ public class TravelServiceImpl implements TravelService {
      * @return
      */
     @Override
-    public Integer getupdlala(Travel travel) {
+    public Integer getupdlala(Travel travel)throws Exception {
         return travelMapper.getupdlala(travel);
     }
 
     @Override
-    public Guide selectGuideByTravelId(Integer travelId) {
+    public Guide selectGuideByTravelId(Integer travelId)throws Exception {
         return travelMapper.selectGuideByTravelId(travelId);
     }
 
     @Override
-    public Dispatch selectDispatchByTravelId(Integer travelId) {
+    public Dispatch selectDispatchByTravelId(Integer travelId)throws Exception {
         return travelMapper.selectDispatchByTravelId(travelId);
     }
 
     @Override
-    public Staff selectStaffByTraveId(Integer travelId) {
+    public Staff selectStaffByTraveId(Integer travelId)throws Exception {
         return travelMapper.selectStaffByTraveId(travelId);
     }
 
     @Override
-    public Offer selectOfferByTravelId(Integer travelId) {
+    public Offer selectOfferByTravelId(Integer travelId)throws Exception {
         return travelMapper.selectOfferByTravelId(travelId);
     }
     @Override
@@ -137,27 +137,27 @@ public class TravelServiceImpl implements TravelService {
     }
 
     @Override
-    public List<Disrestaurant> selectReportrestaurantByTravelId(Integer travelId) {
+    public List<Disrestaurant> selectReportrestaurantByTravelId(Integer travelId)throws Exception {
         return travelMapper.selectReportrestaurantByTravelId(travelId);
     }
 
     @Override
-    public List<Disrestaurant> selectReportrestaurantByTravelId1(Integer travelId) {
+    public List<Disrestaurant> selectReportrestaurantByTravelId1(Integer travelId)throws Exception {
         return travelMapper.selectReportrestaurantByTravelId1(travelId);
     }
 
     @Override
-    public List<Dispatchhotel> selectReportaccommodationByTravelId(Integer travelId) {
+    public List<Dispatchhotel> selectReportaccommodationByTravelId(Integer travelId) throws Exception{
         return travelMapper.selectReportaccommodationByTravelId(travelId);
     }
 
     @Override
-    public List<Disattr> selectReportticketByTravelId(Integer travelId) {
+    public List<Disattr> selectReportticketByTravelId(Integer travelId) throws Exception{
         return travelMapper.selectReportticketByTravelId(travelId);
     }
 
     @Override
-    public Discar selectReportfareByTravelId(Integer travelId) {
+    public Discar selectReportfareByTravelId(Integer travelId)throws Exception {
         return travelMapper.selectReportfareByTravelId(travelId);
     }
 }

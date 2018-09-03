@@ -22,7 +22,7 @@ public interface GuideMapper extends CommonMapper<Guide>{
      * @param guideName
      * @return
      */
-    List<Guide> listGuide(@Param("pageNo") Integer pageNo, @Param("PageSize") Integer PageSize,@Param("guideName")  String guideName);
+    List<Guide> listGuide(@Param("pageNo") Integer pageNo, @Param("PageSize") Integer PageSize,@Param("guideName")  String guideName)throws  Exception;
 
 
     /**
@@ -38,7 +38,7 @@ public interface GuideMapper extends CommonMapper<Guide>{
      * @param guideId
      * @return
      */
-    Guide ShowAllGuide(@Param("guideId")Integer guideId);
+    Guide ShowAllGuide(@Param("guideId")Integer guideId)throws  Exception;
 
     /**
      * 获取所有导游名称
@@ -52,7 +52,7 @@ public interface GuideMapper extends CommonMapper<Guide>{
      * @param certificate
      * @return
      */
-    Guide  pdcertificate(@Param("certificate") String certificate);
+    Guide  pdcertificate(@Param("certificate") String certificate)throws  Exception;
 
     /**
      * 获取没删除的所有导游信息

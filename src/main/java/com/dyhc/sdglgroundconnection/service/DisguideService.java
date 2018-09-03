@@ -15,5 +15,5 @@ public interface DisguideService {
      * @param dispatchId
      * @return
      */
-    Disguide DisguideAll(Integer dispatchId);
+    Disguide DisguideAll(Integer dispatchId)throws Exception;
 }

@@ -21,12 +21,12 @@ public interface BillTypeMapper extends CommonMapper<BillType>{
      * @param typeName
      * @return
      */
- List<BillType> ShowAllBillType(@Param("pageNo")Integer pageNo,@Param("pageSize")Integer pageSize,@Param("typeName")String typeName);
+ List<BillType> ShowAllBillType(@Param("pageNo")Integer pageNo,@Param("pageSize")Integer pageSize,@Param("typeName")String typeName)throws  Exception;
 
     /**
      * 判断单据类型名称
      * @param typeName
      * @return
      */
- BillType equalBillType(@Param("typeName")String typeName);
+ BillType equalBillType(@Param("typeName")String typeName)throws  Exception;
 }

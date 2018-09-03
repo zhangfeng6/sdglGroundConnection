@@ -87,23 +87,23 @@ public class WeChatController {
             @RequestParam("accompanyingPrice")Double accompanyingPrice,
             @RequestParam("subtotal")Double subtotal,
             @RequestParam("payMethods")String payMethods){
-        Integer dispatchId=1;
-        //创建总报账表的对象
-        Reportdetail reportdetail =reportdetailMapper.All_dispatchId(dispatchId);
-        //创建报账住宿
-        Reportaccommodation reportaccommodation =new Reportaccommodation();
-        reportaccommodation.setReportDetailId(reportdetail.getReportDetailId());
-        reportaccommodation.setHotelName(hotelName);
-        reportaccommodation.setTypeId(typeId);
-        reportaccommodation.setHousePrice(housePrice);
-        reportaccommodation.setRoomNum(roomNum);
-        reportaccommodation.setAccompanyingBed(accompanyingBed);
-        reportaccommodation.setAccompanyingPrice(accompanyingPrice);
-        reportaccommodation.setSubtotal(subtotal);
-        reportaccommodation.setPayMethods(payMethods);
-        reportaccommodation.setLiveDate(new Date());
-        reportaccommodation.setStatus(0);
         try {
+            Integer dispatchId=1;
+            //创建总报账表的对象
+            Reportdetail reportdetail =reportdetailMapper.All_dispatchId(dispatchId);
+            //创建报账住宿
+            Reportaccommodation reportaccommodation =new Reportaccommodation();
+            reportaccommodation.setReportDetailId(reportdetail.getReportDetailId());
+            reportaccommodation.setHotelName(hotelName);
+            reportaccommodation.setTypeId(typeId);
+            reportaccommodation.setHousePrice(housePrice);
+            reportaccommodation.setRoomNum(roomNum);
+            reportaccommodation.setAccompanyingBed(accompanyingBed);
+            reportaccommodation.setAccompanyingPrice(accompanyingPrice);
+            reportaccommodation.setSubtotal(subtotal);
+            reportaccommodation.setPayMethods(payMethods);
+            reportaccommodation.setLiveDate(new Date());
+            reportaccommodation.setStatus(0);
             Integer num=reportaccommodationService.saveReportaccommodation(reportaccommodation) ;
             logger.info("method:savereportaccommodation 导游报账住宿新增成功");
             ReponseResult<Integer> data =ReponseResult.ok(num,"保存成功");

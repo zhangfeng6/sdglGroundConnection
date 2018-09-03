@@ -24,7 +24,7 @@ public class ReportticketServiceImpl implements ReportticketService {
      * @return
      */
     @Override
-    public Integer saveReportticket(Reportticket reportticket) {
+    public Integer saveReportticket(Reportticket reportticket)throws Exception {
         Integer  number=0;
         try {
             number=reportticketMapper.insert(reportticket);

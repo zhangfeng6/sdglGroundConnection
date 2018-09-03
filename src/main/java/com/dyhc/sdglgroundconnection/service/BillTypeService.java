@@ -49,13 +49,13 @@ public interface BillTypeService {
      * @param typeName
      * @return
      */
-    BillType equalBillType(@Param("typeName") String typeName);
+    BillType equalBillType(@Param("typeName") String typeName)throws Exception;
     /**
      * 修改赋值
      * @param billTypeId
      * @return
      */
-    BillType fuzhiBillType(Integer billTypeId);
+    BillType fuzhiBillType(Integer billTypeId)throws Exception;
 
     /**
      * 获取所有单据类型

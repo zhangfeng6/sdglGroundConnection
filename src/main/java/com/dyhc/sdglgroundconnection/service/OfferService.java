@@ -20,7 +20,7 @@ public interface OfferService {
      * @param travelName
      * @return
      */
-    PageInfo<Offer> selectOffer(Integer pageNo,Integer PageSize,String travelName);
+    PageInfo<Offer> selectOffer(Integer pageNo,Integer PageSize,String travelName)throws Exception;
 
     /**
      * 赵伟伟
@@ -37,7 +37,7 @@ public interface OfferService {
      * @param offerId
      * @return
      */
-    Offer selectOfferByOfferId(int offerId);
+    Offer selectOfferByOfferId(int offerId)throws Exception;
 
 
     /**
@@ -45,5 +45,5 @@ public interface OfferService {
      * 确认成团
      * @return
      */
-    int queren(int offerId);
+    int queren(int offerId)throws Exception;
 }

@@ -132,7 +132,7 @@ public class RestaurantController {
             ObjectMapper objectMapper = new ObjectMapper();
             Restaurant restaurant=objectMapper.readValue(restaurant2,Restaurant.class);
             Integer i = 0;
-            String uploadResult = FileUploadUtil.uploadImage(multipartFile, savePath, ".jpg");
+            String uploadResult = FileUploadUtil.uploadImage(multipartFile,  ".jpg");
             restaurant.setPicturePath(uploadResult);
             if (restaurant.getRestaurantId()!=0){
                 i = restaurantService.updateRestaurantById(restaurant);

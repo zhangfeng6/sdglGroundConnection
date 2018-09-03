@@ -22,14 +22,14 @@ public interface ReportdetailMapper extends CommonMapper<Reportdetail>{
      * @param states
      * @return
      */
-    List<Reportdetail> showInfoAll(@Param("groupNumber") Integer groupNumber, @Param("states")Integer states);
+    List<Reportdetail> showInfoAll(@Param("groupNumber") Integer groupNumber, @Param("states")Integer states)throws  Exception;
 
     /**
      * 查询地接导游报账明细：贾晓亮
      * @param dispatchId
      * @return
      */
-    Reportdetail reportdetail(@Param("dispatchId")Integer dispatchId);
+    Reportdetail reportdetail(@Param("dispatchId")Integer dispatchId)throws  Exception;
 
     /**
      * 通过导游报账的审核
@@ -55,12 +55,12 @@ public interface ReportdetailMapper extends CommonMapper<Reportdetail>{
      * 查询报账类型
      * @return
      */
-    List<Dictionaries> baozhangType();
+    List<Dictionaries> baozhangType()throws  Exception;
 
     /**
      * 报账字表插入总表的报账ID
      * @param dispatchId
      * @return
      */
-    Reportdetail All_dispatchId(@Param("dispatchId")Integer dispatchId);
+    Reportdetail All_dispatchId(@Param("dispatchId")Integer dispatchId)throws  Exception;
 }

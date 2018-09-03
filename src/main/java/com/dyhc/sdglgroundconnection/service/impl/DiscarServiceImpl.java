@@ -25,7 +25,7 @@ public class DiscarServiceImpl implements DiscarService {
      * @return
      */
     @Override
-    public Discar discar(Integer disCarId) {
+    public Discar discar(Integer disCarId) throws Exception{
         Discar discar =discarMapper.discar(disCarId);
         discar.setVehicleType(vehicleTypeService.vehicleType(discar.getTypeId()));
         return discar;
@@ -37,12 +37,12 @@ public class DiscarServiceImpl implements DiscarService {
      * @return
      */
     @Override
-    public Discar listDiscar(Integer dispatchId) {
+    public Discar listDiscar(Integer dispatchId)throws Exception {
         return discarMapper.listDiscar(dispatchId);
     }
 
     @Override
-    public Discar selectDiscarByOfferId(Integer offerId) {
+    public Discar selectDiscarByOfferId(Integer offerId)throws Exception {
         return discarMapper.selectDiscarByOfferId(offerId);
     }
 }

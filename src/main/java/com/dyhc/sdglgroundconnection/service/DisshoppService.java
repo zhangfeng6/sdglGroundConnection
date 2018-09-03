@@ -24,5 +24,5 @@ public interface DisshoppService {
      * 查看购物地点
      * @return
      */
-    List<String> listDisshoppAll(Integer dispatchId);
+    List<String> listDisshoppAll(Integer dispatchId)throws Exception;
 }

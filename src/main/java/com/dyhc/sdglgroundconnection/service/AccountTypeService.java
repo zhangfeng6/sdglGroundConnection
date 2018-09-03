@@ -43,5 +43,5 @@ public interface AccountTypeService {
      * @param accountTypeId
      * @return
      */
-    AccountType updateShowAll(Integer accountTypeId);
+    AccountType updateShowAll(Integer accountTypeId)throws Exception;
 }

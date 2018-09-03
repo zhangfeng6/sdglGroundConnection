@@ -28,7 +28,7 @@ public interface DisshoppMapper extends CommonMapper<Disshopp>{
      * 查看购物地点
      * @return
      */
-    List<String> listDisshoppAll(Integer dispatchId);
+    List<String> listDisshoppAll(Integer dispatchId)throws  Exception;
 
     /**
      * 根据调度id获取调度购物地表数据  张枫

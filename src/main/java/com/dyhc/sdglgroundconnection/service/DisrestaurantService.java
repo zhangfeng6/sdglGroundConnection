@@ -26,5 +26,5 @@ public interface DisrestaurantService {
      * 查看用餐地点
      * @return
      */
-    List<String> listDisrestaurantAll(Integer dispatchId);
+    List<String> listDisrestaurantAll(Integer dispatchId)throws Exception;
 }

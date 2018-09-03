@@ -17,12 +17,12 @@ public class OfferotherServiceImpl implements OfferotherService {
     private OfferotherMapper offerotherMapper;
 
     @Override
-    public int insertOfferother(Offerother offerother) {
+    public int insertOfferother(Offerother offerother)throws Exception {
         return offerotherMapper.insertOfferother(offerother);
     }
 
     @Override
-    public Offerother selectOfferotherByOfferId(int offerId) {
+    public Offerother selectOfferotherByOfferId(int offerId)throws Exception {
         return offerotherMapper.selectOfferotherByOfferId(offerId);
     }
 }

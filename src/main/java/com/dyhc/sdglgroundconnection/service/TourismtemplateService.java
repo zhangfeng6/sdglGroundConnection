@@ -18,7 +18,7 @@ public interface TourismtemplateService {
      * 查询全部旅游模板
      * @return
      */
-    List<Tourismtemplate> selectTourismtemplate();
+    List<Tourismtemplate> selectTourismtemplate()throws Exception;
 
     /**
      * 赵伟伟

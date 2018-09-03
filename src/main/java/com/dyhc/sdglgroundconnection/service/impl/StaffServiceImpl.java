@@ -65,7 +65,7 @@ public class StaffServiceImpl implements StaffService {
      * @return
      */
     @Override
-    public Integer getStaffUpd(Staff staff) {
+    public Integer getStaffUpd(Staff staff)throws Exception {
         return staffMapper.getStaffUpd(staff);
     }
 
@@ -75,7 +75,7 @@ public class StaffServiceImpl implements StaffService {
      * @return
      */
     @Override
-    public Integer getStaffUpdTwo(Staff staff) {
+    public Integer getStaffUpdTwo(Staff staff)throws Exception {
         return staffMapper.getStaffUpdTwo(staff);
     }
     /**
@@ -84,7 +84,7 @@ public class StaffServiceImpl implements StaffService {
      * @return
      */
     @Override
-    public Integer getStaffUpdThree(Staff staff) {
+    public Integer getStaffUpdThree(Staff staff)throws Exception {
         return staffMapper.getStaffUpdThree(staff);
     }
 
@@ -94,7 +94,7 @@ public class StaffServiceImpl implements StaffService {
      * @return
      */
     @Override
-    public Integer getStaffAdd(Staff staff) {
+    public Integer getStaffAdd(Staff staff)throws Exception {
 
         return staffMapper.insert(staff);
     }
@@ -105,7 +105,7 @@ public class StaffServiceImpl implements StaffService {
      * @return
      */
     @Override
-    public Staff getStaffUpdTwoById(Integer staffId) {
+    public Staff getStaffUpdTwoById(Integer staffId)throws Exception {
         return staffMapper.getStaffUpdTwoById(staffId);
     }
 
@@ -114,7 +114,7 @@ public class StaffServiceImpl implements StaffService {
      * @return
      */
     @Override
-    public Staff getserlectBy() {
+    public Staff getserlectBy()throws Exception {
         return staffMapper.getserlectBy();
     }
 
@@ -124,7 +124,7 @@ public class StaffServiceImpl implements StaffService {
      * @return
      */
     @Override
-    public Staff listStaff(Integer staffId) {
+    public Staff listStaff(Integer staffId)throws Exception {
         return staffMapper.listStaff(staffId);
     }
 

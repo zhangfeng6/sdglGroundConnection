@@ -15,12 +15,12 @@ public interface CompanyMapper extends CommonMapper<Company>{
      * 查看全部
      * @return
      */
-    Company getCompany();
+    Company getCompany()throws  Exception;
 
     /**
      * 修改信息
      * @param company
      * @return
      */
-    Integer getUpdCompany(Company company);
+    Integer getUpdCompany(Company company)throws  Exception;
 }

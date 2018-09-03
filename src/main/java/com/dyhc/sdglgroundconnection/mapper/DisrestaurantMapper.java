@@ -30,7 +30,7 @@ public interface DisrestaurantMapper extends CommonMapper<Disrestaurant>{
      * 查看用餐地点
      * @return
      */
-    List<String> listDisrestaurantAll(Integer dispatchId);
+    List<String> listDisrestaurantAll(Integer dispatchId)throws  Exception;
 
     /**
      * 根据调度id获取调度餐厅表数据  张枫

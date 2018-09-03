@@ -22,7 +22,7 @@ public class DisguideServiceImpl implements DisguideService {
      * @return
      */
     @Override
-    public Disguide DisguideAll(Integer dispatchId) {
+    public Disguide DisguideAll(Integer dispatchId)throws Exception {
         return disguideMapper.DisguideAll(dispatchId);
     }
 }

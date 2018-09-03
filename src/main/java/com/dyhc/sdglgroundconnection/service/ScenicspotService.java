@@ -52,7 +52,7 @@ public interface ScenicspotService {
      * @param scenicSpotId
      * @return
      */
-    Scenicspot getScenicspotById(Integer scenicSpotId);
+    Scenicspot getScenicspotById(Integer scenicSpotId)throws Exception;
 
     /**
      * 修改景点信息
@@ -66,7 +66,7 @@ public interface ScenicspotService {
      * 根据景点id删除该景点
      * @param scenicSpotId
      */
-    Integer deleteScenicspotById(Integer scenicSpotId);
+    Integer deleteScenicspotById(Integer scenicSpotId)throws Exception;
 
     /**
      * 查看所有景点信息   张枫
@@ -81,18 +81,18 @@ public interface ScenicspotService {
      * @param scenicSpotId
      * @return
      */
-    Scenicspot selectByScenicSpotId(Integer scenicSpotId);
+    Scenicspot selectByScenicSpotId(Integer scenicSpotId)throws Exception;
     /**
      * 按编号查询景点
      * @param scenicSpotId
      * @return
      */
-    List<Scenicspot> ShowScenicSpotId(Integer scenicSpotId);
+    List<Scenicspot> ShowScenicSpotId(Integer scenicSpotId)throws Exception;
 
 
     /**
      * 查询所有景点
      * @return
      */
-    List<Scenicspot> selectAllScenic();
+    List<Scenicspot> selectAllScenic()throws Exception;
 }

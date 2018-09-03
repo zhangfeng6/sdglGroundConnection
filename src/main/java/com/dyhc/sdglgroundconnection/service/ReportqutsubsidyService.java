@@ -16,7 +16,7 @@ public interface ReportqutsubsidyService {
      * @param reportqutsubsidy
      * @return
      */
-    Integer saveReportqutsubsidy(Reportqutsubsidy reportqutsubsidy);
+    Integer saveReportqutsubsidy(Reportqutsubsidy reportqutsubsidy)throws Exception;
 
 
     /**

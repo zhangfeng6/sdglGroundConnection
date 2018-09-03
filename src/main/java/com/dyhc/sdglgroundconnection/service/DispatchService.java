@@ -58,7 +58,7 @@ public interface DispatchService {
      * @param dispatchId
      * @return
      */
-    Dispatch dispatchSelectAll(Integer dispatchId);
+    Dispatch dispatchSelectAll(Integer dispatchId)throws Exception;
     /* 根据调度id查询调度信息     陈庆武
      * @param reportDetailId 调度id
      * @return
@@ -72,7 +72,7 @@ public interface DispatchService {
      * @param groundConnectionNumber
      * @return
      */
-    PageInfo<Dispatch> ListDispatchLike(Integer pageNo, Integer pageSize, String guideName, String groundConnectionNumber);
+    PageInfo<Dispatch> ListDispatchLike(Integer pageNo, Integer pageSize, String guideName, String groundConnectionNumber)throws Exception;
 
     /**
      * 根据对象属性 进行修改   张枫
@@ -86,7 +86,7 @@ public interface DispatchService {
      * @param dispatchId
      * @return
      */
-    Dispatch dispatch(@Param("dispatchId") Integer dispatchId);
+    Dispatch dispatch(@Param("dispatchId") Integer dispatchId)throws Exception;
     /* 根据报价Id查询该报价的所有信息
      * @param oid
      * @return

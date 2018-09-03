@@ -19,7 +19,7 @@ public interface ShoppingMapper extends CommonMapper<Shopping>{
      * @param scenicSpotId
      * @return
      */
-    List<Shopping> listShoppingByScenicSpotId(@Param("scenicSpotId") Integer scenicSpotId);
+    List<Shopping> listShoppingByScenicSpotId(@Param("scenicSpotId") Integer scenicSpotId)throws Exception;
 
 
     /**

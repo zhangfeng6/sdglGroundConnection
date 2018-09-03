@@ -27,7 +27,7 @@ public interface DictionariesMapper extends CommonMapper<Dictionaries>{
      * 查询所有的车辆类型
      * @return
      */
-    List<VehicleType> listVehicletype();
+    List<VehicleType> listVehicletype()throws  Exception;
 
 
 
@@ -36,7 +36,7 @@ public interface DictionariesMapper extends CommonMapper<Dictionaries>{
      * @param valueId
      * @return
      */
-    Dictionaries selectById(@Param("valueId")int valueId);
+    Dictionaries selectById(@Param("valueId")int valueId)throws  Exception;
 
 
     /**
@@ -44,7 +44,7 @@ public interface DictionariesMapper extends CommonMapper<Dictionaries>{
      * @param
      * @return
      */
-    Dictionaries selectByDictionariesId(@Param("dictionariesId")int dictionariesId);
+    Dictionaries selectByDictionariesId(@Param("dictionariesId")int dictionariesId)throws  Exception;
 
     /*origin/master
      * 根据类型id查询车辆类型
@@ -74,7 +74,7 @@ public interface DictionariesMapper extends CommonMapper<Dictionaries>{
      * @param valueContent1
      * @return
      */
-    List<Dictionaries> getDictionariesCan(@Param("valueContent1") String valueContent1);
+    List<Dictionaries> getDictionariesCan(@Param("valueContent1") String valueContent1)throws  Exception;
 
     /**
      * 分页查车辆厅类型
@@ -82,86 +82,86 @@ public interface DictionariesMapper extends CommonMapper<Dictionaries>{
      * @param valueContent1
      * @return
      */
-    List<Dictionaries> getDictionariesCar(@Param("valueContent1") String valueContent1);
+    List<Dictionaries> getDictionariesCar(@Param("valueContent1") String valueContent1)throws  Exception;
     /**
      * 分页查看酒店类型
      * @param valueContent1
      * @param valueContent1
      * @return
      */
-    List<Dictionaries> getDictionariesHotel(@Param("valueContent1") String valueContent1);
+    List<Dictionaries> getDictionariesHotel(@Param("valueContent1") String valueContent1)throws  Exception;
 
     /**
      * 餐厅类型删除    修改
      * @param valueContent1
      * @return
      */
-    Integer getDictionariesByOne(String valueContent1);
+    Integer getDictionariesByOne(String valueContent1)throws  Exception;
 
     /**
      * 车辆类型删除    修改
      * @param valueContent1
      * @return
      */
-    Integer getDictionariesByDel(String valueContent1);
+    Integer getDictionariesByDel(String valueContent1)throws  Exception;
     /**
      * 酒店类型删除    修改
      * @param valueContent1
      * @return
      */
-    Integer getDictionariesHotelDel(String valueContent1);
+    Integer getDictionariesHotelDel(String valueContent1)throws  Exception;
 
     /**
      * 餐厅修改
      * @param dictionaries
      * @return
      */
-    Integer getDictionariesByUpd(Dictionaries dictionaries);
+    Integer getDictionariesByUpd(Dictionaries dictionaries)throws  Exception;
     /**
      * 车辆修改
      * @param dictionaries
      * @return
      */
-    Integer getDictionariescarUpd(Dictionaries dictionaries);
+    Integer getDictionariescarUpd(Dictionaries dictionaries)throws  Exception;
     /**
      * 酒店修改
      * @param dictionaries
      * @return
      */
-    Integer getDictionariesHotelByUpd(Dictionaries dictionaries);
+    Integer getDictionariesHotelByUpd(Dictionaries dictionaries)throws  Exception;
 
     /**
      * 餐厅类型修改  查看
      * @param dictionariesId
      * @return
      */
-    Dictionaries getgetDictionariesSelect(Integer dictionariesId);
+    Dictionaries getgetDictionariesSelect(Integer dictionariesId)throws  Exception;
     /**
      * 车辆修改  查看
      * @param dictionariesId
      * @return
      */
-    Dictionaries getgetDictionariesCarSelect(Integer dictionariesId);
+    Dictionaries getgetDictionariesCarSelect(Integer dictionariesId)throws  Exception;
     /**
      * 酒店修改  查看
      * @param dictionariesId
      * @return
      */
-    Dictionaries getgetDictionariesHotelSelect(Integer dictionariesId);
+    Dictionaries getgetDictionariesHotelSelect(Integer dictionariesId)throws  Exception;
 
     /**
      * 判断餐厅类型是否存在
      * @param valueContent1
      * @return
      */
-    Dictionaries getDictionariesByNameTypecan(String valueContent1);
+    Dictionaries getDictionariesByNameTypecan(String valueContent1)throws  Exception;
 
     /**
      * 判断车辆类型是否存在
      * @param valueContent1
      * @return
      */
-    Dictionaries getDictionariesByNameTypecar(String valueContent1);
+    Dictionaries getDictionariesByNameTypecar(String valueContent1)throws  Exception;
 
 
     /**
@@ -169,7 +169,7 @@ public interface DictionariesMapper extends CommonMapper<Dictionaries>{
      * @param valueContent1
      * @return
      */
-    Dictionaries getDictionariesByNameType(String valueContent1);
+    Dictionaries getDictionariesByNameType(String valueContent1)throws  Exception;
 
 
     /**
@@ -177,25 +177,25 @@ public interface DictionariesMapper extends CommonMapper<Dictionaries>{
      * @param
      * @return
      */
-    Dictionaries DictionariesCanMax();
+    Dictionaries DictionariesCanMax()throws  Exception;
     /**
      * 添加车辆编号
      * @param
      * @return
      */
-    Dictionaries DictionariesCarMax();
+    Dictionaries DictionariesCarMax()throws  Exception;
     /**
      * 添加酒店编号
      * @param
      * @return
      */
-    Dictionaries DictionariesHotelMax();
+    Dictionaries DictionariesHotelMax()throws  Exception;
 
     /**
      * 查询房间类型名称（贾晓亮：在字典表）
      * @param valueId
      * @return
      */
-    Dictionaries  dis_All(@Param("valueId")Integer valueId);
+    Dictionaries  dis_All(@Param("valueId")Integer valueId)throws  Exception;
 
 }

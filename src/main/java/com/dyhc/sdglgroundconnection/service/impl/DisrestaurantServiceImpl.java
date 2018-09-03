@@ -27,7 +27,7 @@ public class DisrestaurantServiceImpl implements DisrestaurantService {
      * @return
      */
     @Override
-    public List<String> listDisrestaurantAll(Integer dispatchId) {
+    public List<String> listDisrestaurantAll(Integer dispatchId) throws Exception{
         return disrestaurantMapper.listDisrestaurantAll(dispatchId);
     }
 }

@@ -19,7 +19,7 @@ public interface OfferrestaurantService {
      * @param offerrestaurant
      * @return
      */
-    int insertOfferrestaurant(Offerrestaurant offerrestaurant);
+    int insertOfferrestaurant(Offerrestaurant offerrestaurant)throws Exception;
 
     /**
      * 赵伟伟
@@ -27,5 +27,5 @@ public interface OfferrestaurantService {
      * @param offerId
      * @return
      */
-    List<Offerrestaurant> selectOfferRestaurantByOfferId(int offerId);
+    List<Offerrestaurant> selectOfferRestaurantByOfferId(int offerId)throws Exception;
 }

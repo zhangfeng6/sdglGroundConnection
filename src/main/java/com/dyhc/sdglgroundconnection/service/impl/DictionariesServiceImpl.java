@@ -28,12 +28,12 @@ public class DictionariesServiceImpl implements DictionariesService {
     }
 
     @Override
-    public List<VehicleType> listVehicletype() {
+    public List<VehicleType> listVehicletype()throws Exception {
         return dictionariesMapper.listVehicletype();
     }
 
     @Override
-    public Dictionaries selectByDictionariesId(int dictionariesId) {
+    public Dictionaries selectByDictionariesId(int dictionariesId)throws Exception {
         return dictionariesMapper.selectByDictionariesId(dictionariesId);
     }
 
@@ -104,7 +104,7 @@ public class DictionariesServiceImpl implements DictionariesService {
      * @return
      */
     @Override
-    public Integer getDictionariesByOne(String valueContent1) {
+    public Integer getDictionariesByOne(String valueContent1) throws Exception{
         return dictionariesMapper.getDictionariesByOne(valueContent1);
     }
 
@@ -115,7 +115,7 @@ public class DictionariesServiceImpl implements DictionariesService {
      * @return
      */
     @Override
-    public Integer getDictionariesByDel(String valueContent1) {
+    public Integer getDictionariesByDel(String valueContent1)throws Exception {
         return dictionariesMapper.getDictionariesByDel(valueContent1);
     }
 
@@ -126,7 +126,7 @@ public class DictionariesServiceImpl implements DictionariesService {
      * @return
      */
     @Override
-    public Integer getDictionariesHotelByDel(String valueContent1) {
+    public Integer getDictionariesHotelByDel(String valueContent1)throws Exception {
         return dictionariesMapper.getDictionariesHotelDel(valueContent1);
     }
 
@@ -137,7 +137,7 @@ public class DictionariesServiceImpl implements DictionariesService {
      * @return
      */
     @Override
-    public Integer getDictionariesAdd(Dictionaries dictionaries) {
+    public Integer getDictionariesAdd(Dictionaries dictionaries)throws Exception {
         return dictionariesMapper.insert(dictionaries);
     }
 
@@ -148,7 +148,7 @@ public class DictionariesServiceImpl implements DictionariesService {
      * @return
      */
     @Override
-    public Integer getDictionariescarAdd(Dictionaries dictionaries) {
+    public Integer getDictionariescarAdd(Dictionaries dictionaries)throws Exception {
         return dictionariesMapper.insert(dictionaries);
     }
 
@@ -159,7 +159,7 @@ public class DictionariesServiceImpl implements DictionariesService {
      * @return
      */
     @Override
-    public Integer getDictionariesHotelAdd(Dictionaries dictionaries) {
+    public Integer getDictionariesHotelAdd(Dictionaries dictionaries)throws Exception {
         return dictionariesMapper.insert(dictionaries);
     }
 
@@ -171,7 +171,7 @@ public class DictionariesServiceImpl implements DictionariesService {
      * @return
      */
     @Override
-    public Integer getDictionariesByUpd(Dictionaries dictionaries) {
+    public Integer getDictionariesByUpd(Dictionaries dictionaries) throws Exception{
         return dictionariesMapper.getDictionariesByUpd(dictionaries);
     }
 
@@ -182,7 +182,7 @@ public class DictionariesServiceImpl implements DictionariesService {
      * @return
      */
     @Override
-    public Integer getDictionariesHotelUpd(Dictionaries dictionaries) {
+    public Integer getDictionariesHotelUpd(Dictionaries dictionaries)throws Exception {
         return dictionariesMapper.getDictionariescarUpd(dictionaries);
     }
 
@@ -193,7 +193,7 @@ public class DictionariesServiceImpl implements DictionariesService {
      * @return
      */
     @Override
-    public Integer getDictionariesCarUpd(Dictionaries dictionaries) {
+    public Integer getDictionariesCarUpd(Dictionaries dictionaries)throws Exception {
         return dictionariesMapper.getDictionariesHotelByUpd(dictionaries);
     }
 
@@ -204,7 +204,7 @@ public class DictionariesServiceImpl implements DictionariesService {
      * @return
      */
     @Override
-    public Dictionaries getgetDictionariesSelect(Integer dictionariesId) {
+    public Dictionaries getgetDictionariesSelect(Integer dictionariesId)throws Exception {
         return dictionariesMapper.getgetDictionariesSelect(dictionariesId);
     }
 
@@ -215,7 +215,7 @@ public class DictionariesServiceImpl implements DictionariesService {
      * @return
      */
     @Override
-    public Dictionaries getgetDictionariesCarSelect(Integer dictionariesId) {
+    public Dictionaries getgetDictionariesCarSelect(Integer dictionariesId)throws Exception {
         return dictionariesMapper.getgetDictionariesCarSelect(dictionariesId);
     }
 
@@ -226,7 +226,7 @@ public class DictionariesServiceImpl implements DictionariesService {
      * @return
      */
     @Override
-    public Dictionaries getgetDictionariesHotelSelect(Integer dictionariesId){
+    public Dictionaries getgetDictionariesHotelSelect(Integer dictionariesId)throws Exception{
         return dictionariesMapper.getgetDictionariesHotelSelect(dictionariesId);
     }
 
@@ -237,7 +237,7 @@ public class DictionariesServiceImpl implements DictionariesService {
      * @return
      */
     @Override
-    public Dictionaries getDictionariesByNameTypecan(String valueContent1) {
+    public Dictionaries getDictionariesByNameTypecan(String valueContent1) throws Exception{
         return dictionariesMapper.getDictionariesByNameTypecan(valueContent1);
     }
 
@@ -247,7 +247,7 @@ public class DictionariesServiceImpl implements DictionariesService {
      * @return
      */
     @Override
-    public Dictionaries getDictionariesByNameTypecar(String valueContent1) {
+    public Dictionaries getDictionariesByNameTypecar(String valueContent1)throws Exception {
         return dictionariesMapper.getDictionariesByNameTypecar(valueContent1);
     }
 
@@ -257,7 +257,7 @@ public class DictionariesServiceImpl implements DictionariesService {
      * @return
      */
     @Override
-    public Dictionaries AAA(String valueContent1) {
+    public Dictionaries AAA(String valueContent1) throws Exception{
         return dictionariesMapper.getDictionariesByNameType(valueContent1);
     }
     /**
@@ -266,7 +266,7 @@ public class DictionariesServiceImpl implements DictionariesService {
      * @return
      */
     @Override
-    public Dictionaries DictionariesCanMax() {
+    public Dictionaries DictionariesCanMax()throws Exception {
         return dictionariesMapper.DictionariesCanMax();
     }
     /**
@@ -275,7 +275,7 @@ public class DictionariesServiceImpl implements DictionariesService {
      * @return
      */
     @Override
-    public Dictionaries DictionariesCarMax() {
+    public Dictionaries DictionariesCarMax()throws Exception {
         return dictionariesMapper.DictionariesCarMax();
     }
     /**
@@ -284,7 +284,7 @@ public class DictionariesServiceImpl implements DictionariesService {
      * @return
      */
     @Override
-    public Dictionaries DictionariesHotelMax() {
+    public Dictionaries DictionariesHotelMax()throws Exception {
         return dictionariesMapper.DictionariesHotelMax();
     }
 

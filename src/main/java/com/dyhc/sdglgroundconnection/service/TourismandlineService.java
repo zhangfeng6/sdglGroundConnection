@@ -12,6 +12,6 @@ public interface TourismandlineService {
      * @param tourismId
      * @return
      */
-    List<Tourismandline> selectTourismandlineAll(int tourismId);
+    List<Tourismandline> selectTourismandlineAll(int tourismId)throws Exception;
 
 }

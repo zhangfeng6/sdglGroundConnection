@@ -21,7 +21,7 @@ public class OfferServiceImpl implements OfferService {
     private OfferMapper offerMapper;
 
     @Override
-    public PageInfo<Offer> selectOffer(Integer pageNo,Integer PageSize,String travelName) {
+    public PageInfo<Offer> selectOffer(Integer pageNo,Integer PageSize,String travelName)throws Exception {
         PageHelper.startPage(pageNo, PageSize, true);
         List<Offer> list = offerMapper.selectOffer(travelName);
         PageInfo<Offer> pageInfo = new PageInfo<>(list);
@@ -34,12 +34,12 @@ public class OfferServiceImpl implements OfferService {
     }
 
     @Override
-    public Offer selectOfferByOfferId(int offerId) {
+    public Offer selectOfferByOfferId(int offerId)throws Exception {
         return offerMapper.selectOfferByOfferId(offerId);
     }
 
     @Override
-    public int queren(int offerId) {
+    public int queren(int offerId)throws Exception {
         return offerMapper.queren(offerId);
     }
 }

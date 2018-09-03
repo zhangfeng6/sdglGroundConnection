@@ -29,7 +29,7 @@ public class ReportaccommodationServiceImpl implements ReportaccommodationServic
      * @param reportaccommodation
      * @return
      */
-    public Integer saveReportaccommodation(Reportaccommodation reportaccommodation){
+    public Integer saveReportaccommodation(Reportaccommodation reportaccommodation)throws Exception{
         Integer number=0;
         try {
             number=reportaccommodationMapper.insert(reportaccommodation);
@@ -50,7 +50,7 @@ public class ReportaccommodationServiceImpl implements ReportaccommodationServic
      * @return
      */
     @Override
-    public Integer save_Reportaccommodation(Reportaccommodation reportaccommodation) {
+    public Integer save_Reportaccommodation(Reportaccommodation reportaccommodation)throws Exception {
         return reportaccommodationMapper.insert(reportaccommodation);
     }
 }

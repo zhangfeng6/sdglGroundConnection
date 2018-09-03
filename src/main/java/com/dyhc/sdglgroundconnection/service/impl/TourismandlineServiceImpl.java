@@ -33,7 +33,7 @@ public class TourismandlineServiceImpl implements TourismandlineService {
     private TourismandlineMapper tourismandlineMapper;
 
     @Override
-    public List<Tourismandline> selectTourismandlineAll(int tourismId) {
+    public List<Tourismandline> selectTourismandlineAll(int tourismId) throws Exception{
         return tourismandlineMapper.selectTourismandlineAll(tourismId);
     }
 

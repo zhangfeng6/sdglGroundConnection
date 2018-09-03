@@ -22,14 +22,14 @@ public interface OfferlineMapper extends CommonMapper<Offerline>{
      * @param offerLineRecordId
      * @return
      */
-    Offerline selectByofferLineRecordId(@Param("offerLineRecordId") Integer offerLineRecordId);
+    Offerline selectByofferLineRecordId(@Param("offerLineRecordId") Integer offerLineRecordId)throws  Exception;
 
     /**
      * 新增报价线路信息
      * @param offerline
      * @return
      */
-    int insertOfferline(Offerline offerline);
+    int insertOfferline(Offerline offerline)throws  Exception;
 
 
     /**
@@ -38,5 +38,5 @@ public interface OfferlineMapper extends CommonMapper<Offerline>{
      * @param offerId
      * @return
      */
-    List<Offerline> selectOfferlineByOfferId(@Param("offerId") int offerId);
+    List<Offerline> selectOfferlineByOfferId(@Param("offerId") int offerId)throws  Exception;
 }

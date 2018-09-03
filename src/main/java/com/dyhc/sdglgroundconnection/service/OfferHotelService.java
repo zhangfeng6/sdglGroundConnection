@@ -19,7 +19,7 @@ public interface OfferHotelService {
      * @param offerHotel
      * @return
      */
-    int insertOfferHotel(OfferHotel offerHotel);
+    int insertOfferHotel(OfferHotel offerHotel)throws Exception;
 
     /**
      * 赵伟伟s
@@ -27,5 +27,5 @@ public interface OfferHotelService {
      * @param offerId
      * @return
      */
-    List<OfferHotel> selectOfferHotelByOfferId(int offerId);
+    List<OfferHotel> selectOfferHotelByOfferId(int offerId)throws Exception;
 }

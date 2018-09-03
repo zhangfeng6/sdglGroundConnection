@@ -19,12 +19,12 @@ public class OfferHotelServiceImpl implements OfferHotelService {
     private OfferHotelMapper offerHotelMapper;
 
     @Override
-    public int insertOfferHotel(OfferHotel offerHotel) {
+    public int insertOfferHotel(OfferHotel offerHotel)throws Exception {
         return offerHotelMapper.insertOfferHotel(offerHotel);
     }
 
     @Override
-    public List<OfferHotel> selectOfferHotelByOfferId(int offerId) {
+    public List<OfferHotel> selectOfferHotelByOfferId(int offerId) throws Exception{
         return offerHotelMapper.selectOfferHotelByOfferId(offerId);
     }
 }

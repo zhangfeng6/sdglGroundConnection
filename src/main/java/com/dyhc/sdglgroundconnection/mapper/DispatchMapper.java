@@ -22,7 +22,7 @@ public interface DispatchMapper extends CommonMapper<Dispatch>{
      * @param state         状态
      * @return
      */
-    List<Dispatch> listdispatch(@Param("djsth")String djsth,@Param("dyname")String dyname,@Param("state")Integer state);
+    List<Dispatch> listdispatch(@Param("djsth")String djsth,@Param("dyname")String dyname,@Param("state")Integer state)throws  Exception;
 
 
     /**
@@ -36,14 +36,14 @@ public interface DispatchMapper extends CommonMapper<Dispatch>{
      * @param dispatchId
      * @return
      */
-    Dispatch dispatchSelectAll(Integer dispatchId);
+    Dispatch dispatchSelectAll(Integer dispatchId)throws  Exception;
     /*
      * 分页查看调度信息                 刘跃云
      * @param guideName
      * @param groundConnectionNumber
      * @return
      */
-    List<Dispatch> getDispatchLike(@Param("guideName") String guideName, @Param("groundConnectionNumber") String groundConnectionNumber);
+    List<Dispatch> getDispatchLike(@Param("guideName") String guideName, @Param("groundConnectionNumber") String groundConnectionNumber)throws  Exception;
 
     /**
      * 根据主键id修改调度表信息
@@ -52,9 +52,9 @@ public interface DispatchMapper extends CommonMapper<Dispatch>{
      */
     int updateDispatchstate(@Param("did")Integer did)throws Exception;
 
-    Dispatch dispatch(Integer dispatchId);
+    Dispatch dispatch(Integer dispatchId)throws  Exception;
 
-    Dispatch listDispatch(Integer dispatchId);
+    Dispatch listDispatch(Integer dispatchId)throws  Exception;
 
     /**
      * 查看最新增加的调度信息的id

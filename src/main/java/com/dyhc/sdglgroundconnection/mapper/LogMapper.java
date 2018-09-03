@@ -17,5 +17,5 @@ public interface LogMapper extends CommonMapper<Log>{
      * 单团日志
      * @return
      */
-    Log ShowAllLog(@Param("guideId")Integer guideId,@Param("dispatchId")Integer dispatchId,@Param("creationDate")String creationDate);
+    Log ShowAllLog(@Param("guideId")Integer guideId,@Param("dispatchId")Integer dispatchId,@Param("creationDate")String creationDate)throws  Exception;
 }

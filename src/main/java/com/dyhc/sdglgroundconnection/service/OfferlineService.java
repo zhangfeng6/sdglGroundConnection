@@ -18,7 +18,7 @@ public interface OfferlineService {
      * 查询线路
      * @return
      */
-    List<Offerline> selectOfferline();
+    List<Offerline> selectOfferline()throws Exception;
 
     /**
      * 赵伟伟
@@ -26,14 +26,14 @@ public interface OfferlineService {
      * @param offerLineRecordId
      * @return
      */
-    Offerline selectByofferLineRecordId(Integer offerLineRecordId);
+    Offerline selectByofferLineRecordId(Integer offerLineRecordId)throws Exception;
 
     /**
      * 新增报价线路信息
      * @param offerline
      * @return
      */
-    int insertOfferline(Offerline offerline);
+    int insertOfferline(Offerline offerline)throws Exception;
 
 
     /**
@@ -42,5 +42,5 @@ public interface OfferlineService {
      * @param offerId
      * @return
      */
-    List<Offerline> selectOfferlineByOfferId(int offerId);
+    List<Offerline> selectOfferlineByOfferId(int offerId)throws Exception;
 }

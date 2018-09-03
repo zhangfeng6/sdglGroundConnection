@@ -13,5 +13,5 @@ public interface GuideScheduleService {
      * @param list
      * @return
      */
-    Integer insertGuideSchedule(List<Guideschedule> list);
+    Integer insertGuideSchedule(List<Guideschedule> list)throws Exception;
 }

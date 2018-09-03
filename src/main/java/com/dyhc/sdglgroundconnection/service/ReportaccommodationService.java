@@ -17,7 +17,7 @@ public interface ReportaccommodationService {
      * @param reportaccommodation
      * @return
      */
-   Integer saveReportaccommodation(Reportaccommodation reportaccommodation);
+   Integer saveReportaccommodation(Reportaccommodation reportaccommodation)throws Exception;
 
 
     /**
@@ -33,5 +33,5 @@ public interface ReportaccommodationService {
      * @param reportaccommodation
      * @return
      */
-    Integer   save_Reportaccommodation(Reportaccommodation reportaccommodation);
+    Integer   save_Reportaccommodation(Reportaccommodation reportaccommodation)throws Exception;
 }

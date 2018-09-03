@@ -27,14 +27,14 @@ public interface DictionariesService {
      * 查询所有的车辆类型
      * @return
      */
-    List<VehicleType> listVehicletype();
+    List<VehicleType> listVehicletype()throws Exception;
 
     /**
      * 赵伟伟
      * 按id查询
      * @return
      */
-    Dictionaries selectByDictionariesId(int dictionariesId);
+    Dictionaries selectByDictionariesId(int dictionariesId)throws Exception;
 
     PageInfo<Dictionaries> listDictionaries1()throws Exception;
 
@@ -78,110 +78,110 @@ public interface DictionariesService {
      * @param valueContent1
      * @return
      */
-    Integer getDictionariesByOne(String valueContent1);
+    Integer getDictionariesByOne(String valueContent1)throws Exception;
     /**
      * 车辆类型删除    修改
      * @param valueContent1
      * @return
      */
-    Integer getDictionariesByDel(String valueContent1);
+    Integer getDictionariesByDel(String valueContent1)throws Exception;
     /**
      * 酒店类型删除    修改
      * @param valueContent1
      * @return
      */
-    Integer getDictionariesHotelByDel(String valueContent1);
+    Integer getDictionariesHotelByDel(String valueContent1)throws Exception;
 
     /**
      * 餐厅添加信息
      * @param dictionaries
      * @return
      */
-    Integer getDictionariesAdd(Dictionaries dictionaries);
+    Integer getDictionariesAdd(Dictionaries dictionaries)throws Exception;
     /**
      * 车辆添加信息
      * @param dictionaries
      * @return
      */
-    Integer getDictionariescarAdd(Dictionaries dictionaries);
+    Integer getDictionariescarAdd(Dictionaries dictionaries)throws Exception;
     /**
      * j酒店添加信息
      * @param dictionaries
      * @return
      */
-    Integer getDictionariesHotelAdd(Dictionaries dictionaries);
+    Integer getDictionariesHotelAdd(Dictionaries dictionaries)throws Exception;
     /**
      * 餐厅类型修改
      * @param dictionaries
      * @return
      */
-    Integer getDictionariesByUpd(Dictionaries dictionaries);
+    Integer getDictionariesByUpd(Dictionaries dictionaries)throws Exception;
     /**
      * 车辆类型修改
      * @param dictionaries
      * @return
      */
-    Integer getDictionariesCarUpd(Dictionaries dictionaries);
+    Integer getDictionariesCarUpd(Dictionaries dictionaries)throws Exception;
     /**
      * 酒店类型修改
      * @param dictionaries
      * @return
      */
-    Integer getDictionariesHotelUpd(Dictionaries dictionaries);
+    Integer getDictionariesHotelUpd(Dictionaries dictionaries)throws Exception;
     /**
      * 餐厅类型修改  查看
      * @param dictionariesId
      * @return
      */
-    Dictionaries getgetDictionariesSelect(Integer dictionariesId);
+    Dictionaries getgetDictionariesSelect(Integer dictionariesId)throws Exception;
     /**
      * 车辆类型修改  查看
      * @param dictionariesId
      * @return
      */
-    Dictionaries getgetDictionariesCarSelect(Integer dictionariesId);
+    Dictionaries getgetDictionariesCarSelect(Integer dictionariesId)throws Exception;
     /**
      * 酒店类型修改  查看
      * @param dictionariesId
      * @return
      */
-    Dictionaries getgetDictionariesHotelSelect(Integer dictionariesId);
+    Dictionaries getgetDictionariesHotelSelect(Integer dictionariesId)throws Exception;
 
     /**
      * 判断餐厅类型是否存在
      * @param valueContent1
      * @return
      */
-    Dictionaries getDictionariesByNameTypecan(String valueContent1);
+    Dictionaries getDictionariesByNameTypecan(String valueContent1)throws Exception;
     /**
      * 判断车辆类型是否存在
      * @param valueContent1
      * @return
      */
-    Dictionaries getDictionariesByNameTypecar(String valueContent1);
+    Dictionaries getDictionariesByNameTypecar(String valueContent1)throws Exception;
     /**
      * 判断酒店类型是否存在
      * @param valueContent1
      * @return
      */
-    Dictionaries AAA(String valueContent1);
+    Dictionaries AAA(String valueContent1)throws Exception;
 
     /**
      * 添加餐厅编号
      * @param
      * @return
      */
-    Dictionaries DictionariesCanMax();
+    Dictionaries DictionariesCanMax()throws Exception;
     /**
      * 添加车辆编号
      * @param
      * @return
      */
-    Dictionaries DictionariesCarMax();
+    Dictionaries DictionariesCarMax()throws Exception;
     /**
      * 添加酒店编号
      * @param
      * @return
      */
-    Dictionaries DictionariesHotelMax();
+    Dictionaries DictionariesHotelMax()throws Exception;
 }

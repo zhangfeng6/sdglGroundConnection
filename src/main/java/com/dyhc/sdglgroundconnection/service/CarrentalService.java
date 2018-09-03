@@ -52,6 +52,6 @@ public interface CarrentalService {
      * @param carRentalName
      * @return
      */
-    List<Carrental> getCarrentalByName(String carRentalName);
+    List<Carrental> getCarrentalByName(String carRentalName)throws Exception;
 
 }

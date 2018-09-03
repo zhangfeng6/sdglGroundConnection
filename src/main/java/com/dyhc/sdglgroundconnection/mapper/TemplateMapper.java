@@ -47,7 +47,7 @@ public interface TemplateMapper  extends CommonMapper<Template>{
      * @param templateId
      * @return
      */
-    Template selectTemplateAll(@Param("templateId") int templateId);
+    Template selectTemplateAll(@Param("templateId") int templateId)throws Exception;
 
 
 
@@ -57,7 +57,7 @@ public interface TemplateMapper  extends CommonMapper<Template>{
      * @param templateId
      * @return
      */
-    List<Scenicspot> selectscenicSpotById(@Param("templateId") int templateId);
+    List<Scenicspot> selectscenicSpotById(@Param("templateId") int templateId)throws Exception;
 
 
     /**
@@ -66,12 +66,12 @@ public interface TemplateMapper  extends CommonMapper<Template>{
      * @param templateId
      * @return
      */
-    Template selecctNameById(@Param("templateId") int templateId);
+    Template selecctNameById(@Param("templateId") int templateId)throws Exception;
 
     /**
      * 查看路线
      * @param templateId
      * @return
      */
-    Template listTemplate(Integer templateId);
+    Template listTemplate(Integer templateId)throws Exception;
 }

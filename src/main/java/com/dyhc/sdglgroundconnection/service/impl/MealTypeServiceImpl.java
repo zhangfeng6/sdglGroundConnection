@@ -20,37 +20,37 @@ public class MealTypeServiceImpl implements MealTypeService {
     private MealTypeMapper mealTypeMapper;
 
     @Override
-    public List<MealType> selectMealTypeByRestaurantId(int restaurantId) {
+    public List<MealType> selectMealTypeByRestaurantId(int restaurantId) throws Exception{
         return mealTypeMapper.selectMealTypeByRestaurantId(restaurantId);
     }
 
     @Override
-    public int updateMealType(MealType mealType) {
+    public int updateMealType(MealType mealType)throws Exception {
         return mealTypeMapper.updateMealType(mealType);
     }
 
     @Override
-    public int delMealTypeById(MealType mealType) {
+    public int delMealTypeById(MealType mealType)throws Exception {
         return mealTypeMapper.delMealTypeById(mealType);
     }
 
     @Override
-    public int insertMealType(MealType mealType) {
+    public int insertMealType(MealType mealType)throws Exception {
         return mealTypeMapper.insertMealType(mealType);
     }
 
     @Override
-    public List<Dictionaries> selectDic() {
+    public List<Dictionaries> selectDic()throws Exception {
         return mealTypeMapper.selectDic();
     }
 
     @Override
-    public MealType selectById(int typeId) {
+    public MealType selectById(int typeId)throws Exception {
         return mealTypeMapper.selectById(typeId);
     }
 
     @Override
-    public List<Dictionaries> selectMealType() {
+    public List<Dictionaries> selectMealType()throws Exception {
         return mealTypeMapper.selectMealType();
     }
 

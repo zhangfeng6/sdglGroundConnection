@@ -27,7 +27,7 @@ public interface ReportaccommodationMapper extends CommonMapper<Reportaccommodat
      * 查询全部酒店：贾晓亮
      * @return
      */
-    List<Reportaccommodation>  reportaccommodation();
+    List<Reportaccommodation>  reportaccommodation()throws  Exception;
 
 
 

@@ -22,7 +22,7 @@ public class ReportingotherexpensesServiceImpl implements Reportingotherexpenses
      * @return
      */
     @Override
-    public Integer saveReportingotherexpenses(Reportingotherexpenses reportingotherexpenses) {
+    public Integer saveReportingotherexpenses(Reportingotherexpenses reportingotherexpenses)throws Exception {
         Integer number=0;
         try {
             number=reportingotherexpensesMapper.insert(reportingotherexpenses);

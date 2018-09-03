@@ -25,7 +25,7 @@ public class ReportfareServiceImpl implements ReportfareService {
      * @return
      */
     @Override
-    public Integer saveReportfare(Reportfare reportfare) {
+    public Integer saveReportfare(Reportfare reportfare)throws Exception {
       Integer number=0;
         try {
             number=reportfareMapper.insertSelective(reportfare);

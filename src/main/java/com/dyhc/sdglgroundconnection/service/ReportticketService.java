@@ -16,7 +16,7 @@ public interface ReportticketService {
      * @param reportticket
      * @return
      */
-    Integer saveReportticket(Reportticket reportticket);
+    Integer saveReportticket(Reportticket reportticket)throws Exception;
 
     /**
      * 获取导游门票报账明细信息

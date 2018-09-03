@@ -116,23 +116,24 @@ public class OfferController {
     @RequestMapping("/quotation")
     public ReponseResult quotation(HttpServletRequest request) {
 
-        HttpSession session = request.getSession();
-        String zuid = request.getParameter("zuid");
-        String number = request.getParameter("number");
-        String travelStartTime = request.getParameter("travelStartTime");
-        String travelEndTime = request.getParameter("travelEndTime");
-        String jiage = request.getParameter("jiage");
-        String wu = request.getParameter("wu");
-        String ctypeId = request.getParameter("ctypeId");
-        String remarks = request.getParameter("remarks");
-        String[] tripList = request.getParameterValues("tripList");
-        String xiaofei = request.getParameter("xiaofei");
 
-
-
-        Dictionaries dictionaries = offercarService.selectOffercarById(Integer.parseInt(ctypeId));
-        Travel travel = travelService.selectTravelById(Integer.parseInt(zuid));
         try {
+            HttpSession session = request.getSession();
+            String zuid = request.getParameter("zuid");
+            String number = request.getParameter("number");
+            String travelStartTime = request.getParameter("travelStartTime");
+            String travelEndTime = request.getParameter("travelEndTime");
+            String jiage = request.getParameter("jiage");
+            String wu = request.getParameter("wu");
+            String ctypeId = request.getParameter("ctypeId");
+            String remarks = request.getParameter("remarks");
+            String[] tripList = request.getParameterValues("tripList");
+            String xiaofei = request.getParameter("xiaofei");
+
+
+
+            Dictionaries dictionaries = offercarService.selectOffercarById(Integer.parseInt(ctypeId));
+            Travel travel = travelService.selectTravelById(Integer.parseInt(zuid));
             List allList = new ArrayList<>();
             allList.add(number);
             allList.add(travelStartTime);
@@ -173,29 +174,30 @@ public class OfferController {
     @RequestMapping("/Confirmation")
     public ReponseResult Confirmation(HttpServletRequest request) {
 
-        HttpSession session = request.getSession();
-        String[] tripList = request.getParameterValues("tripList");
-        String[] xdateList = request.getParameterValues("xdateList");
-        String[] xianluList = request.getParameterValues("xianluList");
-        String[] wucList = request.getParameterValues("wucList");
-        String[] wucbList = request.getParameterValues("wucbList");
-        String[] wubjList = request.getParameterValues("wubjList");
-        String[] wancList = request.getParameterValues("wancList");
-        String[] wancbList = request.getParameterValues("wancbList");
-        String[] wanbjList = request.getParameterValues("wanbjList");
-        String[] jiudianList = request.getParameterValues("jiudianList");
-        String jiedai = request.getParameter("jiedai");
-        String zuId = request.getParameter("travelId");
-        String travelStartTime = request.getParameter("travelStartTime");
-        String travelEndTime = request.getParameter("travelEndTime");
-        String number = request.getParameter("number");
 
-        Travel travel = travelService.selectTravelById(Integer.parseInt(zuId));
-        List<Hotel> hotelList = new ArrayList<>();
-        List<Dictionaries> dicList1 = new ArrayList<>();
-        List<Dictionaries> dicList2 = new ArrayList<>();
-        List<Template> templatesList = new ArrayList<>();
         try {
+            HttpSession session = request.getSession();
+            String[] tripList = request.getParameterValues("tripList");
+            String[] xdateList = request.getParameterValues("xdateList");
+            String[] xianluList = request.getParameterValues("xianluList");
+            String[] wucList = request.getParameterValues("wucList");
+            String[] wucbList = request.getParameterValues("wucbList");
+            String[] wubjList = request.getParameterValues("wubjList");
+            String[] wancList = request.getParameterValues("wancList");
+            String[] wancbList = request.getParameterValues("wancbList");
+            String[] wanbjList = request.getParameterValues("wanbjList");
+            String[] jiudianList = request.getParameterValues("jiudianList");
+            String jiedai = request.getParameter("jiedai");
+            String zuId = request.getParameter("travelId");
+            String travelStartTime = request.getParameter("travelStartTime");
+            String travelEndTime = request.getParameter("travelEndTime");
+            String number = request.getParameter("number");
+
+            Travel travel = travelService.selectTravelById(Integer.parseInt(zuId));
+            List<Hotel> hotelList = new ArrayList<>();
+            List<Dictionaries> dicList1 = new ArrayList<>();
+            List<Dictionaries> dicList2 = new ArrayList<>();
+            List<Template> templatesList = new ArrayList<>();
             for (int i=0;i<jiudianList.length;i++){
                 Integer hotelId = Integer.parseInt(jiudianList[i]);
                 hotelList.add(hotelService.getHotelById(hotelId));

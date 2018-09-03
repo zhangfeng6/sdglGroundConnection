@@ -17,7 +17,7 @@ public interface DispatchhotelService {
      * @param offerId
      * @return
      */
-    List<Dispatchhotel> dispatchhotelSelectAll(Integer  offerId);
+    List<Dispatchhotel> dispatchhotelSelectAll(Integer  offerId)throws Exception;
 
 
 
@@ -34,6 +34,6 @@ public interface DispatchhotelService {
      * 查看住宿地点
      * @return
      */
-    List<String> listDispatchhotelAll(Integer dispatchId);
+    List<String> listDispatchhotelAll(Integer dispatchId)throws Exception;
 
 }

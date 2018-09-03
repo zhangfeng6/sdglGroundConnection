@@ -27,7 +27,7 @@ public class DisshoppServiceImpl implements DisshoppService {
      * @return
      */
     @Override
-    public List<String> listDisshoppAll(Integer dispatchId) {
+    public List<String> listDisshoppAll(Integer dispatchId)throws Exception {
         return disshoppMapper.listDisshoppAll(dispatchId);
     }
 }

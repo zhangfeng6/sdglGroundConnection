@@ -48,7 +48,7 @@ public interface HotelService {
      * @param
      * @return
      */
-    Hotel selectByHotelId(Integer hotelId);
+    Hotel selectByHotelId(Integer hotelId)throws Exception;
 
     /**
      *查询酒店表:小亮
@@ -124,7 +124,7 @@ public interface HotelService {
     Hotel fuzhiHotel(Integer hotelId)throws Exception;
 
 
-    List<Dictionaries> selectRoomType();
+    List<Dictionaries> selectRoomType()throws Exception;
 
 
     /**
@@ -133,6 +133,6 @@ public interface HotelService {
      * @param
      * @return
      */
-    int selectTypeById(Integer valueId,Integer hotelId);
+    int selectTypeById(Integer valueId,Integer hotelId)throws Exception;
 
 }

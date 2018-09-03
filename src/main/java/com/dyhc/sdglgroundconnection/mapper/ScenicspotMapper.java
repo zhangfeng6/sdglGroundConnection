@@ -41,7 +41,7 @@ public interface ScenicspotMapper extends CommonMapper<Scenicspot>{
      * 根据景点id删除该景点
      * @param scenicSpotId
      */
-    void deleteScenicspotById(@Param("scenicSpotId") Integer scenicSpotId);
+    void deleteScenicspotById(@Param("scenicSpotId") Integer scenicSpotId)throws  Exception;
 
 
     /**
@@ -49,13 +49,13 @@ public interface ScenicspotMapper extends CommonMapper<Scenicspot>{
      * @param scenicSpotId
      * @return
      */
-    Scenicspot selectByScenicSpotId(@Param("scenicSpotId") Integer scenicSpotId);
+    Scenicspot selectByScenicSpotId(@Param("scenicSpotId") Integer scenicSpotId)throws  Exception;
     /**
      * 按编号查询景点
      * @param scenicSpotId
      * @return
      */
-    List<Scenicspot> ShowScenicSpotId(@Param("scenicSpotId") Integer scenicSpotId);
+    List<Scenicspot> ShowScenicSpotId(@Param("scenicSpotId") Integer scenicSpotId)throws  Exception;
 
     /**
      * 根据父景点名称
@@ -68,7 +68,7 @@ public interface ScenicspotMapper extends CommonMapper<Scenicspot>{
      * 查询所有景点
      * @return
      */
-    List<Scenicspot> selectAllScenic();
+    List<Scenicspot> selectAllScenic()throws Exception;
 
     /**
      * 获取所有未删除的景点信息 张枫

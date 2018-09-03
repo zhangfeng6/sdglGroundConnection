@@ -68,7 +68,7 @@ public class VehicleTypeServiceImpl implements VehicleTypeService {
     }
 
     @Override
-    public Integer deleteVehicleTypeById(Integer typeId) {
+    public Integer deleteVehicleTypeById(Integer typeId)throws Exception {
         try {
             vehicleTypeMapper.deleteVehicleTypeById(typeId);
             return 1;
@@ -79,7 +79,7 @@ public class VehicleTypeServiceImpl implements VehicleTypeService {
     }
 
     @Override
-    public List<VehicleType> listVehicleTypeByValueId(Integer valueId, Integer carRentalId) {
+    public List<VehicleType> listVehicleTypeByValueId(Integer valueId, Integer carRentalId)throws Exception {
         return vehicleTypeMapper.listVehicleTypeByValueId(valueId,carRentalId);
     }
 
@@ -89,7 +89,7 @@ public class VehicleTypeServiceImpl implements VehicleTypeService {
      * @return
      */
     @Override
-    public VehicleType vehicleType(Integer typeId) {
+    public VehicleType vehicleType(Integer typeId)throws Exception {
         VehicleType vehicleType=vehicleTypeMapper.vehicleType(typeId);
         vehicleType.setCarrental(carrentalMapper.carrental(vehicleType.getCarRentalId()));
         return vehicleType;

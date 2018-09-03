@@ -33,7 +33,7 @@ public class GuideServiceImpl implements GuideService {
      * @return
      */
     @Override
-    public Guide pdcertificate(String certificate) {
+    public Guide pdcertificate(String certificate)throws Exception {
         return guideMapper.pdcertificate(certificate);
     }
 
@@ -45,7 +45,7 @@ public class GuideServiceImpl implements GuideService {
      * @return
      */
     @Override
-    public PageInfo<Guide> listGuide(@RequestParam("pageNo") Integer pageNo, @RequestParam("PageSize")Integer PageSize, @RequestParam("guideName")String guideName) {
+    public PageInfo<Guide> listGuide(@RequestParam("pageNo") Integer pageNo, @RequestParam("PageSize")Integer PageSize, @RequestParam("guideName")String guideName)throws Exception {
         PageHelper.startPage(pageNo,PageSize,true);
         PageInfo<Guide> pageInfo=new PageInfo<>(guideMapper.listGuide(pageNo,PageSize,guideName));
         return pageInfo;
@@ -116,7 +116,7 @@ public class GuideServiceImpl implements GuideService {
      *导游修改赋值
      * @return
      */
-    public  Guide assignmentGuide(Integer assignment){
+    public  Guide assignmentGuide(Integer assignment)throws Exception{
         Guide guide = null;
         try {
             guide = guideMapper.selectByPrimaryKey(assignment);
@@ -158,7 +158,7 @@ public class GuideServiceImpl implements GuideService {
      * @return
      */
     @Override
-    public Guide ShowAllGuide(Integer guideId) {
+    public Guide ShowAllGuide(Integer guideId)throws Exception {
         return guideMapper.ShowAllGuide(guideId);
     }
 }
