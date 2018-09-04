@@ -147,6 +147,16 @@ public class GuideServiceImpl implements GuideService {
     }
 
     @Override
+    public Integer updateTX(Integer guideId, String tx) throws Exception {
+        try {
+            guideMapper.updateTX(guideId,tx);
+            return 1;
+        }catch (Exception e){
+            return 0;
+        }
+    }
+
+    @Override
     public Integer updateGuideByPassword(Guide guide) throws Exception {
         return guideMapper.updateByPrimaryKeySelective(guide);
     }

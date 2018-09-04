@@ -6,6 +6,7 @@
 		<link rel="stylesheet" type="text/css" href="/admin/layui/css/layui.css" />
 	</head>
 	<body>
+	<div id="form1">
 		<div id="tupian">
                 <img src="/images/logo.jpg" width="640px" height="50px">
        		 </div>
@@ -53,7 +54,39 @@
 		  			<br/>3、山西地宽景散，較多岔道岐途a。請注意跟緊導遊員，以免掉隊。自由活動時，要聽清記清集合時間、地點，要按時歸隊*如行進中临時離隊，應事先告知導遊员、領隊。
 			</p>
 		</div>
-		<p><button style=" margin-left: 300px" class='layui-btn layui-btn-normal layui-btn-radius' type="button" id="baocun">打印山西旅遊注意事項及安全提示</button></p>
 	</div>
+		<p><button style=" margin-left: 300px" class='layui-btn layui-btn-normal layui-btn-radius' type="button" id="baocun" onclick="prn1_preview()">打印山西旅遊注意事項及安全提示</button></p>
+	</div>
+		<script src="/js/jquery-3.3.1.min.js"></script>
+		<script src="/js/LodopFuncs.js"></script>
+		<script src='http://localhost:8000/CLodopfuncs.js?name=CLODOPA'></script>
+	<script>
+        var LODOP; //声明为全局变量
+        // 打印预览
+        function prn1_preview() {
+            CreateOneFormPage();
+            LODOP.PREVIEW();
+        };
+        // 直接打印
+        function prn1_print() {
+            CreateOneFormPage();
+            LODOP.PRINT();
+        };
+        // 选择打印机
+        function prn1_printA() {
+            CreateOneFormPage();
+            LODOP.PRINTA();
+        };
+        // 创建打印页面
+        function CreateOneFormPage(){
+            LODOP=getLodop();
+            LODOP.PRINT_INIT("打印控件功能演示_Lodop功能_表单一");
+            LODOP.SET_PRINT_STYLE("FontSize",18);
+            LODOP.SET_PRINT_STYLE("Bold",1);
+            var strBodyStyle = "<style>" + document.getElementById("yangshi").innerHTML + "</style>";
+            LODOP.ADD_PRINT_HTM(10,20,500,5000,strBodyStyle+document.getElementById("form1").innerHTML);
+        };
+
+	</script>
 	</body>
 </html>

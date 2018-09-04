@@ -1,12 +1,11 @@
 package com.dyhc.sdglgroundconnection.web;
 
-import com.dyhc.sdglgroundconnection.pojo.Disrestaurant;
 import com.dyhc.sdglgroundconnection.pojo.MealType;
 import com.dyhc.sdglgroundconnection.pojo.Restaurant;
 import com.dyhc.sdglgroundconnection.service.DisrestaurantService;
 import com.dyhc.sdglgroundconnection.service.MealTypeService;
 import com.dyhc.sdglgroundconnection.service.RestaurantService;
-import com.dyhc.sdglgroundconnection.utils.FileUploadUtil;
+import com.dyhc.sdglgroundconnection.utils.ClientFileUploadUtil;
 import com.dyhc.sdglgroundconnection.utils.LogNotes;
 import com.dyhc.sdglgroundconnection.utils.ReponseResult;
 import com.fasterxml.jackson.databind.ObjectMapper;
@@ -120,19 +119,18 @@ public class RestaurantController {
      * 赵伟伟
      * 新增饭店
      * @param multipartFile
-     * @param savePath
      * @param request
      * @return
      */
     @PostMapping("/insertRestaurant")
     @LogNotes(operationType="饭店",content="保存")
-    public ReponseResult insertRestaurant(HttpServletRequest request,@RequestParam("multipartFile") MultipartFile multipartFile, @RequestParam("savePath") String savePath) {
+    public ReponseResult insertRestaurant(HttpServletRequest request,@RequestParam("multipartFile") MultipartFile multipartFile) {
         try {
             String restaurant2 = request.getParameter("restaurant");
             ObjectMapper objectMapper = new ObjectMapper();
             Restaurant restaurant=objectMapper.readValue(restaurant2,Restaurant.class);
             Integer i = 0;
-            String uploadResult = FileUploadUtil.uploadImage(multipartFile,  ".jpg");
+            String uploadResult = ClientFileUploadUtil.uploadImage(multipartFile, ".jpg");
             restaurant.setPicturePath(uploadResult);
             if (restaurant.getRestaurantId()!=0){
                 i = restaurantService.updateRestaurantById(restaurant);

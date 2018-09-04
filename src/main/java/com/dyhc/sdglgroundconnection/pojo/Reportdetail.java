@@ -31,6 +31,7 @@ public class Reportdetail {
     private Integer valueId; // 结余类型编号（外键，与字典表关联）
     @Column(name = "balanceAmount")
     private Double balanceAmount; // 结余金额
+    @Column(name  ="remarks")
     private String remarks; // 备注
     @Column(name = "`status`")
     private Integer status; // 状态（1、审核中 2、以结算 3、未通过）

@@ -40,6 +40,9 @@ public interface GuideMapper extends CommonMapper<Guide>{
      */
     Guide ShowAllGuide(@Param("guideId")Integer guideId)throws  Exception;
 
+
+
+
     /**
      * 获取所有导游名称
      * @return
@@ -53,6 +56,14 @@ public interface GuideMapper extends CommonMapper<Guide>{
      * @return
      */
     Guide  pdcertificate(@Param("certificate") String certificate)throws  Exception;
+
+    /**
+     *修改导游头像
+     * @param guideId
+     * @param tx
+     * @throws Exception
+     */
+    void updateTX(@Param("guideId") Integer guideId,@Param("tx") String tx)throws Exception ;
 
     /**
      * 获取没删除的所有导游信息

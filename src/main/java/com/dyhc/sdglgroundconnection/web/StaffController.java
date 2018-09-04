@@ -2,7 +2,7 @@ package com.dyhc.sdglgroundconnection.web;
 
 import com.dyhc.sdglgroundconnection.pojo.Staff;
 import com.dyhc.sdglgroundconnection.service.StaffService;
-import com.dyhc.sdglgroundconnection.utils.FileUploadUtil;
+import com.dyhc.sdglgroundconnection.utils.ClientFileUploadUtil;
 import com.dyhc.sdglgroundconnection.utils.LogNotes;
 import com.dyhc.sdglgroundconnection.utils.ReponseResult;
 import com.fasterxml.jackson.databind.ObjectMapper;
@@ -10,7 +10,6 @@ import com.github.pagehelper.PageInfo;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.stereotype.Service;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
@@ -18,12 +17,10 @@ import org.springframework.web.bind.annotation.RestController;
 import org.springframework.web.context.request.RequestContextHolder;
 import org.springframework.web.context.request.ServletRequestAttributes;
 import org.springframework.web.multipart.MultipartFile;
-import sun.security.provider.MD5;
 
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpSession;
 import java.security.MessageDigest;
-import java.util.Date;
 import java.util.List;
 
 /**
@@ -176,13 +173,13 @@ public class StaffController  {
      */
     @LogNotes(operationType="人员信息",content="添加")
     @PostMapping("/StaffAdd.html")
-    public ReponseResult StaffAdd(HttpServletRequest request, @RequestParam(value = "headPortraitPath",required = false)MultipartFile headPortraitPath, @RequestParam("savePath")String savePath){
+    public ReponseResult StaffAdd(HttpServletRequest request, @RequestParam(value = "headPortraitPath",required = false)MultipartFile headPortraitPath){
         try{
             String staff1=request.getParameter("staff");
             ObjectMapper objectMapper=new ObjectMapper();
             Staff staff2=objectMapper.readValue(staff1,Staff.class);
             Integer i=0;
-            String uploadResult=FileUploadUtil.uploadImage(headPortraitPath,savePath,".jpg");
+            String uploadResult=ClientFileUploadUtil.uploadImage(headPortraitPath,".jpg");
             staff2.setHeadPortraitPath(uploadResult);
             if(staff2.getStaffId()!=0){
                 i=staffService.getStaffUpdTwo(staff2);
@@ -277,14 +274,14 @@ public class StaffController  {
      */
     @RequestMapping("updateStaffInfo1")
     @LogNotes(operationType="工作人员",content="修改")
-    public ReponseResult updateStaffInfo1(HttpServletRequest request ,@RequestParam("multipartFile") MultipartFile multipartFile, @RequestParam("savePath") String savePath){
+    public ReponseResult updateStaffInfo1(HttpServletRequest request ,@RequestParam("multipartFile") MultipartFile multipartFile){
         try {
             String currentAddress=request.getParameter("currentAddress");
             String phone=request.getParameter("phone");
             String qqnumber=request.getParameter("qqnumber");
             String id=request.getParameter("staffId");
             Integer staffId=Integer.parseInt(id);
-            String uploadResult = FileUploadUtil.uploadImage(multipartFile, savePath, ".jpg");
+            String uploadResult = ClientFileUploadUtil.uploadImage(multipartFile,".jpg");
             ReponseResult<Integer> data=null;
             if (!"".equals(uploadResult)) {
                 logger.info(" method:updateStaffInfo 上传图片成功！");

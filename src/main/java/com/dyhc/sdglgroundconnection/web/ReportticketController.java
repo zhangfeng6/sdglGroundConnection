@@ -1,5 +1,7 @@
 package com.dyhc.sdglgroundconnection.web;
 
+import com.dyhc.sdglgroundconnection.mapper.ReportdetailMapper;
+import com.dyhc.sdglgroundconnection.pojo.Reportdetail;
 import com.dyhc.sdglgroundconnection.pojo.Reportqutsubsidy;
 import com.dyhc.sdglgroundconnection.pojo.Reportticket;
 import com.dyhc.sdglgroundconnection.service.ReportticketService;
@@ -19,14 +21,15 @@ import java.util.Date;
  * this class by created wuyongfei on 2018/6/5 13:50
  * 导游报账门票 控制层
  **/
-@RequestMapping("Reportticket")
+@RequestMapping("/Reportticket")
 @RestController
 public class ReportticketController {
     // 日志对象
     private Logger logger = LoggerFactory.getLogger(ReportticketController.class);
     @Autowired
     private ReportticketService reportticketService;
-
+    @Autowired
+    private ReportdetailMapper reportdetailMapper;
     /**
      * 导游报账住宿新增
      * @param
@@ -35,17 +38,21 @@ public class ReportticketController {
     @LogNotes(operationType="导游门票明细",content="门票新增")
     @RequestMapping("/saveReportticket")
     public ReponseResult saveReportqutsubsidy(
+            @RequestParam("dispatchId")Integer dispatchId,
             @RequestParam("attrName") String attrName,@RequestParam("price") Double price,
             @RequestParam("nums")Integer nums, @RequestParam("payMethods")String payMethods){
-        Reportticket reportticket =new Reportticket();
-        reportticket.setCreateBy(1);
-        reportticket.setCreateDate(new Date());
-        reportticket.setStatus(0);
-        reportticket.setAttrName(attrName);
-        reportticket.setPrice(price);
-        reportticket.setNums(nums);
-        reportticket.setPayMethods(payMethods);
+
         try {
+            Reportdetail reportdetail =reportdetailMapper.All_dispatchId(dispatchId);
+            Reportticket reportticket =new Reportticket();
+            reportticket.setReportDetailId(reportdetail.getReportDetailId());
+            reportticket.setCreateBy(1);
+            reportticket.setCreateDate(new Date());
+            reportticket.setStatus(0);
+            reportticket.setAttrName(attrName);
+            reportticket.setPrice(price);
+            reportticket.setNums(nums);
+            reportticket.setPayMethods(payMethods);
             Integer num=reportticketService.saveReportticket(reportticket);
             logger.info("method:saveReportqutsubsidy 导游门票明细新增成功");
             ReponseResult<Integer> data =ReponseResult.ok(num,"保存成功");

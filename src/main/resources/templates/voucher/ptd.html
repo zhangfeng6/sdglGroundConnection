@@ -9,7 +9,7 @@
 	<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
 	<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
 	<link rel="stylesheet" type="text/css" href="/admin/layui/css/layui.css" />
-	<style type="text/css">
+	<style type="text/css" id="yangshi">
 		#tableone tr td {
 			width: 20px;
 			height: 12px;
@@ -29,7 +29,7 @@
 </head>
 
 <body >
-
+<div id="form1">
 <div style="height: 500px; width: 700px; margin: auto;">
 	<div id="tupian" style="width: 635px;">
 		<img src="/images/logo.jpg" width="640px" height="50px">
@@ -37,7 +37,7 @@
 	<h2 style="text-align: center; font-size:26px;">导游接团任务工作单(派团单)</h2>
 	<p style="text-indent: 400px; font-size: 20px;">编号:</p>
 	<p style="font-size: 18px;" ><span id="one"></span>:(导游证件号：<span id="ten"></span>)</p>
-	<P style="text-indent: 2em;font-size: 20px;">请按照旅行社确定的行程计做好导游工作，保证旅游行程	按计划执行，<br/>并按标准提供服务</P>
+	<P style="text-indent: 2em;font-size: 20px; border: 1px solid red">请按照旅行社确定的行程计做好导游工作，保证旅游行程	按计划执行，并按标准提供服务</P>
 
 	<table style="" id="tableone" width="670px" height="280px">
 		<tr>
@@ -127,11 +127,14 @@
 
 	</table>
 	<p style="font-size: 16px;">团队行程详见《团队运行接待计划表》  &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;  <span >山西世达国际旅行社(盖章)</span></p>
-	<p><button style=" margin-left: 250px" class='layui-btn layui-btn-normal layui-btn-radius' type="button" id="baocun">打印导游接团任务工作单</button></p>
+</div>
+	<p><button style=" margin-left: 250px" class='layui-btn layui-btn-normal layui-btn-radius' type="button" id="baocun" onclick="prn1_preview()">打印导游接团任务工作单</button></p>
 </div>
 
 
 <script src="/js/jquery-1.8.2.min.js"></script>
+<script src="/js/LodopFuncs.js"></script>
+<script src='http://localhost:8000/CLodopfuncs.js?name=CLODOPA'></script>
 <script>
     $(function () {
         kaishi();
@@ -222,6 +225,33 @@
             }
         })
     }
+
+    var LODOP; //声明为全局变量
+    // 打印预览
+    function prn1_preview() {
+        CreateOneFormPage();
+        LODOP.PREVIEW();
+    };
+    // 直接打印
+    function prn1_print() {
+        CreateOneFormPage();
+        LODOP.PRINT();
+    };
+    // 选择打印机
+    function prn1_printA() {
+        CreateOneFormPage();
+        LODOP.PRINTA();
+    };
+    // 创建打印页面
+    function CreateOneFormPage(){
+        LODOP=getLodop();
+        LODOP.PRINT_INIT("打印控件功能演示_Lodop功能_表单一");
+        LODOP.SET_PRINT_STYLE("FontSize",18);
+        LODOP.SET_PRINT_STYLE("Bold",1);
+        var strBodyStyle = "<style>" + document.getElementById("yangshi").innerHTML + "</style>";
+        LODOP.ADD_PRINT_HTM(10,20,500,5000,strBodyStyle+document.getElementById("form1").innerHTML);
+    };
+
 </script>
 </body>
 

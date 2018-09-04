@@ -79,6 +79,7 @@ public class WeChatController {
     @RequestMapping("/saveReportaccommodation")
     @ResponseBody
     public ReponseResult saveAccountType(
+            @RequestParam("dispatchId")Integer dispatchId,
             @RequestParam("hotelName")String hotelName,
             @RequestParam("typeId")Integer typeId,
             @RequestParam("housePrice")Double housePrice,
@@ -87,8 +88,8 @@ public class WeChatController {
             @RequestParam("accompanyingPrice")Double accompanyingPrice,
             @RequestParam("subtotal")Double subtotal,
             @RequestParam("payMethods")String payMethods){
+
         try {
-            Integer dispatchId=1;
             //创建总报账表的对象
             Reportdetail reportdetail =reportdetailMapper.All_dispatchId(dispatchId);
             //创建报账住宿
@@ -126,6 +127,7 @@ public class WeChatController {
     @RequestMapping("/dictionaries")
     @ResponseBody
     public ReponseResult dictionaries(
+            @RequestParam("dispatchId")Integer dispatchId,
             @RequestParam("valueId")Integer valueId,
             @RequestParam("remarks")String remarks,
             @RequestParam("receipt")Double receipt,
@@ -135,7 +137,7 @@ public class WeChatController {
         //创建导游报账总表信息
         try{
             Reportdetail reportdetail =new Reportdetail();
-            reportdetail.setDispatchId(1);
+            reportdetail.setDispatchId(dispatchId);
             reportdetail.setReportDate(new Date());
             reportdetail.setReceipt(receipt);
             reportdetail.setTotalPayable(totalPayable);
@@ -473,6 +475,32 @@ public class WeChatController {
             e.printStackTrace();
             logger.error("method:getTemplateById  获取行程内容失败");
             return ReponseResult.err("获取行程内容失败");
+        }
+    }
+
+    /**
+     * 修改导游头像
+     * @param request
+     * @return
+     */
+    @RequestMapping("/updateTX")
+    @ResponseBody
+    public ReponseResult updateTX(HttpServletRequest request){
+        try {
+            Integer guideId=Integer.parseInt(request.getParameter("guideId"));
+            String tx=WechatFileUploadUtil.uploadImage(request,".jpg");
+            Integer result=guideService.updateTX(guideId,tx);
+            if (result==1){
+                logger.error("method:updateTX  修改头像成功");
+                return ReponseResult.ok(tx,"修改头像成功");
+            }else {
+                logger.error("method:updateTX  修改头像失败");
+                return ReponseResult.err("修改头像失败");
+            }
+        }catch (Exception e){
+            e.printStackTrace();
+            logger.error("method:updateTX  修改头像失败");
+            return ReponseResult.err("修改头像失败");
         }
     }
 }

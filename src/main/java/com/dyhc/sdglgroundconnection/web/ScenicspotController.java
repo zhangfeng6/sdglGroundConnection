@@ -3,7 +3,7 @@ package com.dyhc.sdglgroundconnection.web;
 import com.dyhc.sdglgroundconnection.pojo.Scenicspot;
 import com.dyhc.sdglgroundconnection.service.ScenicspotService;
 import com.dyhc.sdglgroundconnection.service.ShoppingService;
-import com.dyhc.sdglgroundconnection.utils.FileUploadUtil;
+import com.dyhc.sdglgroundconnection.utils.ClientFileUploadUtil;
 import com.dyhc.sdglgroundconnection.utils.LogNotes;
 import com.dyhc.sdglgroundconnection.utils.ReponseResult;
 import com.fasterxml.jackson.databind.ObjectMapper;
@@ -103,13 +103,13 @@ public class ScenicspotController {
      */
     @PostMapping("insertScenicspotInfo")
     @LogNotes(operationType="景点",content="添加")
-    public ReponseResult insertScenicspotInfo(HttpServletRequest request , @RequestParam("multipartFile") MultipartFile multipartFile, @RequestParam("savePath") String savePath){
+    public ReponseResult insertScenicspotInfo(HttpServletRequest request , @RequestParam("multipartFile") MultipartFile multipartFile){
         try {
             String scenicspot1 = request.getParameter("scenicspot");
             ObjectMapper objectMapper = new ObjectMapper();
             Scenicspot scenicspot2 = objectMapper.readValue(scenicspot1, Scenicspot.class);
             // 上传图片操作
-            String uploadResult = FileUploadUtil.uploadImage(multipartFile, savePath, ".jpg");
+            String uploadResult = ClientFileUploadUtil.uploadImage(multipartFile,".jpg");
            scenicspot2.setTypeCode("ATTRACTIONS");
            scenicspot2.setCreateDate(new Date());
            scenicspot2.setCreateBy(1);
@@ -162,13 +162,13 @@ public class ScenicspotController {
      */
     @PostMapping("updateScenicspotInfo")
     @LogNotes(operationType="景点",content="修改")
-    public ReponseResult updateScenicspotInfo(HttpServletRequest request , @RequestParam("multipartFile") MultipartFile multipartFile, @RequestParam("savePath") String savePath){
+    public ReponseResult updateScenicspotInfo(HttpServletRequest request , @RequestParam("multipartFile") MultipartFile multipartFile){
         try {
             String scenicspot1 = request.getParameter("scenicspot");
             ObjectMapper objectMapper = new ObjectMapper();
             Scenicspot scenicspot2 = objectMapper.readValue(scenicspot1, Scenicspot.class);
             // 上传图片操作
-            String uploadResult = FileUploadUtil.uploadImage(multipartFile, savePath, ".jpg");
+            String uploadResult = ClientFileUploadUtil.uploadImage(multipartFile, ".jpg");
             scenicspot2.setTypeCode("ATTRACTIONS");
             scenicspot2.setUpdateDate(new Date());
             scenicspot2.setUpdateBy(1);

@@ -27,7 +27,11 @@
     <select id="pdcertificate" resultType="com.dyhc.sdglgroundconnection.pojo.Guide">
       select  * from  guide where  certificate=#{certificate}
     </select>
-    
+
+    <update id="updateTX">
+        UPDATE `guide` SET picturePath=#{tx}   WHERE guideId=#{guideId}
+    </update>
+
     <select id="listNoDelGuide" resultType="com.dyhc.sdglgroundconnection.pojo.Guide">
         SELECT * FROM guide WHERE whetherDel != 1
     </select>

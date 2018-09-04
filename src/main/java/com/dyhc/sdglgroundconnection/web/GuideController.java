@@ -85,6 +85,7 @@ public class GuideController{
     @LogNotes(operationType="导游表",content="导游新增")
     @RequestMapping("/guideSave")
     public  ReponseResult saveGuide(Guide guide){
+        guide.setPicturePath("BBK.jpg");
         try {
             ReponseResult<Integer> data =ReponseResult.ok(guideService.saveGuide(guide),"导游信息新增成功!");
             logger.info("method:showAccountType 导游信息新增成功");

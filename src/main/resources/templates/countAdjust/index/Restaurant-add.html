@@ -141,7 +141,6 @@
             var restaurant = $("form").serialize();
             restaurant= decodeURIComponent(restaurant,true);//防止中文乱码
             var jsondata=DataDeal.formToJson(restaurant)
-            var savePath = "D://Y2\\世达国旅/sdglGroundConnection/src/main/resources/static/images/"; // 图片保存路径
             var fileObj = document.getElementById("file").files[0]; // 获取文件对象
             // formData对象，用来序列化二进制数据
             var formData = new FormData();
@@ -195,12 +194,10 @@
             var restaurant = $("form").serialize();
             restaurant= decodeURIComponent(restaurant,true);//防止中文乱码
             var jsondata=DataDeal.formToJson(restaurant)
-            var savePath = "D://Y2\\世达国旅/sdglGroundConnection/src/main/resources/static/images/"; // 图片保存路径
             var fileObj = document.getElementById("file").files[0]; // 获取文件对象
             // formData对象，用来序列化二进制数据
             var formData = new FormData();
             formData.append("multipartFile", fileObj);
-            formData.append("savePath", savePath);
             formData.append("restaurant",jsondata)
 			var phone = $("[name=phone]").val();
             if (phone=='' || phone==null||phone==undefined){

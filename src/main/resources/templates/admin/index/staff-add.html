@@ -152,12 +152,10 @@
                 var staff = $("form").serialize();
                 staff = decodeURIComponent(staff, true);//防止乱码
                 var jsondata = DataDeal.formToJson(staff)
-                var savePath = "D://Y2\\世达国旅/sdglGroundConnection/src/main/resources/static/images/";//图片路径
                 var fileObj = document.getElementById("file").files[0];//获取文件对象
                 //formData对象，用来序列二进制数据
                 var forData = new FormData();
                 forData.append("headPortraitPath", fileObj);
-                forData.append("savePath", savePath);
                 forData.append("staff", jsondata);
                 $.ajax({
                     url: "/Staff/StaffAdd.html",
@@ -278,7 +276,6 @@
                 var staff = $("form").serialize();
                 staff = decodeURIComponent(staff, true);//防止乱码
                 var jsondata = DataDeal.formToJson(staff)
-                var savePath = "D://Y2\\世达国旅/sdglGroundConnection/src/main/resources/static/images/";//图片路径
                 var fileObj = document.getElementById("file").files[0];//获取文件对象
                 //formData对象，用来序列二进制数据
                 var forData = new FormData();

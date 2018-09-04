@@ -239,12 +239,10 @@
                 var scenicspot=$("form").serialize();
                 scenicspot= decodeURIComponent(scenicspot,true);//防止中文乱码
                 var jsondata=DataDeal.formToJson(scenicspot);//转化为json
-                var savePath = "D://Y2\\世达国旅/sdglGroundConnection/src/main/resources/static/images/"; // 图片保存路径
                 var fileObj = document.getElementById("imageFile").files[0];  // 获取图片对象
                 //formData对象，用来序列化二进制数据
                 var formData = new FormData();
                 formData.append("multipartFile", fileObj);
-                formData.append("savePath", savePath);
                 formData.append("scenicspot",jsondata);
                 var scenicSpotId=$("input[name='scenicSpotId']").val();
                 if (scenicSpotId==0){

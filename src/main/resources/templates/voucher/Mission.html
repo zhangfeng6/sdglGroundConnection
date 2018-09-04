@@ -4,28 +4,22 @@
 		<meta charset="utf-8" />
 		<title></title>
 		<link rel="stylesheet" type="text/css" href="/admin/layui/css/layui.css" />
-		<style>
+		<style id="yangshi">
 			#header{
-				margin: 0px auto;
 				border: 2px black solid;
-				width: 60%;
+				width: 80%;
 			}
 			table{
 				width: 100%;
 			}
-			#tou{
-				margin-left: 650px;
-			}
-			#xianmian{
-				margin-left: 310px;
-				font-size: 14px;
-			}
 		</style>
 	</head>
 	<body>
-		<div id="tupian" style="width: 635px;margin-left: 355px;">
+	<div id="form1" style="width: 100%">
+		<div style="margin: 0 auto;width: 80%">
+		<div id="tupian" style="width: 100%;">
                 <img src="/images/logo.jpg" width="640px" height="50px">
-       		 </div>
+		</div>
 		<div id="tou">
 			<p style=" text-decoration: underline; font-size: 30px;">派&nbsp;&nbsp;&nbsp;&nbsp;团&nbsp;&nbsp;&nbsp;&nbsp;单</p>
 		</div>
@@ -134,8 +128,8 @@
 		    			<td>50*9=360<br />含酒水果盘</td>
 		    			<td>景江订5标<br/>签单</td>
 		    			<td>2床</td>
-		    		</tr>-->
-		    			<!--<tr>
+		    		</tr>
+		    			<tr>
 		    				<td>总计</td>
 		    				<td colspan="6" style="background-color:  darkgrey;">餐：现付3948元，房：现付5750元，合计：现付9698</td>
 		    			</tr>-->
@@ -247,9 +241,13 @@
 			<p>2. 如行程外发生计划外支出请务必及时联络公司有关计调，否则费用不予报销。</p>
 			<p>3. 请严格按照我公司有关地接导游带团规范进行作业，以进一步确保接待质量。</p>
 		</div>
-		<p><button style=" margin-left: 300px" class='layui-btn layui-btn-normal layui-btn-radius' type="button" id="baocun">打印派团单</button></p>
+		</div>
+	</div>
+		<p><button style=" margin-left: 300px" class='layui-btn layui-btn-normal layui-btn-radius' type="button" id="baocun" onclick="prn1_preview()">打印派团单</button></p>
 	</body>
 	<script src="/js/jquery-3.3.1.min.js"></script>
+	<script src="/js/LodopFuncs.js"></script>
+	<script src='http://localhost:8000/CLodopfuncs.js?name=CLODOPA'></script>
 	<script>
 		$(function(){
 		    kaishi();
@@ -460,5 +458,32 @@
                 }
             })
         }
+
+        var LODOP; //声明为全局变量
+        // 打印预览
+        function prn1_preview() {
+            CreateOneFormPage();
+            LODOP.PREVIEW();
+        };
+        // 直接打印
+        function prn1_print() {
+            CreateOneFormPage();
+            LODOP.PRINT();
+        };
+        // 选择打印机
+        function prn1_printA() {
+            CreateOneFormPage();
+            LODOP.PRINTA();
+        };
+        // 创建打印页面
+        function CreateOneFormPage(){
+            LODOP=getLodop();
+            LODOP.PRINT_INIT("打印控件功能演示_Lodop功能_表单一");
+            LODOP.SET_PRINT_STYLE("FontSize",18);
+            LODOP.SET_PRINT_STYLE("Bold",1);
+            var strBodyStyle = "<style>" + document.getElementById("yangshi").innerHTML + "</style>";
+            LODOP.ADD_PRINT_HTM(10,20,500,5000,strBodyStyle+document.getElementById("form1").innerHTML);
+        };
+
 	</script>
 </html>

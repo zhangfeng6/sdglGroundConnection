@@ -2,7 +2,7 @@ package com.dyhc.sdglgroundconnection.web;
 import com.dyhc.sdglgroundconnection.pojo.*;
 import com.dyhc.sdglgroundconnection.service.DispatchhotelService;
 import com.dyhc.sdglgroundconnection.service.HotelService;
-import com.dyhc.sdglgroundconnection.utils.FileUploadUtil;
+import com.dyhc.sdglgroundconnection.utils.ClientFileUploadUtil;
 import com.dyhc.sdglgroundconnection.utils.LogNotes;
 import com.dyhc.sdglgroundconnection.utils.ReponseResult;
 import com.fasterxml.jackson.databind.ObjectMapper;
@@ -10,7 +10,6 @@ import com.github.pagehelper.PageInfo;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.stereotype.Service;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
@@ -210,7 +209,7 @@ public class HotelController {
             ObjectMapper objectMapper =new ObjectMapper();
             // 创建酒店对象
             Hotel hotel =objectMapper.readValue(form,Hotel.class);
-            hotel.setPicturePath(FileUploadUtil.uploadImage(picturePath,".jpg"));
+            hotel.setPicturePath(ClientFileUploadUtil.uploadImage(picturePath,".jpg"));
             Integer  num =hotelService.saveHotel(hotel);
             ReponseResult<Integer> data = ReponseResult.ok(num,"酒店新增成功");
             logger.info(" method:showHotel  酒店新增成功！");
@@ -238,7 +237,7 @@ public class HotelController {
             ObjectMapper objectMapper =new ObjectMapper();
             // 创建酒店对象
             Hotel hotel =objectMapper.readValue(form,Hotel.class);
-            hotel.setPicturePath(FileUploadUtil.uploadImage(picturePath,".jpg"));
+            hotel.setPicturePath(ClientFileUploadUtil.uploadImage(picturePath,".jpg"));
 
             Integer  num =hotelService.updateHotel(hotel);
             ReponseResult<Integer> data = ReponseResult.ok(num,"酒店修改成功");

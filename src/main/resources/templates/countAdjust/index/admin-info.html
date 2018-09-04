@@ -168,7 +168,6 @@
              var phone=$("input[name='phone1']").val();
              var qqnumber=$("input[name='qqnumber1']").val();
              var staffId=$("#staffId1").text();
-             var savePath = "D://北大青鸟/万达国旅地接社系统/images"; // 图片保存路径
              var fileObj = document.getElementById("imageFile").files[0];  // 获取图片对象
              // formData对象，用来序列化二进制数据
              var formData = new FormData();
@@ -181,7 +180,6 @@
                  return;
              }else if (fileObj!=undefined) {
                  formData.append("multipartFile", fileObj);
-                 formData.append("savePath", savePath);
                  $.ajax({
                      type: "post",
                      url: "http://localhost:8888/Staff/updateStaffInfo1",

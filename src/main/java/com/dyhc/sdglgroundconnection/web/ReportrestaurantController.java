@@ -1,4 +1,6 @@
 package com.dyhc.sdglgroundconnection.web;
+import com.dyhc.sdglgroundconnection.mapper.ReportdetailMapper;
+import com.dyhc.sdglgroundconnection.pojo.Reportdetail;
 import com.dyhc.sdglgroundconnection.pojo.Reportrestaurant;
 import com.dyhc.sdglgroundconnection.service.ReportrestaurantService;
 import com.dyhc.sdglgroundconnection.utils.LogNotes;
@@ -15,7 +17,7 @@ import java.util.Date;
  * this class by created wuyongfei on 2018/6/5 13:50
  * 导游报账餐厅 控制层
  **/
-@RequestMapping("Reportrestaurant")
+@RequestMapping("/Reportrestaurant")
 @RestController
 public class ReportrestaurantController {
 
@@ -24,6 +26,8 @@ public class ReportrestaurantController {
 
     @Autowired
     private ReportrestaurantService reportrestaurantService;
+    @Autowired
+    private ReportdetailMapper reportdetailMapper;
 
     /**
      * 导游报账住宿新增
@@ -33,6 +37,7 @@ public class ReportrestaurantController {
     @LogNotes(operationType="导游餐厅明细",content="餐厅新增")
     @RequestMapping("/saveStaurant")
     public ReponseResult savereportrestaurant(
+           @RequestParam("dispatchId")Integer dispatchId,
            @RequestParam("LuncheonName") String LuncheonName,
            @RequestParam("lunchMeal")Double lunchMeal,
            @RequestParam("lunchEatNum")  Integer lunchEatNum,
@@ -44,20 +49,26 @@ public class ReportrestaurantController {
            @RequestParam("dinnerother") Double dinnerother,
            @RequestParam("dinnerPayMethods")  String dinnerPayMethods
           ){
-        Reportrestaurant reportrestaurant =new Reportrestaurant();
-        reportrestaurant.setLunchDate(new Date());
-        reportrestaurant.setDinnerName(dinnerName);
-        reportrestaurant.setLuncheonName(LuncheonName);
-        reportrestaurant.setLunchMeal(lunchMeal);
-        reportrestaurant.setLunchEatNum(lunchEatNum);
-        reportrestaurant.setLunchother(lunchother);
-        reportrestaurant.setLunchPayMethods(lunchPayMethods);
-        reportrestaurant.setDinnerDate(new Date());
-        reportrestaurant.setDinnerMeal(dinnerMeal);
-        reportrestaurant.setDinnerPayMethods(dinnerPayMethods);
-        reportrestaurant.setDinnerEatNum(dinnerEatNum);
-        reportrestaurant.setDinnerother(dinnerother);
+
             try {
+                //创建总报账表的对象
+                Reportdetail reportdetail =reportdetailMapper.All_dispatchId(dispatchId);
+                Reportrestaurant reportrestaurant =new Reportrestaurant();
+                reportrestaurant.setLunchDate(new Date());
+                reportrestaurant.setDinnerName(dinnerName);
+                reportrestaurant.setLuncheonName(LuncheonName);
+                reportrestaurant.setLunchMeal(lunchMeal);
+                reportrestaurant.setLunchEatNum(lunchEatNum);
+                reportrestaurant.setLunchother(lunchother);
+                reportrestaurant.setLunchPayMethods(lunchPayMethods);
+                reportrestaurant.setDinnerDate(new Date());
+                reportrestaurant.setDinnerMeal(dinnerMeal);
+                reportrestaurant.setDinnerPayMethods(dinnerPayMethods);
+                reportrestaurant.setDinnerEatNum(dinnerEatNum);
+                reportrestaurant.setDinnerother(dinnerother);
+                reportrestaurant.setCreateDate(new Date());
+                reportrestaurant.setStatus(0);
+                reportrestaurant.setReportDetailId(reportdetail.getReportDetailId());
             Integer num=reportrestaurantService.saveReportrestaurant(reportrestaurant);
             logger.info("method:savereportaccommodation 导游餐馆明细新增成功");
             ReponseResult<Integer> data =ReponseResult.ok(num,"保存成功");

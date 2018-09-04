@@ -110,4 +110,13 @@ public interface GuideService {
     List<Guide> listGuideName()throws Exception;
 
 
+    /**
+     *修改导游头像
+     * @param guideId
+     * @param tx
+     * @throws Exception
+     */
+    Integer updateTX(Integer guideId,String tx)throws Exception ;
+
+
 }
