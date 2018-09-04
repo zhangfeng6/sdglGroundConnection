@@ -48,7 +48,7 @@
 								<div class="layui-form-item">
 									<label class="layui-form-label">图片地址：</label>
 									<div class="layui-input-block">
-										<input type="file" id="imageFile" name="multipartFile" style="float: left"/>
+										<input type="file" id="imageFile" name="multipartFile" style="float: left" onchange="aa()"/>
 										<img src="" id="tp" style="width: 100px;height: 50px;float: left">
 										<!--<i class="layui-icon ">&#xe67c;</i>上传图片-->
 									</div>
@@ -145,8 +145,19 @@
             }else {
                 $("#tp").css("display","block");
             }
+
         });
 		
+		function aa() {
+            var oFReader = new FileReader();
+            var file = document.getElementById('imageFile').files[0];
+            oFReader.readAsDataURL(file);
+            oFReader.onloadend = function(oFRevent){
+                var src = oFRevent.target.result;
+                $('#tp').attr('src',src);
+            }
+            $("#tp").css("display","block");
+        }
 
 
 
@@ -194,7 +205,7 @@
 		 * 添加景点信息
          */
         function insertScenicspotInfo() {
-            $("#tp").css("display","none");
+
             var scenicSpotName=$("input[name='scenicSpotName']").val();
             var typeId=$("select[name='typeId']").val();
             var scenicSpotAddress=$("input[name='scenicSpotAddress']").val();
