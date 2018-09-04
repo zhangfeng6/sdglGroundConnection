@@ -1,5 +1,4 @@
 package com.dyhc.sdglgroundconnection.web;
-
 import com.dyhc.sdglgroundconnection.mapper.ReportdetailMapper;
 import com.dyhc.sdglgroundconnection.pojo.Reportdetail;
 import com.dyhc.sdglgroundconnection.pojo.Reportingotherexpenses;
@@ -16,7 +15,6 @@ import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 
 import java.util.Date;
-
 /**
  * this class by created wuyongfei on 2018/6/5 13:50
  * 导游报账其他支出 控制层
@@ -24,7 +22,6 @@ import java.util.Date;
 @RequestMapping("/Reportingotherexpenses")
 @RestController
 public class ReportingotherexpensesController {
-
     // 日志对象
     private Logger logger = LoggerFactory.getLogger(ReportingotherexpensesController.class);
 
@@ -46,6 +43,7 @@ public class ReportingotherexpensesController {
             @RequestParam("Signing")Double Signing,
             @RequestParam("total")Double total){
         Reportdetail reportdetail =reportdetailMapper.All_dispatchId(dispatchId);
+        System.out.println(reportdetail.getReportDetailId());
         Reportingotherexpenses reportingotherexpenses=new Reportingotherexpenses();
         reportingotherexpenses.setReportDetailId(reportdetail.getReportDetailId());
         reportingotherexpenses.setCreateBy(1);

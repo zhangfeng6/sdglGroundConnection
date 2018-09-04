@@ -1,6 +1,8 @@
 package com.dyhc.sdglgroundconnection.web;
 
+import com.dyhc.sdglgroundconnection.pojo.Dispatch;
 import com.dyhc.sdglgroundconnection.pojo.Reportdetail;
+import com.dyhc.sdglgroundconnection.service.DispatchService;
 import com.dyhc.sdglgroundconnection.service.ReportdetailService;
 import com.dyhc.sdglgroundconnection.utils.LogNotes;
 import com.dyhc.sdglgroundconnection.utils.ReponseResult;
@@ -26,6 +28,8 @@ public class ReportdetailController {
 
     @Autowired
     private ReportdetailService reportdetailService;
+    @Autowired
+    private DispatchService dispatchService;
 
 
     /**
@@ -98,8 +102,21 @@ public class ReportdetailController {
     public ReponseResult tgShenHe(Integer reportDetailId){
         try {
             Integer result=reportdetailService.tgShenHe(reportDetailId);
-            ReponseResult data=ReponseResult.ok(result,"报账审核成功");
-            logger.info("mothod:tgShenHe 报账审核成功");
+            ReponseResult data=null;
+            if (result==1){
+                Reportdetail reportdetail=reportdetailService.getReportdetailById(reportDetailId);
+                Integer re=dispatchService.updateDispatchById(reportdetail.getDispatchId());
+                if (re==1){
+                    data=ReponseResult.ok(result,"报账审核成功");
+                    logger.info("mothod:tgShenHe 报账审核成功");
+                }else {
+                    logger.error("mothod:tgShenHe 报账审核失败");
+                    data=ReponseResult.err("报账审核失败");
+                }
+            }else {
+                logger.error("mothod:tgShenHe 报账审核失败");
+                data=ReponseResult.err("报账审核失败");
+            }
             return data;
         }catch (Exception e){
             e.printStackTrace();

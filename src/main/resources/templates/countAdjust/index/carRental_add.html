@@ -94,8 +94,11 @@
 				}else  if($("input[name='phone']").val()==""){
                     alert("请输入联系人");
                     return;
-                }else  if($("input[name='contacts']")==""){
+                }else  if($("input[name='contacts']").val()==""){
                     alert("请输入联系电话");
+                    return;
+                }else  if($("input[name='phone']").val().length!=11){
+                    alert("联系电话的有效长度为11位");
                     return;
                 }else  if($("input[name='companyAddress']").val()==""){
                     alert("请输入公司的地址");

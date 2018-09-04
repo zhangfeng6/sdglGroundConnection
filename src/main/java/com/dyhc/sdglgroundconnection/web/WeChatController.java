@@ -264,34 +264,44 @@ public class WeChatController {
             Integer billTypeId=Integer.parseInt(request.getParameter("billTypeId"));
             String path= WechatFileUploadUtil.uploadImage(request,".jpg");
             Bill bill=billService.selectBillByDispatchIdAndBillTypeId(dispatchId,billTypeId);
-            if (bill==null){
-                bill.setDispatchId(dispatchId);
-                bill.setBillTypeId(billTypeId);
-                bill.setPicturePath(path);
-                bill.setWhetherDel(0);
-                bill.setCreateBy(1);
-                bill.setCreateDate(new Date());
-                Integer result=billService.insertBill(bill);
-                if (result==1){
-                    logger.info("mothod:upload 上传成功");
-                    return ReponseResult.ok(result,"上传成功");
+            ReponseResult data=null;
+            if (!path.equals("")){
+                if (bill==null){
+                    bill=new Bill();
+                    bill.setDispatchId(dispatchId);
+                    bill.setBillTypeId(billTypeId);
+                    bill.setPicturePath(path);
+                    bill.setWhetherDel(0);
+                    bill.setCreateBy(1);
+                    bill.setCreateDate(new Date());
+                    Integer result=billService.insertBill(bill);
+                    if (result==1){
+                        logger.info("mothod:upload 上传成功");
+                        data=ReponseResult.ok(result,"上传成功");
+
+                    }else {
+                        logger.error("mothod:upload 上传失败");
+                        data=ReponseResult.err("上传失败");
+
+                    }
                 }else {
-                    logger.error("mothod:upload 上传失败");
-                    return ReponseResult.err("上传失败");
+                    String lujing=bill.getPicturePath();
+                    lujing+=","+path;
+                    bill.setPicturePath(lujing);
+                    Integer result=billService.updateBillById(bill);
+                    if (result==1){
+                        logger.info("mothod:upload 上传成功");
+                        data=ReponseResult.ok(result,"上传成功");
+                    }else {
+                        logger.error("mothod:upload 上传失败");
+                        data=ReponseResult.err("上传失败");
+                    }
                 }
             }else {
-                String lujing=bill.getPicturePath();
-                lujing+=","+path;
-                bill.setPicturePath(lujing);
-                Integer result=billService.updateBillById(bill);
-                if (result==1){
-                    logger.info("mothod:upload 上传成功");
-                    return ReponseResult.ok(result,"上传成功");
-                }else {
-                    logger.error("mothod:upload 上传失败");
-                    return ReponseResult.err("上传失败");
-                }
+                logger.error("mothod:upload 上传失败");
+                data=ReponseResult.err("上传失败");
             }
+            return data;
         }catch (Exception e){
             e.printStackTrace();
             logger.error("mothod:upload 上传失败");
@@ -460,12 +470,29 @@ public class WeChatController {
     @ResponseBody
     public ReponseResult getRestaurantById(Integer dispatchId,Integer weight){
         try {
-            Disrestaurant disrestaurant=disrestaurantService.getDisrestaurantById(dispatchId,weight);
+            List<Disrestaurant> disrestaurant=disrestaurantService.getDisrestaurantById(dispatchId,weight);
+            String aa="";
+            if (disrestaurant.size()!=0 && disrestaurant!=null){
+                List<MealType> mealType=new ArrayList<>();
+                for (Disrestaurant d:disrestaurant) {
+                    MealType mealType1=mealTypeService.selectById(d.getTypeId());
+                    mealType.add(mealType1);
+                }
+                List<Restaurant> restaurant=new ArrayList<>();
+                for (MealType m:mealType) {
+                    Restaurant restaurant1=restaurantService.selectRestaurantById(m.getRestaurantId());
+                    restaurant.add(restaurant1);
+                }
 
-            MealType mealType=mealTypeService.selectById(disrestaurant.getTypeId());
-            Restaurant restaurant=restaurantService.selectRestaurantById(mealType.getRestaurantId());
+                for (Restaurant r:restaurant) {
+                    aa+=r.getRestaurantName()+"、";
+                }
+            }else {
+                aa+="无";
+            }
+
             logger.info(" method:getRestaurantById  获取餐厅信息成功！");
-            return ReponseResult.ok(restaurant,"获取餐厅信息成功");
+            return ReponseResult.ok(aa,"获取餐厅信息成功");
         }catch (Exception e){
             e.printStackTrace();
             logger.error(" method:getRestaurantById  获取餐厅信息失败！");
@@ -483,10 +510,23 @@ public class WeChatController {
     @ResponseBody
     public ReponseResult getShoppingByIdWX(Integer dispatchId,Integer weight){
         try {
-            Disshopp disshopp=disshoppService.getDisshoppById(dispatchId,weight);
-            Shopping shopping=shoppingService.getShoppingById(disshopp.getScenicSpotId());
+            List<Disshopp> disshopp=disshoppService.getDisshoppById(dispatchId,weight);
+            String aa="";
+            if (disshopp.size()!=0 && disshopp!=null){
+                List<Shopping> shoppings=new ArrayList<>();
+                for (Disshopp d:disshopp) {
+                    Shopping shopping=shoppingService.getShoppingById(d.getScenicSpotId());
+                    shoppings.add(shopping);
+                }
+                for (Shopping s:shoppings) {
+                    aa+=s.getShoppingSite()+"、";
+                }
+            }else {
+                aa+="无";
+            }
+            System.out.println(aa);
             logger.info("method:getShoppingByIdWX  获取购物信息成功！");
-            return ReponseResult.ok(shopping,"获取购物地点成功");
+            return ReponseResult.ok(aa,"获取购物地点成功");
         }catch (Exception e){
             e.printStackTrace();
             logger.error("method:getShoppingByIdWX  获取购物信息失败！");

@@ -24,7 +24,7 @@ public interface DisrestaurantMapper extends CommonMapper<Disrestaurant>{
      * @return
      * @throws Exception
      */
-    Disrestaurant getDisrestaurantById(@Param("dispatchId") Integer dispatchId, @Param("weight") Integer weight)throws Exception;
+    List<Disrestaurant> getDisrestaurantById(@Param("dispatchId") Integer dispatchId, @Param("weight") Integer weight)throws Exception;
 
     /**
      * 查看用餐地点
