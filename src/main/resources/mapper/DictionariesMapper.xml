@@ -82,11 +82,11 @@
     </update>
     <!--车队类型-->
     <update id="getDictionariescarUpd">
-        UPDATE dictionaries SET valueContent1=#{valueContent1} WHERE dictionariesId=#{dictionariesId}
+        UPDATE dictionaries SET valueContent1=#{valueContent1},valueContent2=#{valueContent2},valueContent3=#{valueContent3} WHERE dictionariesId=#{dictionariesId}
     </update>
     <!--酒店类型-->
     <update id="getDictionariesHotelByUpd">
-        UPDATE dictionaries SET valueContent1=#{valueContent1} WHERE dictionariesId=#{dictionariesId}
+        UPDATE dictionaries SET valueContent1=#{valueContent1},valueContent2=#{valueContent2},valueContent3=#{valueContent3} WHERE dictionariesId=#{dictionariesId}
     </update>
 
     <!--餐厅类型-->
