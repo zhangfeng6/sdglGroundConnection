@@ -237,6 +237,13 @@ public class DispatchServiceImpl implements DispatchService {
         }
     }
 
+    @Override
+    public List<Date> list(Integer dispatchId)throws Exception {
+        Dispatch dispatch=dispatchMapper.dispatch(dispatchId);
+        List<Date> list1=getBetweenDates(dispatch.getTravelStartTime(),dispatch.getTravelEndTime());
+        return list1;
+    }
+
 
     /**
      * 根据参数类的数据进行新增调度及调度相关信息

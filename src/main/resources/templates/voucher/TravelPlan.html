@@ -247,21 +247,21 @@
             data:{dispatchId:id},
             type:"get",
             dataType:"json",
-            success:function (data) {
+            success:function (re) {
                 var content="";
                 var num=0;
-                $.each(data.data[0],function (i,e) {
-                    num++
-                    content+="<tr>" +
-                            "<td>"+num+"</td>"+
-                            "<td>"+data.data[3][i].riqi+"</td>"+
-                            "<td>"+data.data[3][i].templateContent+"</td>"+
-                            "<td>"+data.data[3][i].templateName+"</td>"+
-                            "<td>"+data.data[2][i]+"</td>"+
-                            "<td>"+data.data[1][i]+"</td>"+
-                            "<td>"+e+"</td>"+
-                        "</tr>";
-                })
+               $.each(re.data,function (i,e) {
+                   num++;
+                   content+="<tr>" +
+                               "<td>"+num+"</td>"+
+                               "<td>"+e[5]+"</td>"+
+                               "<td>"+e[3].split("——")[1]+"</td>"+
+                               "<td>"+e[4]+"</td>"+
+                               "<td>"+e[2]+"</td>"+
+                               "<td>"+e[1]+"</td>"+
+                               "<td>"+e[0]+"</td>"+
+                           "</tr>";
+               })
                 $("#xx").html(content);
             }
         })

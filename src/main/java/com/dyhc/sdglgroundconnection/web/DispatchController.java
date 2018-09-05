@@ -53,6 +53,17 @@ public class DispatchController {
     private HoteroomTypeService hoteroomTypeService;
     @Autowired
     private DiscarService discarService;
+    @Autowired
+    private HotelService hotelService;
+    @Autowired
+    private MealTypeService mealTypeService;
+    @Autowired
+    private RestaurantService restaurantService;
+
+    @Autowired
+    private ShoppingService shoppingService;
+    @Autowired
+    private TemplateService templateService;
 
 
     /**
@@ -366,17 +377,71 @@ public class DispatchController {
     @RequestMapping("/findDispatchxxx.html")
     public ReponseResult findDispatchxxx(Integer dispatchId){
         try{
-            List<String> list1=dispatchhotelService.listDispatchhotelAll(dispatchId);
-            List<String> list2=disrestaurantService.listDisrestaurantAll(dispatchId);
-            List<String> list3=disshoppService.listDisshoppAll(dispatchId);
-            List<HoteroomType> list4=hoteroomTypeService.listOfferlineAll(dispatchId);
-            List list5=new ArrayList();
-            list5.add(list1);
-            list5.add(list2);
-            list5.add(list3);
-            list5.add(list4);
+            SimpleDateFormat sdf=new SimpleDateFormat("yyyy-MM-dd");
+            List<List<String>> lists=new ArrayList<>();
+            Dispatch dispatch=dispatchService.dispatch(dispatchId);
+            List<Date> list=dispatchService.list(dispatchId);
+            for (int i=1;i<=list.size();i++){
+                List<String> bb=new ArrayList<>();
+                //酒店
+                Dispatchhotel dispatchhotel=dispatchhotelService.getDispatchHotel(dispatchId,i);
+                Hotel hotel=hotelService.getHotelById(dispatchhotel.getHotelId());
+                bb.add(hotel.getHotelName());
+
+                //餐厅
+                List<Disrestaurant> disrestaurant=disrestaurantService.getDisrestaurantById(dispatchId,i);
+                String aa="";
+                if (disrestaurant.size()!=0 && disrestaurant!=null){
+                    List<MealType> mealType=new ArrayList<>();
+                    for (Disrestaurant d:disrestaurant) {
+                        MealType mealType1=mealTypeService.selectById(d.getTypeId());
+                        mealType.add(mealType1);
+                    }
+                    List<Restaurant> restaurant=new ArrayList<>();
+                    for (MealType m:mealType) {
+                        Restaurant restaurant1=restaurantService.selectRestaurantById(m.getRestaurantId());
+                        restaurant.add(restaurant1);
+                    }
+
+                    for (Restaurant r:restaurant) {
+                        aa+=r.getRestaurantName()+"、";
+                    }
+                }else {
+                    aa+="无";
+                }
+                bb.add(aa);
+
+                //购物地点
+                List<Disshopp> disshopp=disshoppService.getDisshoppById(dispatchId,i);
+                String cc="";
+                if (disshopp.size()!=0 && disshopp!=null){
+                    List<Shopping> shoppings=new ArrayList<>();
+                    for (Disshopp d:disshopp) {
+                        Shopping shopping=shoppingService.getShoppingById(d.getScenicSpotId());
+                        shoppings.add(shopping);
+                    }
+                    for (Shopping s:shoppings) {
+                        cc+=s.getShoppingSite()+"、";
+                    }
+                }else {
+                    cc+="无";
+                }
+                bb.add(cc);
+
+                //所在地
+                HoteroomType hoteroomType=hoteroomTypeService.getHoteroomTypeById(dispatchId,i);
+                Template template=templateService.selecctNameById(hoteroomType.getTemplateId());
+                bb.add(template.getTemplateName());
+                //行程内容
+                bb.add(template.getTemplateContent());
+
+                //行程日期
+                String a=sdf.format(list.get(i-1));
+                bb.add(a);
+                lists.add(bb);
+            }
             logger.info(" method:findDispatchxxx  查看线路成功！");
-            ReponseResult<List> data= ReponseResult.ok(list5,"查看线路成功！");
+            ReponseResult<List> data= ReponseResult.ok(lists,"查看线路成功！");
             return data;
         }catch (Exception e) {
             logger.error(" method:findDispatchxxx  查看线路失败，系统出现异常！");

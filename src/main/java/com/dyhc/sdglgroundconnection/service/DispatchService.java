@@ -8,6 +8,7 @@ import org.apache.ibatis.annotations.Mapper;
 import org.apache.ibatis.annotations.Param;
 import org.springframework.stereotype.Component;
 
+import java.util.Date;
 import java.util.List;
 import java.util.Map;
 
@@ -136,5 +137,7 @@ public interface DispatchService {
      * @throws Exception
      */
     Integer updateDispatchById(Integer dispatchId)throws Exception;
+
+    List<Date> list(Integer dispatchId)throws Exception;
 
 }

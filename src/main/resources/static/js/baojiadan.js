@@ -49,8 +49,6 @@ function xianlu1(obj){
 }
 
 
-
-
 function muban1(obj){
     var text=$(obj).html();
     if(text=="自行填写"){
@@ -200,8 +198,9 @@ function insertJingdian(onClickjd) {
 	function  san(dang){
       $(dang).parent().parent().remove();
 	}
-
 			function addss1() {
+                var laydate;
+
                 var A=$("[name=zong]");
                 var xianlu = $("#xianlu").html();
                 var jiudian = $("#jiudian").html();
@@ -226,7 +225,7 @@ function insertJingdian(onClickjd) {
                     "\t\t\t\t\t\t\t<tr>\n" +
                     "\t\t\t\t\t\t\t\t<td><label class=\"layui-form-label\">日期</label></td>\n" +
                     "\t\t\t\t\t\t\t\t<td>\n" +
-                    "\t\t\t\t\t\t\t\t\t<input type=\"text\" name=\"date\" id=\"date2\" lay-verify=\"date\" placeholder=\"yyyy-MM-dd\" autocomplete=\"off\" class=\"layui-input\" lay-key=\"3\">\n" +
+                    "\t\t\t\t\t\t\t\t\t<input type=\"text\" name=\"date\" id=\"date2\" lay-verify=\"date\" placeholder=\"yyyy-MM-dd\" autocomplete=\"off\" class=\"layui-input\" lay-key=\"4\">\n" +
                     "\t\t\t\t\t\t\t\t</td>\n" +
                     "\t\t\t\t\t\t\t</tr>\n" +
                     "\n" +
@@ -292,17 +291,19 @@ function insertJingdian(onClickjd) {
                 listScenicspotAll();
                 selectMealType();
                 selectTravel();*/
-						layui.use(['form', 'layedit', 'laydate','element'], function() {
-								var form = layui.form,
-								laydate = layui.laydate;
-								laydate.render({
-                                    elem: '[name=date]'
-                                });
-						});
                 /*var b = $("#add");
 				b.remove();*/
 				/*var f = "<button class='layui-btn layui-btn-normal layui-btn-radius' onclick='addss()' id='add'>十</button>";
 				$("#zong").append(f);*/
+                layui.use(['form', 'layedit', 'laydate','element'], function() {
+                    var form = layui.form,
+                        laydate = layui.laydate,
+                        element=layui.element;
+                    laydate.render({
+                        elem: '[name=date]'
+                        ,type: 'datetime'
+                    });
+                });
 				layui.form.render('select');
 			}
 
@@ -327,6 +328,7 @@ function deljd(obj){
 
 
 function addss2() {
+    var laydate;
     var A=$("[name=zong]");
     var xianlu = $("#xianlu").html();
     var jiudian = $("#jiudian").html();
@@ -351,7 +353,7 @@ function addss2() {
         "\t\t\t\t\t\t\t<tr>\n" +
         "\t\t\t\t\t\t\t\t<td><label class=\"layui-form-label\">日期</label></td>\n" +
         "\t\t\t\t\t\t\t\t<td>\n" +
-        "\t\t\t\t\t\t\t\t\t<input type=\"text\" name=\"date\" id=\"date2\" lay-verify=\"date\" placeholder=\"yyyy-MM-dd\" autocomplete=\"off\" class=\"layui-input\" lay-key=\"3\">\n" +
+        "\t\t\t\t\t\t\t\t\t<input type=\"text\" name=\"date\" id=\"date2\" lay-verify=\"date\" placeholder=\"yyyy-MM-dd\" autocomplete=\"off\" class=\"layui-input\" lay-key=\"4\">\n" +
         "\t\t\t\t\t\t\t\t</td>\n" +
         "\t\t\t\t\t\t\t</tr>\n" +
         "\n" +
@@ -430,10 +432,12 @@ function addss2() {
     });*/
     layui.use(['form', 'layedit', 'laydate','element'], function() {
         var form = layui.form,
-            laydate = layui.laydate;
-            laydate.render({
-                elem: '[name=date]'
-            });
+            laydate = layui.laydate,
+            element=layui.element;
+        laydate.render({
+            elem: '[name=date]'
+            ,type: 'datetime'
+        });
     });
     /*var b = $("#add");
     b.remove();*/
