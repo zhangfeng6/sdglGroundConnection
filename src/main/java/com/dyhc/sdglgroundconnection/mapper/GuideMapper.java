@@ -72,4 +72,10 @@ public interface GuideMapper extends CommonMapper<Guide>{
      */
     List<Guide> listNoDelGuide()throws Exception;
 
+    /**
+     * 判断导游信息是否有重复
+     * @param username
+     * @return
+     */
+    Guide panduanGuide(String username)throws Exception;
 }

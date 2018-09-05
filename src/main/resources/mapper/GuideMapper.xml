@@ -35,4 +35,8 @@
     <select id="listNoDelGuide" resultType="com.dyhc.sdglgroundconnection.pojo.Guide">
         SELECT * FROM guide WHERE whetherDel != 1
     </select>
+    <!--判断导游用户名是否有重复-->
+    <select id="panduanGuide" resultType="com.dyhc.sdglgroundconnection.pojo.Guide">
+  SELECT * FROM guide WHERE username=#{username}
+    </select>
 </mapper>

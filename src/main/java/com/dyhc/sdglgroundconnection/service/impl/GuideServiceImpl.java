@@ -156,6 +156,16 @@ public class GuideServiceImpl implements GuideService {
         }
     }
 
+    /**
+     * 判断用户名是否相同
+     * @param username
+     * @return
+     */
+    @Override
+    public Guide panduanGuide(String username)throws Exception {
+        return guideMapper.panduanGuide(username);
+    }
+
     @Override
     public Integer updateGuideByPassword(Guide guide) throws Exception {
         return guideMapper.updateByPrimaryKeySelective(guide);
@@ -171,4 +181,6 @@ public class GuideServiceImpl implements GuideService {
     public Guide ShowAllGuide(Integer guideId)throws Exception {
         return guideMapper.ShowAllGuide(guideId);
     }
+
+
 }
