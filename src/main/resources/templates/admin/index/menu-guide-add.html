@@ -27,7 +27,7 @@
 				<div class="layui-form-item">
 					<label class="layui-form-label">用户名：</label>
 					<div class="layui-input-block">
-						<input type="text" name="username" required lay-verify="required" placeholder="请输入用户名" autocomplete="off" class="layui-input">
+						<input type="text" name="username" required lay-verify="required" placeholder="请输入用户名" autocomplete="off" class="layui-input" id="jxl">
 					</div>
 				</div>
 				<div class="layui-form-item">
@@ -147,6 +147,25 @@
             }
         }
          $(function () {
+             $("input[name='username']").change(function () {
+                 var username=  $("input[name='username']").val();
+                 $.ajax({
+                     url: "/Guide/guideUsername",
+                     data: {username:username},
+                     dataType: "json",
+                     type: "get",
+                     success: function (data) {
+                         alert(data.data.username);
+						if (data.data.username==username){
+  							alert("用户名重复，请重新填写！");
+                            $("#jxl").focus();
+						}
+                     },
+                     error: function () {
+                         alert("错误！");
+                     }
+                 })
+             })
              $("input[name='pas']").blur(function () {
                  var pas=$("input[name='pas']").val();
                  pas=hex_md5(pas);

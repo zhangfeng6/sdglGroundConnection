@@ -35,6 +35,22 @@ public class GuideController{
     private GuideService guideService;
 
 
+    @LogNotes(operationType="导游表",content="导游用户名判断")
+    @RequestMapping("/guideUsername")
+    public  ReponseResult guideUsername(@RequestParam("username") String username)throws Exception{
+        try {
+            ReponseResult<Guide> data =ReponseResult.ok(guideService.panduanGuide(username),"导游用户名判断!");
+            logger.info("method:showAccountType 导游用户名判断");
+            return  data;
+        } catch (Exception e) {
+            logger.info("method:showAccountType 导游用户名判断");
+            e.printStackTrace();
+            ReponseResult<Object> error =ReponseResult.err("系统出现异常请联系管理员");
+            return  error;
+        }
+    }
+
+
     @LogNotes(operationType="导游表",content="导游模糊查询")
     @RequestMapping("/guideShowAll")
     public ReponseResult showGuide(@RequestParam("pageNo")Integer pageNo, @RequestParam("pageSize")Integer pageSize, @RequestParam("guideName")String guideName){
@@ -64,6 +80,7 @@ public class GuideController{
             return  error;
         }
     }
+
 
     @LogNotes(operationType="导游表",content="导游判断是否有重复的证件号")
     @RequestMapping("/pdcertificate")

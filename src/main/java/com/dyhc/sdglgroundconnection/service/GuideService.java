@@ -118,5 +118,10 @@ public interface GuideService {
      */
     Integer updateTX(Integer guideId,String tx)throws Exception ;
 
-
+    /**
+     * 判断导游信息是否有重复
+     * @param username
+     * @return
+     */
+    Guide panduanGuide(String username)throws Exception;
 }
