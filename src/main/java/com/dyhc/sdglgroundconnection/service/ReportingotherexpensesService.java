@@ -15,7 +15,7 @@ public interface ReportingotherexpensesService {
      * @param reportingotherexpenses
      * @return
      */
-    Integer saveReportingotherexpenses(Reportingotherexpenses reportingotherexpenses);
+    Integer saveReportingotherexpenses(Reportingotherexpenses reportingotherexpenses)throws Exception;
 
 
     /**

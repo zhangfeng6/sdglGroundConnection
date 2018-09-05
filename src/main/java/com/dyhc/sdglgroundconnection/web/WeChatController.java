@@ -22,6 +22,7 @@ import org.springframework.web.multipart.MultipartFile;
 
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpSession;
+import java.security.MessageDigest;
 import java.util.ArrayList;
 import java.util.Date;
 import java.util.List;
@@ -88,22 +89,23 @@ public class WeChatController {
             @RequestParam("accompanyingPrice")Double accompanyingPrice,
             @RequestParam("subtotal")Double subtotal,
             @RequestParam("payMethods")String payMethods){
-        //创建总报账表的对象
-        Reportdetail reportdetail =reportdetailMapper.All_dispatchId(dispatchId);
-        //创建报账住宿
-        Reportaccommodation reportaccommodation =new Reportaccommodation();
-        reportaccommodation.setReportDetailId(reportdetail.getReportDetailId());
-        reportaccommodation.setHotelName(hotelName);
-        reportaccommodation.setTypeId(typeId);
-        reportaccommodation.setHousePrice(housePrice);
-        reportaccommodation.setRoomNum(roomNum);
-        reportaccommodation.setAccompanyingBed(accompanyingBed);
-        reportaccommodation.setAccompanyingPrice(accompanyingPrice);
-        reportaccommodation.setSubtotal(subtotal);
-        reportaccommodation.setPayMethods(payMethods);
-        reportaccommodation.setLiveDate(new Date());
-        reportaccommodation.setStatus(0);
+
         try {
+            //创建总报账表的对象
+            Reportdetail reportdetail =reportdetailMapper.All_dispatchId(dispatchId);
+            //创建报账住宿
+            Reportaccommodation reportaccommodation =new Reportaccommodation();
+            reportaccommodation.setReportDetailId(reportdetail.getReportDetailId());
+            reportaccommodation.setHotelName(hotelName);
+            reportaccommodation.setTypeId(typeId);
+            reportaccommodation.setHousePrice(housePrice);
+            reportaccommodation.setRoomNum(roomNum);
+            reportaccommodation.setAccompanyingBed(accompanyingBed);
+            reportaccommodation.setAccompanyingPrice(accompanyingPrice);
+            reportaccommodation.setSubtotal(subtotal);
+            reportaccommodation.setPayMethods(payMethods);
+            reportaccommodation.setLiveDate(new Date());
+            reportaccommodation.setStatus(0);
             Integer num=reportaccommodationService.saveReportaccommodation(reportaccommodation) ;
             logger.info("method:savereportaccommodation 导游报账住宿新增成功");
             ReponseResult<Integer> data =ReponseResult.ok(num,"保存成功");
@@ -170,10 +172,12 @@ public class WeChatController {
     @ResponseBody
     public ReponseResult guideLogin(String username,String password){
         try {
-            System.out.println(password);
-            Guide guide=guideService.login(username,password);
+
+            String mima=MD5(password);
+            System.out.println(mima);
+            Guide guide=guideService.login(username,mima);
             if (guide!=null){
-                if(password.equals(guide.getPassword())){
+                if(mima.equals(guide.getPassword())){
                     HttpServletRequest request = ((ServletRequestAttributes) RequestContextHolder.getRequestAttributes()).getRequest();
                     HttpSession session=request.getSession();//创建session对象
                     session.setAttribute("staff",guide);
@@ -192,6 +196,38 @@ public class WeChatController {
             e.printStackTrace();
             logger.error("method:login 微信登录失败");
             return ReponseResult.err("登录失败");
+        }
+    }
+
+    /**
+     * MD5加密
+     * @param key
+     * @return
+     */
+    public static String MD5(String key) {
+        char hexDigits[] = {
+                '0', '1', '2', '3', '4', '5', '6', '7', '8', '9', 'A', 'B', 'C', 'D', 'E', 'F'
+        };
+        try {
+            byte[] btInput = key.getBytes();
+            // 获得MD5摘要算法的 MessageDigest 对象
+            MessageDigest mdInst = MessageDigest.getInstance("MD5");
+            // 使用指定的字节更新摘要
+            mdInst.update(btInput);
+            // 获得密文
+            byte[] md = mdInst.digest();
+            // 把密文转换成十六进制的字符串形式
+            int j = md.length;
+            char str[] = new char[j * 2];
+            int k = 0;
+            for (int i = 0; i < j; i++) {
+                byte byte0 = md[i];
+                str[k++] = hexDigits[byte0 >>> 4 & 0xf];
+                str[k++] = hexDigits[byte0 & 0xf];
+            }
+            return new String(str);
+        } catch (Exception e) {
+            return null;
         }
     }
 
@@ -229,34 +265,44 @@ public class WeChatController {
             Integer billTypeId=Integer.parseInt(request.getParameter("billTypeId"));
             String path= WechatFileUploadUtil.uploadImage(request,".jpg");
             Bill bill=billService.selectBillByDispatchIdAndBillTypeId(dispatchId,billTypeId);
-            if (bill==null){
-                bill.setDispatchId(dispatchId);
-                bill.setBillTypeId(billTypeId);
-                bill.setPicturePath(path);
-                bill.setWhetherDel(0);
-                bill.setCreateBy(1);
-                bill.setCreateDate(new Date());
-                Integer result=billService.insertBill(bill);
-                if (result==1){
-                    logger.info("mothod:upload 上传成功");
-                    return ReponseResult.ok(result,"上传成功");
+            ReponseResult data=null;
+            if (!path.equals("")){
+                if (bill==null){
+                    bill=new Bill();
+                    bill.setDispatchId(dispatchId);
+                    bill.setBillTypeId(billTypeId);
+                    bill.setPicturePath(path);
+                    bill.setWhetherDel(0);
+                    bill.setCreateBy(1);
+                    bill.setCreateDate(new Date());
+                    Integer result=billService.insertBill(bill);
+                    if (result==1){
+                        logger.info("mothod:upload 上传成功");
+                        data=ReponseResult.ok(result,"上传成功");
+
+                    }else {
+                        logger.error("mothod:upload 上传失败");
+                        data=ReponseResult.err("上传失败");
+
+                    }
                 }else {
-                    logger.error("mothod:upload 上传失败");
-                    return ReponseResult.err("上传失败");
+                    String lujing=bill.getPicturePath();
+                    lujing+=","+path;
+                    bill.setPicturePath(lujing);
+                    Integer result=billService.updateBillById(bill);
+                    if (result==1){
+                        logger.info("mothod:upload 上传成功");
+                        data=ReponseResult.ok(result,"上传成功");
+                    }else {
+                        logger.error("mothod:upload 上传失败");
+                        data=ReponseResult.err("上传失败");
+                    }
                 }
             }else {
-                String lujing=bill.getPicturePath();
-                lujing+=","+path;
-                bill.setPicturePath(lujing);
-                Integer result=billService.updateBillById(bill);
-                if (result==1){
-                    logger.info("mothod:upload 上传成功");
-                    return ReponseResult.ok(result,"上传成功");
-                }else {
-                    logger.error("mothod:upload 上传失败");
-                    return ReponseResult.err("上传失败");
-                }
+                logger.error("mothod:upload 上传失败");
+                data=ReponseResult.err("上传失败");
             }
+            return data;
         }catch (Exception e){
             e.printStackTrace();
             logger.error("mothod:upload 上传失败");
@@ -273,9 +319,10 @@ public class WeChatController {
     @ResponseBody
     public ReponseResult pdOldPassword(String password,Integer guideId){
         try {
+            String mima=MD5(password);
             Guide guide=guideService.assignmentGuide(guideId);
             if (guide!=null){
-                if(password.equals(guide.getPassword())){
+                if(mima.equals(guide.getPassword())){
                     logger.info("method:pdOldPassword 旧密码输入正确");
                     return ReponseResult.ok(1,"旧密码输入正确");
                 }else {
@@ -302,6 +349,7 @@ public class WeChatController {
     @ResponseBody
     public ReponseResult updateGuideByPassword(Guide guide){
         try {
+            guide.setPassword(MD5(guide.getPassword()));
             Integer result=guideService.updateGuideByPassword(guide);
             if (result==1){
                 logger.info("method:updateGuideByPassword 修改密码成功");
@@ -423,12 +471,29 @@ public class WeChatController {
     @ResponseBody
     public ReponseResult getRestaurantById(Integer dispatchId,Integer weight){
         try {
-            Disrestaurant disrestaurant=disrestaurantService.getDisrestaurantById(dispatchId,weight);
+            List<Disrestaurant> disrestaurant=disrestaurantService.getDisrestaurantById(dispatchId,weight);
+            String aa="";
+            if (disrestaurant.size()!=0 && disrestaurant!=null){
+                List<MealType> mealType=new ArrayList<>();
+                for (Disrestaurant d:disrestaurant) {
+                    MealType mealType1=mealTypeService.selectById(d.getTypeId());
+                    mealType.add(mealType1);
+                }
+                List<Restaurant> restaurant=new ArrayList<>();
+                for (MealType m:mealType) {
+                    Restaurant restaurant1=restaurantService.selectRestaurantById(m.getRestaurantId());
+                    restaurant.add(restaurant1);
+                }
 
-            MealType mealType=mealTypeService.selectById(disrestaurant.getTypeId());
-            Restaurant restaurant=restaurantService.selectRestaurantById(mealType.getRestaurantId());
+                for (Restaurant r:restaurant) {
+                    aa+=r.getRestaurantName()+"、";
+                }
+            }else {
+                aa+="无";
+            }
+
             logger.info(" method:getRestaurantById  获取餐厅信息成功！");
-            return ReponseResult.ok(restaurant,"获取餐厅信息成功");
+            return ReponseResult.ok(aa,"获取餐厅信息成功");
         }catch (Exception e){
             e.printStackTrace();
             logger.error(" method:getRestaurantById  获取餐厅信息失败！");
@@ -446,10 +511,23 @@ public class WeChatController {
     @ResponseBody
     public ReponseResult getShoppingByIdWX(Integer dispatchId,Integer weight){
         try {
-            Disshopp disshopp=disshoppService.getDisshoppById(dispatchId,weight);
-            Shopping shopping=shoppingService.getShoppingById(disshopp.getScenicSpotId());
+            List<Disshopp> disshopp=disshoppService.getDisshoppById(dispatchId,weight);
+            String aa="";
+            if (disshopp.size()!=0 && disshopp!=null){
+                List<Shopping> shoppings=new ArrayList<>();
+                for (Disshopp d:disshopp) {
+                    Shopping shopping=shoppingService.getShoppingById(d.getScenicSpotId());
+                    shoppings.add(shopping);
+                }
+                for (Shopping s:shoppings) {
+                    aa+=s.getShoppingSite()+"、";
+                }
+            }else {
+                aa+="无";
+            }
+            System.out.println(aa);
             logger.info("method:getShoppingByIdWX  获取购物信息成功！");
-            return ReponseResult.ok(shopping,"获取购物地点成功");
+            return ReponseResult.ok(aa,"获取购物地点成功");
         }catch (Exception e){
             e.printStackTrace();
             logger.error("method:getShoppingByIdWX  获取购物信息失败！");

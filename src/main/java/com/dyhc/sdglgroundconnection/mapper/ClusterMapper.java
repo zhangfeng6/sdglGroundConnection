@@ -13,7 +13,7 @@ public interface ClusterMapper  extends CommonMapper<Cluster>{
      * @param dispatchId
      * @return
      */
-    Cluster ClusterById(Integer dispatchId);
+    Cluster ClusterById(Integer dispatchId)throws  Exception;
 
     /**
      * 根据调度Id获取接团信息表数据

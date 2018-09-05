@@ -18,7 +18,7 @@ public interface DisguideMapper extends CommonMapper<Disguide>{
      * @param dispatchId
      * @return
      */
-    Disguide DisguideAll(Integer dispatchId);
+    Disguide DisguideAll(Integer dispatchId)throws  Exception;
 
     /**
      * 根据调度id获取调度导游表数据  张枫

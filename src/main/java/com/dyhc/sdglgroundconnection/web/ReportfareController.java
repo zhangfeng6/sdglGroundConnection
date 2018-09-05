@@ -49,23 +49,23 @@ public class ReportfareController{
      */
     @LogNotes(operationType="导游车费",content="车费新增")
     @RequestMapping("/savereportaccommodation")
-    public ReponseResult savereportfare
-    (@RequestParam("dispatchId")Integer dispatchId,@RequestParam("tolls")Double tolls,@RequestParam("parkingFee")Double parkingFee,@RequestParam("PrepaidFare")Double PrepaidFare) {
-        //创建总报账表的对象
-        Reportdetail reportdetail =reportdetailMapper.All_dispatchId(dispatchId);
-        Reportfare reportfare=new Reportfare();
-        reportfare.setParkingFee(parkingFee);
-        reportfare.setReportDetailId(reportdetail.getReportDetailId());
-        reportfare.setTolls(tolls);
-        reportfare.setPrepaidFare(PrepaidFare);
-        reportfare.setStatus(0);
-        reportfare.setCreateBy(1);
-        reportfare.setCreateDate(new Date());
-        reportfare.setUpDate(new Date());
-        reportfare.setUpdateBy(2);
-        reportfare.setValue2("");
-        reportfare.setValue3("");
+    public ReponseResult savereportfare(@RequestParam("tolls")Double tolls,@RequestParam("parkingFee")Double parkingFee,@RequestParam("PrepaidFare")Double PrepaidFare) {
+
         try {
+            Integer dispatchId=1;
+            //创建总报账表的对象
+            Reportdetail reportdetail =reportdetailMapper.All_dispatchId(dispatchId);
+            Reportfare reportfare=new Reportfare();
+            reportfare.setParkingFee(parkingFee);
+            reportfare.setTolls(tolls);
+            reportfare.setPrepaidFare(PrepaidFare);
+            reportfare.setStatus(0);
+            reportfare.setCreateBy(1);
+            reportfare.setCreateDate(new Date());
+            reportfare.setUpDate(new Date());
+            reportfare.setUpdateBy(2);
+            reportfare.setValue2("");
+            reportfare.setValue3("");
             Integer num=reportfareService.saveReportfare(reportfare);
             logger.info("method:reportfareService 导游车费新增成功");
             ReponseResult<Integer> data =ReponseResult.ok(num,"保存成功");

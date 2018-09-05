@@ -22,7 +22,7 @@ public interface TravelMapper extends CommonMapper<Travel> {
      * 查询全部组团社
      * @return
      */
-    List<Travel> selectTravel();
+    List<Travel> selectTravel()throws Exception;
 
 
     /**
@@ -31,30 +31,30 @@ public interface TravelMapper extends CommonMapper<Travel> {
      * @param travelId
      * @return
      */
-    Travel selectTravelById(@Param("travelId") Integer travelId);
+    Travel selectTravelById(@Param("travelId") Integer travelId)throws Exception;
 
 
-    List<Travel> listTravelLike(@Param("travelName") String travelName);
+    List<Travel> listTravelLike(@Param("travelName") String travelName)throws Exception;
     /**
      * 删除
      * @param travelId
      * @return
      */
-    Integer getUpdTrave(Integer travelId);
+    Integer getUpdTrave(Integer travelId)throws Exception;
 
     /**
      * 修改条件查
      * @param travelId
      * @return
      */
-    Travel getupdBytravelId(Integer travelId);
+    Travel getupdBytravelId(Integer travelId)throws Exception;
 
     /**
      * 修改
      * @return
      */
 
-    Integer getupdlala(Travel travel);
+    Integer getupdlala(Travel travel)throws Exception;
 
 
     /**
@@ -62,7 +62,7 @@ public interface TravelMapper extends CommonMapper<Travel> {
      * @param travelId
      * @return
      */
-    Guide selectGuideByTravelId(@Param("travelId") Integer travelId);
+    Guide selectGuideByTravelId(@Param("travelId") Integer travelId)throws Exception;
 
 
     /**
@@ -70,42 +70,42 @@ public interface TravelMapper extends CommonMapper<Travel> {
      * @param travelId
      * @return
      */
-    Dispatch selectDispatchByTravelId(@Param("travelId") Integer travelId);
+    Dispatch selectDispatchByTravelId(@Param("travelId") Integer travelId)throws Exception;
 
     /**
      * genju组团社id查询计调员
      * @param travelId
      * @return
      */
-    Staff selectStaffByTraveId(@Param("travelId") Integer travelId);
+    Staff selectStaffByTraveId(@Param("travelId") Integer travelId)throws Exception;
 
     /**
      * 根据组团社id查询线路
      * @param travelId
      * @return
      */
-    Offer selectOfferByTravelId(@Param("travelId") Integer travelId);
+    Offer selectOfferByTravelId(@Param("travelId") Integer travelId)throws Exception;
 
     /**
      * 查询组团表信息
      * @param travelId
      * @return
      */
-    Travel  travel(@Param("travelId") Integer travelId);
+    Travel  travel(@Param("travelId") Integer travelId)throws Exception;
 
     /**
      * 根据组团社Id查询餐厅导游报价
      * @param travelId
      * @return
      */
-    List<Disrestaurant> selectReportrestaurantByTravelId(@Param("travelId") Integer travelId);
+    List<Disrestaurant> selectReportrestaurantByTravelId(@Param("travelId") Integer travelId)throws Exception;
 
     /**
      * 根据组团社Id查询餐厅导游报价
      * @param travelId
      * @return
      */
-    List<Disrestaurant> selectReportrestaurantByTravelId1(@Param("travelId") Integer travelId);
+    List<Disrestaurant> selectReportrestaurantByTravelId1(@Param("travelId") Integer travelId)throws Exception;
 
 
 
@@ -114,7 +114,7 @@ public interface TravelMapper extends CommonMapper<Travel> {
      * @param travelId
      * @return
      */
-    List<Dispatchhotel> selectReportaccommodationByTravelId(@Param("travelId") Integer travelId);
+    List<Dispatchhotel> selectReportaccommodationByTravelId(@Param("travelId") Integer travelId)throws Exception;
 
 
     /**
@@ -122,14 +122,14 @@ public interface TravelMapper extends CommonMapper<Travel> {
      * @param travelId
      * @return
      */
-    List<Disattr> selectReportticketByTravelId(@Param("travelId") Integer travelId);
+    List<Disattr> selectReportticketByTravelId(@Param("travelId") Integer travelId)throws Exception;
 
     /**
      * 根据组团社Id查询导游车费报账
      * @param travelId
      * @return
      */
-    Discar selectReportfareByTravelId(@Param("travelId") Integer travelId);
+    Discar selectReportfareByTravelId(@Param("travelId") Integer travelId)throws Exception;
 
     /**
      * 查找所有未删除的组团社信息

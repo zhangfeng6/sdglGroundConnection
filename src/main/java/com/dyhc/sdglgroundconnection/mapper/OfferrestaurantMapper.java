@@ -21,7 +21,7 @@ public interface OfferrestaurantMapper extends CommonMapper<Offerrestaurant>{
      * @param offerrestaurant
      * @return
      */
-    int insertOfferrestaurant(Offerrestaurant offerrestaurant);
+    int insertOfferrestaurant(Offerrestaurant offerrestaurant)throws  Exception;
 
     /**
      * 赵伟伟
@@ -29,5 +29,5 @@ public interface OfferrestaurantMapper extends CommonMapper<Offerrestaurant>{
      * @param offerId
      * @return
      */
-    List<Offerrestaurant> selectOfferRestaurantByOfferId(@Param("offerId") int offerId);
+    List<Offerrestaurant> selectOfferRestaurantByOfferId(@Param("offerId") int offerId)throws  Exception;
 }

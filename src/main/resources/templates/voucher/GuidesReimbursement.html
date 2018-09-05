@@ -1,6 +1,6 @@
 <!DOCTYPE html>
 <html>
-	<style>
+	<style id="yangshi">
 		*{margin: 0 auto;}
         table,table tr th, table tr td { border:1px solid #0094ff; height: 20px;}
         table { min-height: 20px; line-height: 20px; text-align: center; border-collapse: collapse;width: 70%}
@@ -12,6 +12,7 @@
 		<link rel="stylesheet" type="text/css" href="/admin/layui/css/layui.css" />
 	</head>
 	<body>
+	<div id="form1">
 		<div id="tupian" style="width: 635px;margin-left: 365px;">
                 <img src="/images/logo.jpg" width="640px" height="50px">
        		 </div>
@@ -242,9 +243,12 @@
 					<td colspan="4"></td>
 				</tr>
 		</table>
-	<p><button style=" margin-left: 500px" class='layui-btn layui-btn-normal layui-btn-radius' type="button" id="baocun">打印地接导游报账明细</button></p>
+	</div>
+	<p><button style=" margin-left: 500px" class='layui-btn layui-btn-normal layui-btn-radius' type="button" id="baocun" onclick="prn1_preview()">打印地接导游报账明细</button></p>
 	</body>
 <script src="/js/jquery-1.8.2.min.js"></script>
+	<script src="/js/LodopFuncs.js"></script>
+	<script src='http://localhost:8000/CLodopfuncs.js?name=CLODOPA'></script>
 <script>
    $(function () {
        kaishi();
@@ -429,6 +433,33 @@ function dispatchShow() {
        var nDays = Math.abs(parseInt((time2 - time1)/1000/3600/24));
        return nDays;
    };
-	
+
+
+   var LODOP; //声明为全局变量
+   // 打印预览
+   function prn1_preview() {
+       CreateOneFormPage();
+       LODOP.PREVIEW();
+   };
+   // 直接打印
+   function prn1_print() {
+       CreateOneFormPage();
+       LODOP.PRINT();
+   };
+   // 选择打印机
+   function prn1_printA() {
+       CreateOneFormPage();
+       LODOP.PRINTA();
+   };
+   // 创建打印页面
+   function CreateOneFormPage(){
+       LODOP=getLodop();
+       LODOP.PRINT_INIT("打印控件功能演示_Lodop功能_表单一");
+       LODOP.SET_PRINT_STYLE("FontSize",18);
+       LODOP.SET_PRINT_STYLE("Bold",1);
+       var strBodyStyle = "<style>" + document.getElementById("yangshi").innerHTML + "</style>";
+       LODOP.ADD_PRINT_HTM(10,20,500,5000,strBodyStyle+document.getElementById("form1").innerHTML);
+   };
+
 </script>
 </html>

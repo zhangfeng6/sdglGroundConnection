@@ -137,7 +137,7 @@ public class TourismtemplateServiceImpl  implements TourismtemplateService {
      * @return
      */
     @Override
-    public List<Tourismtemplate> selectTourismtemplate() {
+    public List<Tourismtemplate> selectTourismtemplate()throws Exception {
         return tourismtemplateMapper.selectAll();
     }
 

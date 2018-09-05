@@ -21,12 +21,12 @@ public interface OfferscenicMapper extends CommonMapper<Offerscenic>{
      * @param offerscenic
      * @return
      */
-    int insertOfferscenic(Offerscenic offerscenic);
+    int insertOfferscenic(Offerscenic offerscenic)throws  Exception;
 
     /**
      * 赵伟伟
      * 按报价编号查询
      * @return
      */
-    List<Offerscenic> selectOfferscenicByOfferId(@Param("offerId") int offerId);
+    List<Offerscenic> selectOfferscenicByOfferId(@Param("offerId") int offerId)throws  Exception;
 }

@@ -17,7 +17,7 @@ public interface OfferotherService {
      * @param offerother
      * @return
      */
-    int insertOfferother(Offerother offerother);
+    int insertOfferother(Offerother offerother)throws Exception;
 
     /**
      * 赵伟伟
@@ -25,5 +25,5 @@ public interface OfferotherService {
      * @param offerId
      * @return
      */
-    Offerother selectOfferotherByOfferId(int offerId);
+    Offerother selectOfferotherByOfferId(int offerId)throws Exception;
 }

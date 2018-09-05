@@ -22,7 +22,7 @@ public interface TourismandlineMapper extends CommonMapper<Tourismandline>{
      * @param tourismId
      * @return
      */
-    List<Tourismandline> selectTourismandlineAll(@Param("tourismId") int tourismId);
+    List<Tourismandline> selectTourismandlineAll(@Param("tourismId") int tourismId)throws Exception;
 
     /**
      * 根据模板id删除信息   张枫

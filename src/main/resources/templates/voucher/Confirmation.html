@@ -4,14 +4,14 @@
 <meta charset="utf-8">
 <title>打印页面</title>
     <link rel="stylesheet" type="text/css" href="/admin/layui/css/layui.css" />
-<style>
+<style id="yangshi">
 	table{ width:100%}
 </style>
 </head>
 
 <body>
 
-	<div style="width:60%; margin:0 auto">
+	<div style="width:60%; margin:0 auto" id="form1">
                     <div id="tupian">
                 <img src="/images/logo.jpg" width="640px" height="50px">
         </div>
@@ -127,20 +127,17 @@
             </tr>
         </table>
         <p style="text-align:right">2018年3月26日</p>
-        <table>
-            <tr>
-                <td style="width: 20%"></td>
-                <td style="width: 20%"><button class='layui-btn layui-btn-normal layui-btn-radius' type="button" id="fanhui" onclick="fan()">返回</button></td>
-                <td style="width: 20%"></td>
-                <td style="width: 20%"><button class='layui-btn layui-btn-normal layui-btn-radius' type="button" id="baocun">打印确认书</button></td>
-                <td style="width: 20%"></td>
-            </tr>
-        </table>
-
-
-
     </div>
+    <table>
+        <tr>
+            <td style="width: 35%"></td>
+            <td style="width: 30%"><button class='layui-btn layui-btn-normal layui-btn-radius' type="button" id="baocun" onclick="prn1_preview()">打印确认书</button></td>
+            <td style="width: 35%"></td>
+        </tr>
+    </table>
     <script src="/js/jquery-3.3.1.min.js"></script>
+    <script src="/js/LodopFuncs.js"></script>
+    <script src='http://localhost:8000/CLodopfuncs.js?name=CLODOPA'></script>
     <script>
         $(function(){
             show();
@@ -183,6 +180,34 @@
                 }
             })
         }
+
+
+        var LODOP; //声明为全局变量
+        // 打印预览
+        function prn1_preview() {
+            CreateOneFormPage();
+            LODOP.PREVIEW();
+        };
+        // 直接打印
+        function prn1_print() {
+            CreateOneFormPage();
+            LODOP.PRINT();
+        };
+        // 选择打印机
+        function prn1_printA() {
+            CreateOneFormPage();
+            LODOP.PRINTA();
+        };
+        // 创建打印页面
+        function CreateOneFormPage(){
+            LODOP=getLodop();
+            LODOP.PRINT_INIT("打印控件功能演示_Lodop功能_表单一");
+            LODOP.SET_PRINT_STYLE("FontSize",18);
+            LODOP.SET_PRINT_STYLE("Bold",1);
+            var strBodyStyle = "<style>" + document.getElementById("yangshi").innerHTML + "</style>";
+            LODOP.ADD_PRINT_HTM(10,20,500,5000,strBodyStyle+document.getElementById("form1").innerHTML);
+        };
+
     </script>
 </body>
 </html>

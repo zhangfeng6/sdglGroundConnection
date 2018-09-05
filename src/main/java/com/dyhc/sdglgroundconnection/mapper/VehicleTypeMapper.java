@@ -45,7 +45,7 @@ public interface VehicleTypeMapper extends CommonMapper<VehicleType> {
      * 根据id删除车辆类型
      * @param typeId
      */
-    void deleteVehicleTypeById(@Param("typeId") Integer typeId);
+    void deleteVehicleTypeById(@Param("typeId") Integer typeId)throws Exception;
 
 
     /**
@@ -54,14 +54,14 @@ public interface VehicleTypeMapper extends CommonMapper<VehicleType> {
      * @param carRentalId
      * @return
      */
-    List<VehicleType> listVehicleTypeByValueId(@Param("valueId") Integer valueId,@Param("carRentalId")Integer carRentalId);
+    List<VehicleType> listVehicleTypeByValueId(@Param("valueId") Integer valueId,@Param("carRentalId")Integer carRentalId)throws Exception;
 
     /**
      *
      * @param typeId
      * @return
      */
-    VehicleType vehicleType(@Param("typeId")Integer typeId);
+    VehicleType vehicleType(@Param("typeId")Integer typeId)throws Exception;
     /**
      * 根据valueId查找车辆信息
      * @param valueId

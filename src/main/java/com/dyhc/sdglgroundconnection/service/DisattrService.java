@@ -15,5 +15,5 @@ public interface DisattrService {
      * @param offerId
      * @return
      */
-    Disattr disattr(@Param("offerId") Integer offerId);
+    Disattr disattr(@Param("offerId") Integer offerId)throws Exception;
 }

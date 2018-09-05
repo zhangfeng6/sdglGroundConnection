@@ -20,7 +20,7 @@ public interface OfferMapper extends CommonMapper<Offer>{
      * @param travelName
      * @return
      */
-    List<Offer> selectOffer(@Param("travelName") String travelName);
+    List<Offer> selectOffer(@Param("travelName") String travelName)throws  Exception;
 
     /**
      * 赵伟伟
@@ -37,12 +37,12 @@ public interface OfferMapper extends CommonMapper<Offer>{
      * @param offerId
      * @return
      */
-    Offer selectOfferByOfferId(@Param("offerId") int offerId);
+    Offer selectOfferByOfferId(@Param("offerId") int offerId)throws  Exception;
 
     /**
      * 赵伟伟
      * 确认成团
      * @return
      */
-    int queren(@Param("offerId") int offerId);
+    int queren(@Param("offerId") int offerId)throws  Exception;
 }

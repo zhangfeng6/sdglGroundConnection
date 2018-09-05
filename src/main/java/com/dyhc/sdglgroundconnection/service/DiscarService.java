@@ -13,14 +13,14 @@ public interface DiscarService {
     /*
     查询调度用车表
      */
-    Discar discar(Integer disCarId);
+    Discar discar(Integer disCarId)throws Exception;
 
     /**
      * 查看车辆公司
      * @param dispatchId
      * @return
      */
-    Discar listDiscar(Integer dispatchId);
+    Discar listDiscar(Integer dispatchId)throws Exception;
 
-    Discar selectDiscarByOfferId(Integer offerId);
+    Discar selectDiscarByOfferId(Integer offerId)throws Exception;
 }

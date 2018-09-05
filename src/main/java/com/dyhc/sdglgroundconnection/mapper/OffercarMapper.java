@@ -21,18 +21,18 @@ public interface OffercarMapper extends CommonMapper<Offercar>{
      * @param offercar
      * @return
      */
-    int insertOffercar(Offercar offercar);
+    int insertOffercar(Offercar offercar)throws  Exception;
 
     /**
      * 按报价编号查询
      * @return
      */
-    Offercar selectOffercarByOfferId(@Param("offerId") int offerId);
+    Offercar selectOffercarByOfferId(@Param("offerId") int offerId)throws  Exception;
 
     /**
      * 按编号查询
      * @param valueId
      * @return
      */
-    Dictionaries selectOffercarById(@Param("valueId") int valueId);
+    Dictionaries selectOffercarById(@Param("valueId") int valueId)throws  Exception;
 }

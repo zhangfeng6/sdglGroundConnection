@@ -18,13 +18,13 @@ public interface OffercarService {
      * @param offercar
      * @return
      */
-    int insertOffercar(Offercar offercar);
+    int insertOffercar(Offercar offercar)throws Exception;
 
     /**
      * 按报价编号查询
      * @return
      */
-    Offercar selectOffercarByOfferId(int offerId);
+    Offercar selectOffercarByOfferId(int offerId)throws Exception;
 
 
     /**
@@ -32,5 +32,5 @@ public interface OffercarService {
      * @param valueId
      * @return
      */
-    Dictionaries selectOffercarById(int valueId);
+    Dictionaries selectOffercarById(int valueId)throws Exception;
 }

@@ -58,7 +58,7 @@ public interface TemplateService {
      * @param templateId
      * @return
      */
-    Template selectTemplateAll(int templateId);
+    Template selectTemplateAll(int templateId)throws Exception;
 
 
 
@@ -68,7 +68,7 @@ public interface TemplateService {
      * @param templateId
      * @return
      */
-    Template selecctNameById(int templateId);
+    Template selecctNameById(int templateId)throws Exception;
 
 
     /**
@@ -104,6 +104,6 @@ public interface TemplateService {
      * @param dispatchId
      * @return
      */
-    Template listTemplate(Integer dispatchId);
+    Template listTemplate(Integer dispatchId)throws Exception;
 
 }

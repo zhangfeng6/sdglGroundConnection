@@ -24,7 +24,7 @@ public class ReportrestaurantServiceImpl implements ReportrestaurantService {
      * @return
      */
     @Override
-    public Integer saveReportrestaurant(Reportrestaurant reportrestaurant) {
+    public Integer saveReportrestaurant(Reportrestaurant reportrestaurant)throws Exception {
         Integer number=0;
         try {
             number=reportrestaurantMapper.insert(reportrestaurant);

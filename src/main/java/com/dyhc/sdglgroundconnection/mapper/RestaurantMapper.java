@@ -23,7 +23,7 @@ public interface RestaurantMapper extends CommonMapper<Restaurant>{
      * @param whetherDel
      * @return
      */
-    List<Restaurant> selectByEx(@Param("restaurantName") String restaurantName,@Param("restaurantAddress") String restaurantAddress,@Param("whetherDel") Integer whetherDel);
+    List<Restaurant> selectByEx(@Param("restaurantName") String restaurantName,@Param("restaurantAddress") String restaurantAddress,@Param("whetherDel") Integer whetherDel)throws  Exception;
 
     /**
      * 赵伟伟
@@ -40,7 +40,7 @@ public interface RestaurantMapper extends CommonMapper<Restaurant>{
      * @param restaurant
      * @return
      */
-    int updateRestaurantById(Restaurant restaurant);
+    int updateRestaurantById(Restaurant restaurant)throws  Exception;
 
     /**
      * 赵伟伟
@@ -48,7 +48,7 @@ public interface RestaurantMapper extends CommonMapper<Restaurant>{
      * @param restaurant
      * @return
      */
-    int updateRestaurantById1(Restaurant restaurant);
+    int updateRestaurantById1(Restaurant restaurant)throws  Exception;
 
     /**
      * 根据valueId获取饭店信息
@@ -65,8 +65,8 @@ public interface RestaurantMapper extends CommonMapper<Restaurant>{
      * @param restaurantId
      * @return
      */
-    int selectTypeById(@Param("valueId") Integer valueId,@Param("restaurantId") Integer restaurantId);
+    int selectTypeById(@Param("valueId") Integer valueId,@Param("restaurantId") Integer restaurantId)throws  Exception;
 
 
-    MealType selectMealTypeByTypeId(@Param("typeId") Integer typeId);
+    MealType selectMealTypeByTypeId(@Param("typeId") Integer typeId)throws  Exception;
 }

@@ -38,7 +38,7 @@ public interface ReportdetailService {
      * @param dispatchId
      * @return
      */
-    Reportdetail reportdetail(Integer dispatchId);
+    Reportdetail reportdetail(Integer dispatchId)throws Exception;
 
 
     /**
@@ -66,11 +66,13 @@ public interface ReportdetailService {
      * 查询报账类型
      * @return
      */
-    List<Dictionaries> baozhangType();
+    List<Dictionaries> baozhangType()throws Exception;
 
     /**
      * 新增导游报账信息主表（贾晓亮）
      * @return
      */
-    Integer save_Reportfetails(Reportdetail  reportdetail);
+    Integer save_Reportfetails(Reportdetail  reportdetail)throws Exception;
+
+
 }

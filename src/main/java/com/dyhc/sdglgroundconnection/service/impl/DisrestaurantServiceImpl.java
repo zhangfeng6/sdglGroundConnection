@@ -19,7 +19,7 @@ public class DisrestaurantServiceImpl implements DisrestaurantService {
     private DisrestaurantMapper disrestaurantMapper;
 
     @Override
-    public Disrestaurant getDisrestaurantById(Integer dispatchId, Integer weight) throws Exception {
+    public List<Disrestaurant> getDisrestaurantById(Integer dispatchId, Integer weight) throws Exception {
         return disrestaurantMapper.getDisrestaurantById(dispatchId,weight);
     }
     /**
@@ -27,7 +27,7 @@ public class DisrestaurantServiceImpl implements DisrestaurantService {
      * @return
      */
     @Override
-    public List<String> listDisrestaurantAll(Integer dispatchId) {
+    public List<String> listDisrestaurantAll(Integer dispatchId) throws Exception{
         return disrestaurantMapper.listDisrestaurantAll(dispatchId);
     }
 }

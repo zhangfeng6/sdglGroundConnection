@@ -274,10 +274,14 @@ public class DictionariesController {
     public ReponseResult<Integer> DictionariesCanthree( Dictionaries dictionaries){
         try{
             Integer data=0;
-            Integer num;
+            Integer num=0;
             Dictionaries d=dictionariesService.DictionariesCanMax();
-            num=d.getValueId();
-            num++;
+            if(d==null){
+                num=1;
+            }else {
+                num=d.getValueId();
+                num++;
+            }
             if(dictionaries.getDictionariesId()!=0){
                 data=dictionariesService.getDictionariesByUpd(dictionaries);
                 System.out.println(789);
@@ -313,8 +317,12 @@ public class DictionariesController {
             Integer data=0;
             Integer num;
             Dictionaries d=dictionariesService.DictionariesCarMax();
-            num=d.getValueId();
-            num++;
+            if(d==null){
+                num=1;
+            }else {
+                num=d.getValueId();
+                num++;
+            }
             if(dictionaries.getDictionariesId()!=0){
                 data=dictionariesService.getDictionariesCarUpd(dictionaries);
             }else {
@@ -349,8 +357,12 @@ public class DictionariesController {
             Integer data=0;
             Integer num;
             Dictionaries d=dictionariesService.DictionariesHotelMax();
-            num=d.getValueId();
-            num++;
+            if(d==null){
+                num=1;
+            }else {
+                num=d.getValueId();
+                num++;
+            }
             if(dictionaries.getDictionariesId()!=0){
                 data=dictionariesService.getDictionariesHotelUpd(dictionaries);
                 System.out.println(789);

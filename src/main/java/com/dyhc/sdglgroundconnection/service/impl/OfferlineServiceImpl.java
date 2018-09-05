@@ -25,7 +25,7 @@ public class OfferlineServiceImpl implements OfferlineService {
      * @return
      */
     @Override
-    public List<Offerline> selectOfferline() {
+    public List<Offerline> selectOfferline()throws Exception {
         return offerlineMapper.selectAll();
     }
 
@@ -36,17 +36,17 @@ public class OfferlineServiceImpl implements OfferlineService {
      * @return
      */
     @Override
-    public Offerline selectByofferLineRecordId(Integer offerLineRecordId) {
+    public Offerline selectByofferLineRecordId(Integer offerLineRecordId)throws Exception {
         return offerlineMapper.selectByofferLineRecordId(offerLineRecordId);
     }
 
     @Override
-    public int insertOfferline(Offerline offerline) {
+    public int insertOfferline(Offerline offerline)throws Exception {
         return offerlineMapper.insertOfferline(offerline);
     }
 
     @Override
-    public List<Offerline> selectOfferlineByOfferId(int offerId) {
+    public List<Offerline> selectOfferlineByOfferId(int offerId)throws Exception {
         return offerlineMapper.selectOfferlineByOfferId(offerId);
     }
 }

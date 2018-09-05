@@ -138,12 +138,18 @@ public class DispatchController {
      */
     @RequestMapping("zuche")
     public ReponseResult zuche(HttpServletRequest request, Integer dispatchId){
-        HttpSession session = request.getSession();
-        session.setAttribute("dispatchId",dispatchId);
-        Discar discar = discarService.selectDiscarByOfferId(dispatchId);
-        session.setAttribute("disCarId",discar.getDisCarId());
-        ReponseResult<Object> msg=ReponseResult.err("查询成功");
-        return msg;
+        try{
+            HttpSession session = request.getSession();
+            session.setAttribute("dispatchId",dispatchId);
+            Discar discar = discarService.selectDiscarByOfferId(dispatchId);
+            session.setAttribute("disCarId",discar.getDisCarId());
+            ReponseResult<Object> msg=ReponseResult.err("查询成功");
+            return msg;
+        }catch(Exception e){
+            ReponseResult<Object> msg=ReponseResult.err("查询失败");
+            return msg;
+        }
+
     }
 
     /**

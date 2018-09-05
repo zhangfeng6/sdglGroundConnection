@@ -38,7 +38,7 @@ public class RoomTypeServiceImpl implements RoomTypeService {
      * @return9
      */
     @Override
-    public List<RoomType> roomType_All(Integer hotelId) {
+    public List<RoomType> roomType_All(Integer hotelId)throws Exception {
         List<RoomType> ko = null;
         ko = roomTypeMapper.roomType_All(hotelId);
         for (RoomType s:ko) {

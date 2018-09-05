@@ -26,5 +26,5 @@ public interface RoomTypeService {
      * @param hotelId
      * @return
      */
-    List<RoomType> roomType_All(@Param("hotelId")Integer hotelId);
+    List<RoomType> roomType_All(@Param("hotelId")Integer hotelId)throws Exception;
 }

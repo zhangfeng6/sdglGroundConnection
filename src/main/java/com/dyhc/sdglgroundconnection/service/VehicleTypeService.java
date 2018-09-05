@@ -46,7 +46,7 @@ public interface VehicleTypeService {
      * 根据id删除车辆类型
      * @param typeId
      */
-    Integer deleteVehicleTypeById(Integer typeId);
+    Integer deleteVehicleTypeById(Integer typeId)throws Exception;
 
     /**
      * 查看同一公司下是否有同种类型的车辆
@@ -54,7 +54,7 @@ public interface VehicleTypeService {
      * @param carRentalId
      * @return
      */
-    List<VehicleType> listVehicleTypeByValueId(Integer valueId,Integer carRentalId);
+    List<VehicleType> listVehicleTypeByValueId(Integer valueId,Integer carRentalId)throws Exception;
 
 
     /**
@@ -62,5 +62,5 @@ public interface VehicleTypeService {
      * @param typeId
      * @return
      */
-    VehicleType vehicleType(@Param("typeId")Integer typeId);
+    VehicleType vehicleType(@Param("typeId")Integer typeId)throws Exception;
 }

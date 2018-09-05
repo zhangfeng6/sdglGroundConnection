@@ -30,7 +30,7 @@ public class LogServiceImpl implements LogService {
      * @return
      */
     @Override
-    public Log ShowAllLog(Integer guideId,Integer dispatchId,String creationDate) {
+    public Log ShowAllLog(Integer guideId,Integer dispatchId,String creationDate)throws Exception {
         Log log=logMapper.ShowAllLog(guideId,dispatchId,creationDate);
         Integer a =log.getGuideId();
         log.setGuide(guideService.ShowAllGuide(log.getGuideId()));

@@ -41,17 +41,18 @@ public class ReportticketController {
             @RequestParam("dispatchId")Integer dispatchId,
             @RequestParam("attrName") String attrName,@RequestParam("price") Double price,
             @RequestParam("nums")Integer nums, @RequestParam("payMethods")String payMethods){
-        Reportdetail reportdetail =reportdetailMapper.All_dispatchId(dispatchId);
-        Reportticket reportticket =new Reportticket();
-        reportticket.setReportDetailId(reportdetail.getReportDetailId());
-        reportticket.setCreateBy(1);
-        reportticket.setCreateDate(new Date());
-        reportticket.setStatus(0);
-        reportticket.setAttrName(attrName);
-        reportticket.setPrice(price);
-        reportticket.setNums(nums);
-        reportticket.setPayMethods(payMethods);
+
         try {
+            Reportdetail reportdetail =reportdetailMapper.All_dispatchId(dispatchId);
+            Reportticket reportticket =new Reportticket();
+            reportticket.setReportDetailId(reportdetail.getReportDetailId());
+            reportticket.setCreateBy(1);
+            reportticket.setCreateDate(new Date());
+            reportticket.setStatus(0);
+            reportticket.setAttrName(attrName);
+            reportticket.setPrice(price);
+            reportticket.setNums(nums);
+            reportticket.setPayMethods(payMethods);
             Integer num=reportticketService.saveReportticket(reportticket);
             logger.info("method:saveReportqutsubsidy 导游门票明细新增成功");
             ReponseResult<Integer> data =ReponseResult.ok(num,"保存成功");

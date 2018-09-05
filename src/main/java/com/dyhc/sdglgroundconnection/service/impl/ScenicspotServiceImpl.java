@@ -56,7 +56,7 @@ public class ScenicspotServiceImpl implements ScenicspotService {
     }
 
     @Override
-    public Scenicspot getScenicspotById(Integer scenicSpotId) {
+    public Scenicspot getScenicspotById(Integer scenicSpotId) throws Exception{
         return scenicspotMapper.selectByPrimaryKey(scenicSpotId);
     }
 
@@ -73,7 +73,7 @@ public class ScenicspotServiceImpl implements ScenicspotService {
     }
 
     @Override
-    public Integer deleteScenicspotById(Integer scenicSpotId) {
+    public Integer deleteScenicspotById(Integer scenicSpotId)throws Exception {
         try {
             scenicspotMapper.deleteScenicspotById(scenicSpotId);
             return 1;
@@ -99,7 +99,7 @@ public class ScenicspotServiceImpl implements ScenicspotService {
      * @return
      */
     @Override
-    public Scenicspot selectByScenicSpotId(Integer scenicSpotId) {
+    public Scenicspot selectByScenicSpotId(Integer scenicSpotId)throws Exception {
         return scenicspotMapper.selectByScenicSpotId(scenicSpotId);
     }
 
@@ -109,12 +109,12 @@ public class ScenicspotServiceImpl implements ScenicspotService {
      * @return
      */
     @Override
-    public List<Scenicspot> ShowScenicSpotId(Integer scenicSpotId) {
+    public List<Scenicspot> ShowScenicSpotId(Integer scenicSpotId)throws Exception {
         return scenicspotMapper.ShowScenicSpotId(scenicSpotId);
     }
 
     @Override
-    public List<Scenicspot> selectAllScenic() {
+    public List<Scenicspot> selectAllScenic()throws Exception {
         return scenicspotMapper.selectAllScenic();
     }
 }

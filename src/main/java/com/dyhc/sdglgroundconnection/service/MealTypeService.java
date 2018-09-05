@@ -19,7 +19,7 @@ public interface MealTypeService {
      * 按照餐馆id查询餐馆类型
      * @return
      */
-    List<MealType> selectMealTypeByRestaurantId(int restaurantId);
+    List<MealType> selectMealTypeByRestaurantId(int restaurantId)throws Exception;
 
     /**
      * 赵伟伟
@@ -27,14 +27,14 @@ public interface MealTypeService {
      * @param mealType
      * @return
      */
-    int updateMealType(MealType mealType);
+    int updateMealType(MealType mealType)throws Exception;
 
     /**
      * 删除餐馆类型
      * @param mealType
      * @return
      */
-    int delMealTypeById(MealType mealType);
+    int delMealTypeById(MealType mealType)throws Exception;
 
 
     /**
@@ -42,24 +42,24 @@ public interface MealTypeService {
      * @param mealType
      * @return
      */
-    int insertMealType(MealType mealType);
+    int insertMealType(MealType mealType)throws Exception;
 
     /**
      * 查询餐馆类型
      * @return
      */
-    List<Dictionaries> selectDic();
+    List<Dictionaries> selectDic()throws Exception;
 
     /**
      * 按主键查询
      * @return
      */
-    MealType selectById(int typeId);
+    MealType selectById(int typeId)throws Exception;
 
     /**
      * 赵伟伟
      * 查询所有类型
      * @return
      */
-    List<Dictionaries> selectMealType();
+    List<Dictionaries> selectMealType()throws Exception;
 }

@@ -30,14 +30,14 @@ public interface RestaurantService {
      * @param restaurant
      * @return
      */
-    int insertRestaurant(Restaurant restaurant);
+    int insertRestaurant(Restaurant restaurant)throws Exception;
 
     /**
      * 赵伟伟
      * 根据id查询
      * @return
      */
-    Restaurant selectRestaurantById(int restaurantId);
+    Restaurant selectRestaurantById(int restaurantId)throws Exception;
 
     /**
      * 赵伟伟
@@ -45,7 +45,7 @@ public interface RestaurantService {
      * @param restaurant
      * @return
      */
-    int updateRestaurantById(Restaurant restaurant);
+    int updateRestaurantById(Restaurant restaurant)throws Exception;
 
     /**
      * 赵伟伟
@@ -53,7 +53,7 @@ public interface RestaurantService {
      * @param restaurant
      * @return
      */
-    int updateRestaurantById1(Restaurant restaurant);
+    int updateRestaurantById1(Restaurant restaurant)throws Exception;
 
 
     /**
@@ -62,8 +62,8 @@ public interface RestaurantService {
      * @param restaurantId
      * @return
      */
-    int selectTypeById(Integer valueId,Integer restaurantId);
+    int selectTypeById(Integer valueId,Integer restaurantId)throws Exception;
 
 
-    MealType selectMealTypeByTypeId(Integer typeId);
+    MealType selectMealTypeByTypeId(Integer typeId)throws Exception;
 }

@@ -23,14 +23,14 @@ public interface TravelService {
      * 查询全部组团社
      * @return
      */
-    List<Travel> selectTravel();
+    List<Travel> selectTravel()throws Exception;
     /**
      * 赵伟伟
      * 查询组团社
      * @param travelId
      * @return
      */
-    Travel selectTravelById(Integer travelId);
+    Travel selectTravelById(Integer travelId)throws Exception;
 
     /**
      *
@@ -70,21 +70,21 @@ public interface TravelService {
      * @param travelId
      * @return
      */
-    Integer getUpdTrave(Integer travelId);
+    Integer getUpdTrave(Integer travelId)throws Exception;
 
     /**
      * 修改查看
      * @param travelId
      * @return
      */
-    Travel getupdBytravelId(Integer travelId);
+    Travel getupdBytravelId(Integer travelId)throws Exception;
 
 
     /**
      * 修改 第二次
      * @return
      */
-    Integer getupdlala(Travel travel);
+    Integer getupdlala(Travel travel)throws Exception;
 
 
 
@@ -93,7 +93,7 @@ public interface TravelService {
      * @param travelId
      * @return
      */
-    Guide selectGuideByTravelId(Integer travelId);
+    Guide selectGuideByTravelId(Integer travelId)throws Exception;
 
 
     /**
@@ -101,14 +101,14 @@ public interface TravelService {
      * @param travelId
      * @return
      */
-    Dispatch selectDispatchByTravelId(Integer travelId);
+    Dispatch selectDispatchByTravelId(Integer travelId)throws Exception;
 
     /**
      * genju组团社id查询计调员
      * @param travelId
      * @return
      */
-    Staff selectStaffByTraveId(Integer travelId);
+    Staff selectStaffByTraveId(Integer travelId)throws Exception;
 
 
     /**
@@ -116,7 +116,7 @@ public interface TravelService {
      * @param travelId
      * @return
      */
-    Offer selectOfferByTravelId(@Param("travelId") Integer travelId);
+    Offer selectOfferByTravelId(@Param("travelId") Integer travelId)throws Exception;
 
     /**
      * 根据组团社号获取组团社名称
@@ -131,21 +131,21 @@ public interface TravelService {
      * @param travelId
      * @return
      */
-    List<Disrestaurant> selectReportrestaurantByTravelId(Integer travelId);
+    List<Disrestaurant> selectReportrestaurantByTravelId(Integer travelId)throws Exception;
 
     /**
      * 根据组团社Id查询餐厅导游报价
      * @param travelId
      * @return
      */
-    List<Disrestaurant> selectReportrestaurantByTravelId1(Integer travelId);
+    List<Disrestaurant> selectReportrestaurantByTravelId1(Integer travelId)throws Exception;
 
     /**
      * 根据组团社Id查询导游酒店报价
      * @param travelId
      * @return
      */
-    List<Dispatchhotel> selectReportaccommodationByTravelId(Integer travelId);
+    List<Dispatchhotel> selectReportaccommodationByTravelId(Integer travelId)throws Exception;
 
 
 
@@ -154,13 +154,13 @@ public interface TravelService {
      * @param travelId
      * @return
      */
-    List<Disattr> selectReportticketByTravelId(Integer travelId);
+    List<Disattr> selectReportticketByTravelId(Integer travelId)throws Exception;
 
     /**
      * 根据组团社Id查询导游车费报账
      * @param travelId
      * @return
      */
-    Discar selectReportfareByTravelId(Integer travelId);
+    Discar selectReportfareByTravelId(Integer travelId)throws Exception;
 
 }

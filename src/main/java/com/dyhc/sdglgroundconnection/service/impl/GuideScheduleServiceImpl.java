@@ -14,7 +14,7 @@ public class GuideScheduleServiceImpl implements GuideScheduleService {
     private GuidescheduleMapper guidescheduleMapper;
 
     @Override
-    public Integer insertGuideSchedule(List<Guideschedule> list) {
+    public Integer insertGuideSchedule(List<Guideschedule> list) throws Exception{
         try {
             guidescheduleMapper.insertList(list);
             return 1;

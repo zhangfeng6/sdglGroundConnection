@@ -80,7 +80,7 @@ public class HotelServiceImpl implements HotelService {
      * 修改酒店信息
      * @return
      */
-   public  Integer updateHotel(Hotel hotel){
+   public  Integer updateHotel(Hotel hotel)throws Exception{
        hotel.setStatus(1);
        hotel.setWhetherDel(0);
        hotel.setCreateDate(new Date());
@@ -134,12 +134,12 @@ public class HotelServiceImpl implements HotelService {
     }
 
     @Override
-    public List<Dictionaries> selectRoomType() {
+    public List<Dictionaries> selectRoomType()throws Exception {
         return hotelMapper.selectRoomType();
     }
 
     @Override
-    public int selectTypeById(Integer valueId, Integer hotelId) {
+    public int selectTypeById(Integer valueId, Integer hotelId)throws Exception {
         return hotelMapper.selectTypeById(valueId,hotelId);
     }
 
@@ -225,7 +225,7 @@ public class HotelServiceImpl implements HotelService {
     }
 
     @Override
-    public Hotel selectByHotelId(Integer hotelId) {
+    public Hotel selectByHotelId(Integer hotelId)throws Exception {
         return hotelMapper.selectByHotelId(hotelId);
     }
 }

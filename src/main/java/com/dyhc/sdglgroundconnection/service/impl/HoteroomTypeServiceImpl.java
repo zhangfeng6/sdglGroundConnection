@@ -27,7 +27,7 @@ public class HoteroomTypeServiceImpl implements HoteroomTypeService {
      * @return
      */
     @Override
-    public List<HoteroomType> listOfferlineAll(Integer dispatchId) {
+    public List<HoteroomType> listOfferlineAll(Integer dispatchId)throws Exception {
         return hoteroomTypeMapper.listOfferlineAll(dispatchId);
     }
 }

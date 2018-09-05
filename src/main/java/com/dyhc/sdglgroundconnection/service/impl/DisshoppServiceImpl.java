@@ -19,7 +19,7 @@ public class DisshoppServiceImpl implements DisshoppService {
     private DisshoppMapper disshoppMapper;
 
     @Override
-    public Disshopp getDisshoppById(Integer dispatchId, Integer weight) throws Exception {
+    public List<Disshopp> getDisshoppById(Integer dispatchId, Integer weight) throws Exception {
         return disshoppMapper.getDisshoppById(dispatchId,weight);
     }
     /**
@@ -27,7 +27,7 @@ public class DisshoppServiceImpl implements DisshoppService {
      * @return
      */
     @Override
-    public List<String> listDisshoppAll(Integer dispatchId) {
+    public List<String> listDisshoppAll(Integer dispatchId)throws Exception {
         return disshoppMapper.listDisshoppAll(dispatchId);
     }
 }

@@ -27,7 +27,7 @@ public class DispatchhotelServiceImpl implements DispatchhotelService {
      * @param offerId
      * @return
      */
-    public List<Dispatchhotel> dispatchhotelSelectAll(Integer offerId) {
+    public List<Dispatchhotel> dispatchhotelSelectAll(Integer offerId) throws Exception{
         List<Dispatchhotel> dispatchhotelSelectAll = null;
         try {
             dispatchhotelSelectAll = dispatchhotelMapper.dispatchhotelSelectAll(offerId);
@@ -51,7 +51,7 @@ public class DispatchhotelServiceImpl implements DispatchhotelService {
      * @return
      */
     @Override
-    public List<String> listDispatchhotelAll(Integer dispatchId) {
+    public List<String> listDispatchhotelAll(Integer dispatchId) throws Exception{
         return dispatchhotelMapper.listDispatchhotelAll(dispatchId);
     }
 }

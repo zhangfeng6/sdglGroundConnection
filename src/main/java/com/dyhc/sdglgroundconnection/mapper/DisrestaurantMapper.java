@@ -24,13 +24,13 @@ public interface DisrestaurantMapper extends CommonMapper<Disrestaurant>{
      * @return
      * @throws Exception
      */
-    Disrestaurant getDisrestaurantById(@Param("dispatchId") Integer dispatchId, @Param("weight") Integer weight)throws Exception;
+    List<Disrestaurant> getDisrestaurantById(@Param("dispatchId") Integer dispatchId, @Param("weight") Integer weight)throws Exception;
 
     /**
      * 查看用餐地点
      * @return
      */
-    List<String> listDisrestaurantAll(Integer dispatchId);
+    List<String> listDisrestaurantAll(Integer dispatchId)throws  Exception;
 
     /**
      * 根据调度id获取调度餐厅表数据  张枫

@@ -49,25 +49,26 @@ public class ReportrestaurantController {
            @RequestParam("dinnerother") Double dinnerother,
            @RequestParam("dinnerPayMethods")  String dinnerPayMethods
           ){
-        //创建总报账表的对象
-        Reportdetail reportdetail =reportdetailMapper.All_dispatchId(dispatchId);
-        Reportrestaurant reportrestaurant =new Reportrestaurant();
-        reportrestaurant.setLunchDate(new Date());
-        reportrestaurant.setDinnerName(dinnerName);
-        reportrestaurant.setLuncheonName(LuncheonName);
-        reportrestaurant.setLunchMeal(lunchMeal);
-        reportrestaurant.setLunchEatNum(lunchEatNum);
-        reportrestaurant.setLunchother(lunchother);
-        reportrestaurant.setLunchPayMethods(lunchPayMethods);
-        reportrestaurant.setDinnerDate(new Date());
-        reportrestaurant.setDinnerMeal(dinnerMeal);
-        reportrestaurant.setDinnerPayMethods(dinnerPayMethods);
-        reportrestaurant.setDinnerEatNum(dinnerEatNum);
-        reportrestaurant.setDinnerother(dinnerother);
-        reportrestaurant.setCreateDate(new Date());
-        reportrestaurant.setStatus(0);
-        reportrestaurant.setReportDetailId(reportdetail.getReportDetailId());
+
             try {
+                //创建总报账表的对象
+                Reportdetail reportdetail =reportdetailMapper.All_dispatchId(dispatchId);
+                Reportrestaurant reportrestaurant =new Reportrestaurant();
+                reportrestaurant.setLunchDate(new Date());
+                reportrestaurant.setDinnerName(dinnerName);
+                reportrestaurant.setLuncheonName(LuncheonName);
+                reportrestaurant.setLunchMeal(lunchMeal);
+                reportrestaurant.setLunchEatNum(lunchEatNum);
+                reportrestaurant.setLunchother(lunchother);
+                reportrestaurant.setLunchPayMethods(lunchPayMethods);
+                reportrestaurant.setDinnerDate(new Date());
+                reportrestaurant.setDinnerMeal(dinnerMeal);
+                reportrestaurant.setDinnerPayMethods(dinnerPayMethods);
+                reportrestaurant.setDinnerEatNum(dinnerEatNum);
+                reportrestaurant.setDinnerother(dinnerother);
+                reportrestaurant.setCreateDate(new Date());
+                reportrestaurant.setStatus(0);
+                reportrestaurant.setReportDetailId(reportdetail.getReportDetailId());
             Integer num=reportrestaurantService.saveReportrestaurant(reportrestaurant);
             logger.info("method:savereportaccommodation 导游餐馆明细新增成功");
             ReponseResult<Integer> data =ReponseResult.ok(num,"保存成功");

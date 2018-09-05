@@ -21,7 +21,7 @@ public interface DispatchhotelMapper extends CommonMapper<Dispatchhotel>{
      * @param offerId
      * @return
      */
-    List<Dispatchhotel> dispatchhotelSelectAll(@Param("offerId")Integer offerId);
+    List<Dispatchhotel> dispatchhotelSelectAll(@Param("offerId")Integer offerId)throws  Exception;
 
 
     /**
@@ -29,13 +29,13 @@ public interface DispatchhotelMapper extends CommonMapper<Dispatchhotel>{
      * @param dispatchId
      * @return
      */
-    Dispatchhotel getDispatchHotel(@Param("dispatchId") Integer dispatchId, @Param("weight")Integer weight);
+    Dispatchhotel getDispatchHotel(@Param("dispatchId") Integer dispatchId, @Param("weight")Integer weight)throws  Exception;
 
     /**
      * 查看住宿地点
      * @return
      */
-    List<String> listDispatchhotelAll(Integer dispatchId);
+    List<String> listDispatchhotelAll(Integer dispatchId)throws  Exception;
 
     /**
      * 根据调度id获取调度酒店表信息

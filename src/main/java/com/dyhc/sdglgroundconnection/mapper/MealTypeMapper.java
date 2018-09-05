@@ -22,7 +22,7 @@ public interface MealTypeMapper extends CommonMapper<MealType> {
      * 按照餐馆id查询餐馆类型
      * @return
      */
-    List<MealType> selectMealTypeByRestaurantId(@Param("restaurantId") int restaurantId);
+    List<MealType> selectMealTypeByRestaurantId(@Param("restaurantId") int restaurantId)throws  Exception;
 
     /**
      * 赵伟伟
@@ -30,41 +30,41 @@ public interface MealTypeMapper extends CommonMapper<MealType> {
      * @param mealType
      * @return
      */
-    int updateMealType(MealType mealType);
+    int updateMealType(MealType mealType)throws  Exception;
 
     /**
      * 删除餐馆类型
      * @param mealType
      * @return
      */
-    int delMealTypeById(MealType mealType);
+    int delMealTypeById(MealType mealType)throws  Exception;
 
     /**
      * 查询餐馆类型
      * @return
      */
-    List<Dictionaries> selectDic();
+    List<Dictionaries> selectDic()throws  Exception;
 
     /**
      * 新增餐馆
      * @param mealType
      * @return
      */
-    int insertMealType(MealType mealType);
+    int insertMealType(MealType mealType)throws  Exception;
 
     /**
      * 按id查询
      * @param typeId
      * @return
      */
-    MealType selectById(Integer typeId);
+    MealType selectById(Integer typeId)throws  Exception;
 
     /**
      * 赵伟伟
      * 查询所有类型
      * @return
      */
-    List<Dictionaries> selectMealType();
+    List<Dictionaries> selectMealType()throws  Exception;
 
     /**
      * 根据valueId获取所有类型信息

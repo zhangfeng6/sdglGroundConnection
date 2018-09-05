@@ -21,14 +21,14 @@ public interface RoomTypeMapper extends CommonMapper<RoomType>{
      * @param hotelId
      * @return
      */
-    List<RoomType> RoomTypeShowAll(Integer hotelId);
+    List<RoomType> RoomTypeShowAll(Integer hotelId)throws  Exception;
 
     /**
      * 对房间类型表进行删除
      * @param hotelId
      * @return
      */
-    Integer removeRoomType(@Param("hotelId")Integer hotelId);
+    Integer removeRoomType(@Param("hotelId")Integer hotelId)throws  Exception;
 
     /**
      * 判断该公司下是否存在该类型
@@ -36,19 +36,19 @@ public interface RoomTypeMapper extends CommonMapper<RoomType>{
      * @param valueId
      * @return
      */
-    RoomType getroomtypeByName(@Param("hotelId")Integer hotelId,@Param("valueId")Integer valueId);
+    RoomType getroomtypeByName(@Param("hotelId")Integer hotelId,@Param("valueId")Integer valueId)throws  Exception;
     /**
      * 查询房间类型(贾晓亮：房间名称)
      * @param hotelId
      * @return
      */
-    List<RoomType> roomType_All(@Param("hotelId")Integer hotelId);
+    List<RoomType> roomType_All(@Param("hotelId")Integer hotelId)throws  Exception;
 
     /**
      * 查询酒店Id
      * @param typeId
      * @return
      */
-    RoomType type_Id(@Param("typeId")Integer typeId);
+    RoomType type_Id(@Param("typeId")Integer typeId)throws  Exception;
 
 }

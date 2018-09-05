@@ -19,7 +19,7 @@ public interface OfferotherMapper extends CommonMapper<Offerother>{
      * @param offerother
      * @return
      */
-    int insertOfferother(Offerother offerother);
+    int insertOfferother(Offerother offerother)throws  Exception;
 
     /**
      * 赵伟伟
@@ -27,5 +27,5 @@ public interface OfferotherMapper extends CommonMapper<Offerother>{
      * @param offerId
      * @return
      */
-    Offerother selectOfferotherByOfferId(@Param("offerId") int offerId);
+    Offerother selectOfferotherByOfferId(@Param("offerId") int offerId)throws  Exception;
 }

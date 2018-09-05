@@ -18,17 +18,17 @@ public class OffercarServiceImpl implements OffercarService {
     private OffercarMapper offercarMapper;
 
     @Override
-    public int insertOffercar(Offercar offercar) {
+    public int insertOffercar(Offercar offercar)throws Exception {
         return offercarMapper.insertOffercar(offercar);
     }
 
     @Override
-    public Offercar selectOffercarByOfferId(int offerId) {
+    public Offercar selectOffercarByOfferId(int offerId)throws Exception {
         return offercarMapper.selectOffercarByOfferId(offerId);
     }
 
     @Override
-    public Dictionaries selectOffercarById(int valueId) {
+    public Dictionaries selectOffercarById(int valueId)throws Exception {
         return offercarMapper.selectOffercarById(valueId);
     }
 }

@@ -16,7 +16,7 @@ public interface ReportrestaurantService {
      * @param reportrestaurant
      * @return
      */
-    Integer saveReportrestaurant(Reportrestaurant reportrestaurant);
+    Integer saveReportrestaurant(Reportrestaurant reportrestaurant)throws Exception;
 
 
     /**

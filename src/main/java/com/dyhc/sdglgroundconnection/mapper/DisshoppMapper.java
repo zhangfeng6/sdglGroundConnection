@@ -22,13 +22,13 @@ public interface DisshoppMapper extends CommonMapper<Disshopp>{
      * @param weight
      * @return
      */
-    Disshopp getDisshoppById(@Param("dispatchId") Integer dispatchId,@Param("weight") Integer weight)throws Exception;
+    List<Disshopp> getDisshoppById(@Param("dispatchId") Integer dispatchId,@Param("weight") Integer weight)throws Exception;
 
     /**
      * 查看购物地点
      * @return
      */
-    List<String> listDisshoppAll(Integer dispatchId);
+    List<String> listDisshoppAll(Integer dispatchId)throws  Exception;
 
     /**
      * 根据调度id获取调度购物地表数据  张枫

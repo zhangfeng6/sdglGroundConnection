@@ -212,14 +212,14 @@ public class TemplateServiceImpl implements TemplateService {
     }
 
     @Override
-    public Template selectTemplateAll(int templateId) {
+    public Template selectTemplateAll(int templateId)throws Exception {
         Template t = templateMapper.selectTemplateAll(templateId);
         t.setScenicspotsList(templateMapper.selectscenicSpotById(t.getTemplateId()));
         return t;
     }
 
     @Override
-    public Template selecctNameById(int templateId) {
+    public Template selecctNameById(int templateId)throws Exception {
         return templateMapper.selecctNameById(templateId);
     }
     /**
@@ -292,7 +292,7 @@ public class TemplateServiceImpl implements TemplateService {
      * @return
      */
     @Override
-    public Template listTemplate(Integer dispatchId) {
+    public Template listTemplate(Integer dispatchId)throws Exception {
         return templateMapper.listTemplate(dispatchId);
     }
 

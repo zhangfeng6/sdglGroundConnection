@@ -227,6 +227,17 @@ public class DispatchServiceImpl implements DispatchService {
         }
     }
 
+    @Override
+    public Integer updateDispatchById(Integer dispatchId) throws Exception {
+        try {
+            dispatchMapper.updateDispatchById(dispatchId);
+            return 1;
+        }catch (Exception e){
+            return 0;
+        }
+    }
+
+
     /**
      * 根据参数类的数据进行新增调度及调度相关信息
      * @param dispatchParameter
@@ -425,7 +436,7 @@ public class DispatchServiceImpl implements DispatchService {
      * @param dispatchId
      * @return
      */
-    public  Dispatch dispatchSelectAll(Integer dispatchId){
+    public  Dispatch dispatchSelectAll(Integer dispatchId)throws Exception{
         Dispatch dispatch=null;
         try {
             dispatch =dispatchMapper.dispatchSelectAll(dispatchId);
@@ -459,7 +470,7 @@ public class DispatchServiceImpl implements DispatchService {
      * @return
      */
     @Override
-    public PageInfo<Dispatch> ListDispatchLike(Integer pageNo, Integer pageSize, String guideName, String groundConnectionNumber) {
+    public PageInfo<Dispatch> ListDispatchLike(Integer pageNo, Integer pageSize, String guideName, String groundConnectionNumber)throws Exception {
         PageHelper.startPage(pageNo,pageSize,true);
         PageInfo<Dispatch> dispatch=new PageInfo<>(dispatchMapper.getDispatchLike(guideName,groundConnectionNumber));
         return dispatch;
@@ -503,7 +514,7 @@ public class DispatchServiceImpl implements DispatchService {
      * @param end
      * @return
      */
-    public List<Date> getBetweenDates(Date begin, Date end) {
+    public List<Date> getBetweenDates(Date begin, Date end)throws Exception {
         List<Date> result = new ArrayList<Date>();
         Calendar tempStart = Calendar.getInstance();
         tempStart.setTime(begin);
@@ -528,11 +539,11 @@ public class DispatchServiceImpl implements DispatchService {
      * @return
      */
     @Override
-    public  Dispatch dispatch(Integer dispatchId) {
+    public  Dispatch dispatch(Integer dispatchId)throws Exception {
         return dispatchMapper.dispatch(dispatchId);
     }
 
-    public Dispatch listDispatch(Integer dispatchId) {
+    public Dispatch listDispatch(Integer dispatchId)throws Exception {
         return dispatchMapper.listDispatch(dispatchId);
     }
 

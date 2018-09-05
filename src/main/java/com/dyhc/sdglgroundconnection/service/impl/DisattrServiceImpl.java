@@ -27,7 +27,7 @@ public class DisattrServiceImpl implements DisattrService {
      * @return
      */
     @Override
-    public Disattr disattr(Integer offerId) {
+    public Disattr disattr(Integer offerId)throws Exception {
         offerId=1;
         Disattr Disattr=disattrMapper.disattr(offerId);
         Disattr.setScenicspot(scenicspotService.ShowScenicSpotId(Disattr.getScenicSpotId()));

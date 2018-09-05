@@ -92,7 +92,7 @@ public class CarrentalServiceImpl implements CarrentalService {
     }
 
     @Override
-    public List<Carrental> getCarrentalByName(String carRentalName) {
+    public List<Carrental> getCarrentalByName(String carRentalName) throws Exception{
         return carrentalMapper.getCarrentalByName(carRentalName);
     }
 }

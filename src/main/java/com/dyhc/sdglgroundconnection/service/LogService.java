@@ -22,5 +22,5 @@ public interface LogService {
      * 查看导游带团日志：贾晓亮
      * @return
      */
-    Log ShowAllLog(Integer guideId,Integer dispatchId,String creationDate);
+    Log ShowAllLog(Integer guideId,Integer dispatchId,String creationDate)throws Exception;
 }

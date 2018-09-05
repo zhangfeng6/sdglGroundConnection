@@ -21,7 +21,7 @@ public interface GuidescheduleMapper extends CommonMapper<Guideschedule>{
      * @param month
      * @return
      */
-    List<Guideschedule> listguideschedule(@Param("year")String year,@Param("month")String month);
+    List<Guideschedule> listguideschedule(@Param("year")String year,@Param("month")String month)throws  Exception;
 
 
 }

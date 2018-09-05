@@ -21,7 +21,7 @@ public class ReportqutsubsidyServiceImpl implements ReportqutsubsidyService {
      * @return
      */
     @Override
-    public Integer saveReportqutsubsidy(Reportqutsubsidy reportqutsubsidy) {
+    public Integer saveReportqutsubsidy(Reportqutsubsidy reportqutsubsidy)throws Exception {
         Integer number=0;
         try {
             number=reportqutsubsidyMapper.insert(reportqutsubsidy);

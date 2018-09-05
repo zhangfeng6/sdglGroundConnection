@@ -19,12 +19,12 @@ public interface OfferscenicService {
      * @param offerscenic
      * @return
      */
-    int insertOfferscenic(Offerscenic offerscenic);
+    int insertOfferscenic(Offerscenic offerscenic)throws Exception;
 
     /**
      * 赵伟伟
      * 按报价编号查询
      * @return
      */
-    List<Offerscenic> selectOfferscenicByOfferId(int offerId);
+    List<Offerscenic> selectOfferscenicByOfferId(int offerId)throws Exception;
 }

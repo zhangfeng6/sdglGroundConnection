@@ -20,12 +20,12 @@ public class CompanyServiceImpl implements CompanyService {
      * @return
      */
     @Override
-    public Company getCompany() {
+    public Company getCompany()throws Exception {
         return companyMapper.getCompany();
     }
 
     @Override
-    public Integer getUpdCompany(Company company) {
+    public Integer getUpdCompany(Company company)throws Exception {
         return companyMapper.updateByPrimaryKey(company);
     }
 }

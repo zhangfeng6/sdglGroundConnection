@@ -29,47 +29,47 @@ public interface StaffMapper extends CommonMapper<Staff>{
      * @param staffname
      * @return
      */
-    List<Staff> getStaffAll(@Param("staffname") String staffname);
+    List<Staff> getStaffAll(@Param("staffname") String staffname)throws Exception;
 
     /**
      * 删除 修改
      * @param staff
      * @return
      */
-    Integer getStaffUpd(Staff staff);
+    Integer getStaffUpd(Staff staff)throws Exception;
 
     /**
      * 修改
      * @param staff
      * @return
      */
-    Integer getStaffUpdTwo(Staff staff);
+    Integer getStaffUpdTwo(Staff staff)throws Exception;
     /**
      * 不修改图片
      * @param staff
      * @return
      */
-    Integer getStaffUpdThree(Staff staff);
+    Integer getStaffUpdThree(Staff staff)throws Exception;
 
     /**
      * 修改  查看
      * @param staffId
      * @return
      */
-    Staff getStaffUpdTwoById(Integer staffId);
+    Staff getStaffUpdTwoById(Integer staffId)throws Exception;
 
     /**
      * 判断用户是否存在
      * @return
      */
-    Staff getserlectBy();
+    Staff getserlectBy()throws Exception;
 
     /**
      * 查看计调员
      * @param dispatchId
      * @return
      */
-    Staff listStaff(Integer  dispatchId);
+    Staff listStaff(Integer  dispatchId)throws Exception;
 
     /**
      * 修改个人信息并修改图片

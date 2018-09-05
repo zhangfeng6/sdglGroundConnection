@@ -19,12 +19,12 @@ public class OfferscenicServiceImpl implements OfferscenicService {
     private OfferscenicMapper offerscenicMapper;
 
     @Override
-    public int insertOfferscenic(Offerscenic offerscenic) {
+    public int insertOfferscenic(Offerscenic offerscenic)throws Exception {
         return offerscenicMapper.insertOfferscenic(offerscenic);
     }
 
     @Override
-    public List<Offerscenic> selectOfferscenicByOfferId(int offerId) {
+    public List<Offerscenic> selectOfferscenicByOfferId(int offerId)throws Exception {
         return offerscenicMapper.selectOfferscenicByOfferId(offerId);
     }
 }

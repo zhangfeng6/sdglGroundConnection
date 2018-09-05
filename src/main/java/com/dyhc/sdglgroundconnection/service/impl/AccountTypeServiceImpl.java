@@ -97,7 +97,7 @@ public class AccountTypeServiceImpl implements AccountTypeService {
      * @return
      */
     @Override
-    public AccountType updateShowAll(Integer accountTypeId) {
+    public AccountType updateShowAll(Integer accountTypeId)throws Exception {
         AccountType accountType=null;
         try {
             accountType=accountTypeMapper.selectByPrimaryKey(accountTypeId);

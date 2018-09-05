@@ -50,32 +50,32 @@ public class RestaurantServiceImpl implements RestaurantService {
     }
 
     @Override
-    public int insertRestaurant(Restaurant restaurant) {
+    public int insertRestaurant(Restaurant restaurant)throws Exception {
         return restaurantMapper.insert(restaurant);
     }
 
     @Override
-    public Restaurant selectRestaurantById(int restaurantId) {
+    public Restaurant selectRestaurantById(int restaurantId)throws Exception {
         return restaurantMapper.selectByPrimaryKey(restaurantId);
     }
 
     @Override
-    public int updateRestaurantById(Restaurant restaurant) {
+    public int updateRestaurantById(Restaurant restaurant)throws Exception {
         return restaurantMapper.updateRestaurantById(restaurant);
     }
 
     @Override
-    public int updateRestaurantById1(Restaurant restaurant) {
+    public int updateRestaurantById1(Restaurant restaurant)throws Exception {
         return restaurantMapper.updateRestaurantById1(restaurant);
     }
 
     @Override
-    public int selectTypeById(Integer valueId, Integer restaurantId) {
+    public int selectTypeById(Integer valueId, Integer restaurantId)throws Exception {
         return restaurantMapper.selectTypeById(valueId,restaurantId);
     }
 
     @Override
-    public MealType selectMealTypeByTypeId(Integer typeId) {
+    public MealType selectMealTypeByTypeId(Integer typeId)throws Exception {
         return restaurantMapper.selectMealTypeByTypeId(typeId);
     }
 

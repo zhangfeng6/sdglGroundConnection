@@ -95,7 +95,7 @@ public class BillTypeServiceImpl implements BillTypeService {
      * 判断是否有重复单据类型名称
      * @return
      */
-    public BillType equalBillType(String typeName){
+    public BillType equalBillType(String typeName)throws Exception{
         BillType billType = null;
         try {
             billType = billTypeMapper.equalBillType(typeName);
@@ -108,7 +108,7 @@ public class BillTypeServiceImpl implements BillTypeService {
      *单据修改赋值
      * @return
      */
-    public BillType  fuzhiBillType(Integer billTypeId){
+    public BillType  fuzhiBillType(Integer billTypeId)throws Exception{
         BillType billType = null;
         try {
             billType = billTypeMapper.selectByPrimaryKey(billTypeId);

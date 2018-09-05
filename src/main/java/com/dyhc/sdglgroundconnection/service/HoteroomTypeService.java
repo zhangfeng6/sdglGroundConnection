@@ -24,5 +24,5 @@ public interface HoteroomTypeService {
      * 查看线路信息
      * @return
      */
-    List<HoteroomType> listOfferlineAll(Integer dispatchId);
+    List<HoteroomType> listOfferlineAll(Integer dispatchId)throws Exception;
 }

@@ -16,7 +16,7 @@ public interface ReportfareService {
      * @param reportfare
      * @return
      */
-    Integer saveReportfare(Reportfare reportfare);
+    Integer saveReportfare(Reportfare reportfare)throws Exception;
 
 
     /**

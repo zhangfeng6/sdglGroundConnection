@@ -21,7 +21,7 @@ public interface GuideService {
      * @param guideName
      * @return
      */
-    PageInfo<Guide> listGuide(Integer pageNo, Integer PageSize,String guideName);
+    PageInfo<Guide> listGuide(Integer pageNo, Integer PageSize,String guideName)throws Exception;
 
     /**
      * 删除导游信息
@@ -51,7 +51,7 @@ public interface GuideService {
      * @param guideId
      * @return
      */
-    Guide  assignmentGuide(Integer guideId);
+    Guide  assignmentGuide(Integer guideId)throws Exception;
 
     /**
      * 微信小程序之导游登录
@@ -83,7 +83,7 @@ public interface GuideService {
      * @param guideId
      * @return
      */
-    Guide ShowAllGuide(Integer guideId);
+    Guide ShowAllGuide(Integer guideId)throws Exception;
 
     List<Guideschedule>listguidescheduleBygid(String year, String month)throws Exception;
 
@@ -100,7 +100,7 @@ public interface GuideService {
      * @param certificate
      * @return
      */
-    Guide  pdcertificate(@Param("certificate") String certificate);
+    Guide  pdcertificate(@Param("certificate") String certificate)throws Exception;
 
     /**
      * 获取所有导游名称

@@ -26,7 +26,7 @@ public interface HotelMapper extends CommonMapper<Hotel>{
      * @param
      * @return
              */
-    Hotel selectByHotelId(@Param("hotelId") Integer hotelId);
+    Hotel selectByHotelId(@Param("hotelId") Integer hotelId)throws  Exception;
 
     /**
      * 查询酒店信息表贾晓亮
@@ -34,7 +34,7 @@ public interface HotelMapper extends CommonMapper<Hotel>{
      * @param pageSize
      * @return
      */
-    List<Hotel> HotelShowAll(@Param("pageNo")Integer pageNo, @Param("pageSize")Integer pageSize, @Param("hotelName")String hotelName);
+    List<Hotel> HotelShowAll(@Param("pageNo")Integer pageNo, @Param("pageSize")Integer pageSize, @Param("hotelName")String hotelName)throws  Exception;
 
 
     /**
@@ -50,7 +50,7 @@ public interface HotelMapper extends CommonMapper<Hotel>{
      * @param typeId
      * @return
      */
-    RoomType fuzhiRoomType(Integer  typeId);
+    RoomType fuzhiRoomType(Integer  typeId)throws  Exception;
 
     /**
      * 修改酒店进行赋值操作：贾晓亮
@@ -68,7 +68,7 @@ public interface HotelMapper extends CommonMapper<Hotel>{
     List<Hotel> listhotelByvalueId(@Param("valueId")Integer valueId)throws Exception;
 
 
-    List<Dictionaries> selectRoomType();
+    List<Dictionaries> selectRoomType()throws  Exception;
 
     /**
      * 根据id查询餐馆数量
@@ -76,7 +76,7 @@ public interface HotelMapper extends CommonMapper<Hotel>{
      * @param
      * @return
      */
-    int selectTypeById(@Param("valueId") Integer valueId,@Param("hotelId") Integer hotelId);
+    int selectTypeById(@Param("valueId") Integer valueId,@Param("hotelId") Integer hotelId)throws  Exception;
 
     /**
      * 获取所有未删除的酒店信息

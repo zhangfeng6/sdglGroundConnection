@@ -19,10 +19,10 @@ public interface DisshoppService {
      * @param weight
      * @return
      */
-    Disshopp getDisshoppById(Integer dispatchId,Integer weight)throws Exception;
+    List<Disshopp> getDisshoppById(Integer dispatchId,Integer weight)throws Exception;
     /**
      * 查看购物地点
      * @return
      */
-    List<String> listDisshoppAll(Integer dispatchId);
+    List<String> listDisshoppAll(Integer dispatchId)throws Exception;
 }
