@@ -122,11 +122,19 @@ public interface DispatchService {
      */
     Map<String,Object> getDispatchinfoById(Integer dispatchId)throws Exception;
 
-    /**
+    /**s
      * 修改调度信息       张枫
      * @param dispatchParameter
      * @return
      * @throws Exception
      */
     int updateDispatch(DispatchParameter dispatchParameter)throws Exception;
+
+    /**
+     * 根据调度id修改调度状态
+     * @param dispatchId
+     * @throws Exception
+     */
+    Integer updateDispatchById(Integer dispatchId)throws Exception;
+
 }

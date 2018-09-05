@@ -176,7 +176,7 @@
 					<tr>
 						<td></td>
 						<td><button class='layui-btn layui-btn-normal layui-btn-radius' type="button" id="baocun" onclick="baojia()">预览报价单</button></td>
-						<td style="padding: 0px 80px"><button class='layui-btn layui-btn-normal layui-btn-radius' type="button" onclick="dayin()">生成确认书</button></td>-->
+						<td style="padding: 0px 80px"><button class='layui-btn layui-btn-normal layui-btn-radius' type="button" onclick="dayin()">生成确认书</button></td>
 						<td class="hi" style="padding: 0px 80px"><button class='layui-btn layui-btn-normal layui-btn-radius' type="button" id="baocun1" onclick="baocunmuban()">保存</button></td>
 					</tr>
 				</table>
@@ -252,12 +252,13 @@
                         selectOfferRestaurantByOfferId1();
                         selectOfferotherByOfferId();
                         selectOfferscenicByOfferId();
-						$("select").attr("disabled","disabled");
+						/*$("select").attr("disabled","disabled");
                         $("input").attr("disabled","disabled");
-                        $("textarea").attr("disabled","disabled");
+                        $("textarea").attr("disabled","disabled");*/
                         $(".hi").hide();
                         $("#add").hide();
                     }
+                    //kai();
 				})
 
 
@@ -872,6 +873,7 @@
 				}
 
 				function dayin(){
+                    //fan();
                     var xianluCount = $("[name=zong]").length;
 				    var zuid = $("[name=travelName]").val();
 				    var jiedai = $("#jiedai").val();
@@ -911,12 +913,13 @@
                         traditional: true,
                         type:"get",
                         success:function (data) {
-							location.href="/countAdjust/Confirmation";
+                            window.open("http://localhost:8888/countAdjust/Confirmation");
 						}
 					})
 				}
 
 				function baojia(){
+                    //fan();
                     var xianluCount = $("[name=zong]").length;
                     var zuid = $("[name=travelName]").val();
                     var number = $("#number").val();
@@ -959,11 +962,34 @@
                         traditional: true,
                         type:"get",
                         success:function (data) {
-                            location.href="/countAdjust/quotation";
+                            window.open("http://localhost:8888/countAdjust/quotation");
                         }
 					})
 				}
 
+
+				/*function fan(){
+				    var index = $("select").length;
+				    for (var i=1;i<=index;i++){
+				        var di="";
+				        di+=i;
+				        document.cookie=di+"="+$("select").eq(i-1).val();
+					}
+				}
+
+				function kai(){
+                    var coosStr=document.cookie;//注意此处分隔符是分号加空格
+                    var coos=coosStr.split("; ");
+                    for(var i=1;i<=coos.length;i++){
+                        var coo=coos[i-1].split("=");
+                        var di="";
+                        di+=i;
+                        if (i==coo[1]){
+							di=coo[0];
+							$("select").eq(i-1).val(di);
+						}
+					}
+                    }*/
 		</script>
 	</body>
 </html>

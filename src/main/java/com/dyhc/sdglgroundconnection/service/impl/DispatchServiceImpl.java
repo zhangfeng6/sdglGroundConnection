@@ -227,6 +227,17 @@ public class DispatchServiceImpl implements DispatchService {
         }
     }
 
+    @Override
+    public Integer updateDispatchById(Integer dispatchId) throws Exception {
+        try {
+            dispatchMapper.updateDispatchById(dispatchId);
+            return 1;
+        }catch (Exception e){
+            return 0;
+        }
+    }
+
+
     /**
      * 根据参数类的数据进行新增调度及调度相关信息
      * @param dispatchParameter

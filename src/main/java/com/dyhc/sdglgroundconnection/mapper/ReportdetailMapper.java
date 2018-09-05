@@ -63,4 +63,7 @@ public interface ReportdetailMapper extends CommonMapper<Reportdetail>{
      * @return
      */
     Reportdetail All_dispatchId(@Param("dispatchId")Integer dispatchId)throws  Exception;
+
+
+
 }

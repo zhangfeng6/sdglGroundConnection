@@ -22,7 +22,7 @@ public interface DisshoppMapper extends CommonMapper<Disshopp>{
      * @param weight
      * @return
      */
-    Disshopp getDisshoppById(@Param("dispatchId") Integer dispatchId,@Param("weight") Integer weight)throws Exception;
+    List<Disshopp> getDisshoppById(@Param("dispatchId") Integer dispatchId,@Param("weight") Integer weight)throws Exception;
 
     /**
      * 查看购物地点

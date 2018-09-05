@@ -20,7 +20,7 @@ public interface DisrestaurantService {
      * @return
      * @throws Exception
      */
-    Disrestaurant getDisrestaurantById(Integer dispatchId,Integer weight)throws Exception;
+    List<Disrestaurant> getDisrestaurantById(Integer dispatchId,Integer weight)throws Exception;
 
     /**
      * 查看用餐地点

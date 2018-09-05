@@ -159,11 +159,12 @@
                 var xu=(curnum-1)*limitcount+1;
                 $.each(result.data,function (i,e) {
                     content+="<tr id='node-"+e.carRentalId+"' class='parent collapsed'>" +
-                        "<td></td>" +
-                        "<td style='width: 80px;'>"+xu+"</td>" +
-                        " <td style='width: 120px;'>"+e.carRentalName+
+                        "<td>" +
                         "<a class='layui-btn layui-btn-mini layui-btn-normal showSubBtn' data-id='"+e.carRentalId+"'" +
                         "'>+</a>" +
+						"</td>" +
+                        "<td style='width: 80px;'>"+xu+"</td>" +
+                        " <td style='width: 120px;'>"+e.carRentalName+
                         "</td>" +
                         " <td style='width: 80px;'>"+e.contacts+"</td>" +
                         "<td style='width: 200px;'>"+e.phone+"</td>" +
