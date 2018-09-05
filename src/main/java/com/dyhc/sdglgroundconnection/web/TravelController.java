@@ -90,6 +90,7 @@ public class TravelController{
         System.out.println(travel);
         try{
             travel.setWhetherDel(0);
+            travel.setCreateDate(new Date());
             Integer result=0;
             Integer data=0;
             result=travelService.getAddTravel(travel);

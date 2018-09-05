@@ -39,6 +39,8 @@
                 <th style="width: 45px;">车辆类型</th>
                 <th style="width: 45px;">创建人</th>
                 <th style="width: 45px;">创建时间</th>
+                <th style="width: 45px;">成本价</th>
+                <th style="width: 45px;">报价</th>
                 <th style="width: 80px; font-size: small;">操作</th>
             </tr>
             </thead>
@@ -62,7 +64,7 @@
             title: '车辆类型',
             maxmin: true,
             shadeClose: true, //点击遮罩关闭层
-            area : ['800px' , '220px'],
+            area : ['800px' , '300px'],
             content: '/countAdjust/CarType-upd.html'
         });
     })
@@ -74,7 +76,7 @@
                 title: '车辆类型',
                 maxmin: true,
                 shadeClose: true, //点击遮罩关闭层
-                area : ['800px' , '220px'],
+                area : ['800px' , '300px'],
                 content: '/countAdjust/CarType-upd.html?dictionariesId='+dictionariesId
             })
         )
@@ -101,6 +103,8 @@
                         "<td>" + result.valueContent1 + "</td>" +
                         "<td>" + result.theUserName + "</td>" +
                         "<td>" + result.createDate + "</td>"+
+                        "<td>" + result.valueContent2 + "</td>" +
+                        "<td>" + result.valueContent3 + "</td>"+
                         "<td><button onclick='TypeUpdate("+result.dictionariesId+")' class='layui-btn layui-btn-mini layui-btn-normal  edit-btn'><i class='layui-icon'>&#xe642;</i></button>\n" +
                         "<button onclick='getcardel(\""+result.valueContent1+"\")'class='layui-btn layui-btn-mini layui-btn-danger del-btn'><i class='layui-icon'>&#xe640;</i></button>" +
                         "</td></tr>";

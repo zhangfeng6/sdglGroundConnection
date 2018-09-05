@@ -19,7 +19,17 @@
             <label class="layui-form-label" style="width:100px">车辆类型：</label>
             <div class="layui-input-block">
                 <input type="hidden" name="dictionariesId" id="dictionariesId" th:value="${dictionariesId}==null?0:${dictionariesId}"/>
-                <input type="text" name="valueContent1" required lay-verify="required" placeholder="输入车辆类型" autocomplete="off" class="layui-input" id="one"style="width:550px;">
+                <input type="text" name="valueContent1"  placeholder="输入车辆类型" autocomplete="off" class="layui-input" id="one"style="width:550px;">
+            </div>
+            <div style="height:20px"></div>
+            <label class="layui-form-label" style="width:100px">成本价：</label>
+            <div class="layui-input-block">
+                <input type="text" name="valueContent2"  placeholder="输入成本价" autocomplete="off" class="layui-input" id="two"style="width:550px;margin-left:20px">
+            </div>
+            <div style="height:20px"></div>
+            <label class="layui-form-label" style="width:100px">报价：</label>
+            <div class="layui-input-block">
+                <input type="text" name="valueContent3" placeholder="输入报价" autocomplete="off" class="layui-input" id="three"style="width:550px;margin-left:20px">
             </div>
         </div>
         <div class="layui-form-item">
@@ -68,6 +78,8 @@
             success:function (e) {
                 value=e.data.valueContent1;
                 $("#one").val(e.data.valueContent1);
+                $("#two").val(e.data.valueContent2);
+                $("#three").val(e.data.valueContent3);
             },
             error:function () {
                 alert("失败 ")
@@ -76,13 +88,24 @@
     }
 
     function validate() {
-        var lala=$("#one").val()
-        if(value==lala){
-            return;
+        var lala=$("form").serialize()
+        var la=$("#one").val();
+        if(value==la && la!=''){
+            $.ajax({
+                url:"/Dictionaries/DictionariesCarthree.html",
+                data:lala,
+                type:"get",
+                async: false,
+                dateType:"json",
+                success:function (data) {
+                    alert(data.msg);
+                    parent.location.reload();
+                }
+            })
         }else{
             $.ajax({
                 url:"/Dictionaries/DictionariesByNameTypecar",
-                data:{valueContent1:lala},
+                data:{valueContent1:la},
                 type:"get",
                 async: false,
                 dataType:"json",
@@ -91,9 +114,14 @@
                         alert("类型已存在")
                     }else{
                         var haha=$("#one").val();
-                        var lala=$("form").serialize()
+                        var haha1=$("#two").val();
+                        var haha2=$("#three").val();
                         if(haha.value =="" || haha.length==0){
                             alert("车辆类型不能为空")
+                        }else if(haha1.value =="" || haha1.length==0){
+                            alert("成本价不能为空")
+                        }else if(haha2.value =="" || haha2.length==0){
+                            alert("报价不能为空")
                         }else{
                             $.ajax({
                                 url:"/Dictionaries/DictionariesCarthree.html",
